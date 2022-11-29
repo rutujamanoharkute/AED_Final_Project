@@ -14,11 +14,34 @@ import Business.WorkQueue.WorkQueue;
  */
 public abstract class Organization {
     
-    private String organizationName;
+    private String name;
     private int organizationId;
     private WorkQueue workQueue;
     private EmployeeDirectory employeeList;
     private UserAccountDirectory userAccountList;
+    
+    public Organization(String name) {
+        this.name = name;
+    }
+    
+     public enum Type{
+        Admin("Admin Organization"), 
+        Nutrition("Nutritionist Organization"), 
+        PersonalCoach("PersonalCoach Organization"),
+        GymTrainer("Gym Trainer Organization"),
+        Physiotherapist("Physiotherapist Organization "),
+        Pharmacist("Pharmacist Organization "),
+        Delivery("DeliveryMan Organization"),
+        Doctor("Doctor Organization");
+        
+        private String value;
+        private Type(String value) {
+            this.value = value;
+        }
+        public String getValue() {
+            return value;
+        }
+    }
 
     public int getOrganizationId() {
         return organizationId;
@@ -52,11 +75,15 @@ public abstract class Organization {
         this.userAccountList = userAccountList;
     }
     
-    public String getOrganizationName() {
-        return organizationName;
+    public String getName() {
+        return name;
     }
 
-    public void setOrganizationName(String organizationName) {
-        this.organizationName = organizationName;
+    public void setName(String name) {
+        this.name = name;
+    }
+       @Override
+    public String toString() {
+        return name;
     }
 }

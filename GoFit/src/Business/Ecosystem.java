@@ -18,6 +18,7 @@ public class Ecosystem extends Organization {
     private ArrayList<Network> networkList;
 
     public  Ecosystem() {
+          super(null);
         networkList = new ArrayList<Network>();
     }
 
