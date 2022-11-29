@@ -9,6 +9,7 @@ package Business.Network;
  * @author Harshada
  */
 public class Network {
+
     private String networkName;
 
     public String getNetworkName() {
@@ -18,5 +19,5 @@ public class Network {
     public void setNetworkName(String networkName) {
         this.networkName = networkName;
     }
-    
+
 }
