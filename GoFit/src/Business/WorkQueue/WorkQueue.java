@@ -4,10 +4,21 @@
  */
 package Business.WorkQueue;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Harshada
  */
 public class WorkQueue {
-    
+
+    private ArrayList<WorkRequest> workRequestList;
+
+    public ArrayList<WorkRequest> getWorkRequestList() {
+        return workRequestList;
+    }
+
+    public void setWorkRequestList(ArrayList<WorkRequest> workRequestList) {
+        this.workRequestList = workRequestList;
+    }
 }
