@@ -22,6 +22,12 @@ public class Customer {
     private double weight;
     private double height;
     private Boolean is_diabetes;
+    private Boolean is_physicalInjury;
+    private Boolean is_pcos;
+    private Boolean is_thyroid;
+    private Boolean is_cholestrol;
+    private boolean is_hypertension;
+    private double calBMI;
 
     public int getId() {
         return id;
@@ -166,11 +172,6 @@ public class Customer {
     public void setCalBMI(double calBMI) {
         this.calBMI = calBMI;
     }
-    private Boolean is_physicalInjury;
-    private Boolean is_pcos;
-    private Boolean is_thyroid;
-    private Boolean is_cholestrol;
-    private boolean is_hypertension;
-    private double calBMI;
+
 
 }
