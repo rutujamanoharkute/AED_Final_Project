@@ -4,6 +4,8 @@
  */
 package Business.Network;
 
+import Business.Enterprise.EnterpriseDirectory;
+
 /**
  *
  * @author Harshada
@@ -11,6 +13,15 @@ package Business.Network;
 public class Network {
 
     private String networkName;
+    private EnterpriseDirectory enterpriseDirectory;
+
+    public EnterpriseDirectory getEnterpriseDirectory() {
+        return enterpriseDirectory;
+    }
+
+    public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
+        this.enterpriseDirectory = enterpriseDirectory;
+    }
 
     public String getNetworkName() {
         return networkName;
