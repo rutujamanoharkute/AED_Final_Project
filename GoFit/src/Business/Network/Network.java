@@ -15,6 +15,10 @@ public class Network {
     private String networkName;
     private EnterpriseDirectory enterpriseDirectory;
 
+    public Network() {
+        enterpriseDirectory = new EnterpriseDirectory();
+    }
+
     public EnterpriseDirectory getEnterpriseDirectory() {
         return enterpriseDirectory;
     }
@@ -29,6 +33,10 @@ public class Network {
 
     public void setNetworkName(String networkName) {
         this.networkName = networkName;
+    }
+       @Override
+    public String toString(){
+        return networkName;
     }
 
 }
