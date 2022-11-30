@@ -4,7 +4,9 @@
  */
 package Business.UserAccount;
 
+import Business.Customer.Customer;
 import Business.Employee.Employee;
+import Business.Role.Role;
 
 /**
  *
@@ -14,6 +16,33 @@ public class UserAccount {
     
     private String username;
     private String password;
+    private Employee employee;
+    private Customer customer;
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+    private Role role;
 
     public String getUsername() {
         return username;
@@ -29,5 +58,9 @@ public class UserAccount {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+      @Override
+    public String toString() {
+        return username;
     }
 }

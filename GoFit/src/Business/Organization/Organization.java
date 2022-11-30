@@ -22,6 +22,9 @@ public abstract class Organization {
     
     public Organization(String name) {
         this.name = name;
+        this.employeeList = new EmployeeDirectory();
+        this.userAccountList = new UserAccountDirectory();
+        this.workQueue = new WorkQueue();
     }
     
      public enum Type{

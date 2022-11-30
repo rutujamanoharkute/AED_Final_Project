@@ -12,6 +12,10 @@ public class Employee {
     
     private String employeeName;
     private int empId;
+    
+    public Employee(int id) {
+        this.empId = id;
+    }
 
     public String getEmployeeName() {
         return employeeName;

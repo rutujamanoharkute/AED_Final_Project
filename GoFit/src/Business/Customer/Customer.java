@@ -4,6 +4,8 @@
  */
 package Business.Customer;
 
+import Business.Network.Network;
+
 /**
  *
  * @author Harshada
@@ -28,6 +30,15 @@ public class Customer {
     private Boolean is_cholestrol;
     private boolean is_hypertension;
     private double calBMI;
+    private Network network;
+
+    public Network getNetwork() {
+        return network;
+    }
+
+    public void setNetwork(Network network) {
+        this.network = network;
+    }
 
     public int getId() {
         return id;
