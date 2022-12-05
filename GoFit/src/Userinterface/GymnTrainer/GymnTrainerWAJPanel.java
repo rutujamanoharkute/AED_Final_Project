@@ -10,4 +10,7 @@ package Userinterface.GymnTrainer;
  */
 public class GymnTrainerWAJPanel {
     
+    
+    
+    
 }
