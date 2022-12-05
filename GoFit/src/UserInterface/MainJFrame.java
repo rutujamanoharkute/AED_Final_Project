@@ -113,28 +113,25 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-        try
-        {
-        txtUsername.setText("");
-        txtPassword.setText("");
-        btnLogout.setEnabled(false);
-        txtUsername.setEnabled(true);
-        txtPassword.setEnabled(true);
-        btnSignUp.setVisible(true);
-        btnLogin.setEnabled(true);
+        try {
+            txtUsername.setText("");
+            txtPassword.setText("");
+            btnLogout.setEnabled(false);
+            txtUsername.setEnabled(true);
+            txtPassword.setEnabled(true);
+            btnSignUp.setVisible(true);
+            btnLogin.setEnabled(true);
 
-        container.removeAll();
-        leftPane.setLeftComponent(leftPanel);
+            container.removeAll();
+            leftPane.setLeftComponent(leftPanel);
 
-        container.setLayout(new java.awt.CardLayout());
-        leftPane.setRightComponent(container);
-        getContentPane().add(leftPane, "card2");
-        pack();
-        leftPane.setDividerLocation(300);
-        dB4OUtil.storeSystem(system);
-        }
-        catch (Exception e)
-        {
+            container.setLayout(new java.awt.CardLayout());
+            leftPane.setRightComponent(container);
+            getContentPane().add(leftPane, "card2");
+            pack();
+            leftPane.setDividerLocation(300);
+            dB4OUtil.storeSystem(system);
+        } catch (Exception e) {
             System.out.println("Logging you out");
         }
     }//GEN-LAST:event_btnLogoutActionPerformed
