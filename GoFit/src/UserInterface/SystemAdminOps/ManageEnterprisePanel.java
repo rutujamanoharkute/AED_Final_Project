@@ -21,9 +21,8 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
 
     private int isEnterpriseAvailable = 0;
     private JPanel userContainer;
-    private Network network;
+    private Network net;
     private Ecosystem system;
-    private boolean isNameValid;
 
     /**
      * Creates new form ManageEnterprisePanel
@@ -61,6 +60,7 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
         comboEnterpriseType = new javax.swing.JComboBox();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setText("BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -68,6 +68,7 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 40));
 
         tblEnterprise.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -82,87 +83,32 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblEnterprise);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 508, 285));
+
         lblNetwork.setText("Network");
+        add(lblNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 139, 36));
 
         lblEnterpriseType.setText("Enterprise Type");
+        add(lblEnterpriseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 139, 35));
 
         lblEnterpriseName.setText("Enterprise Name");
+        add(lblEnterpriseName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 166, 36));
+        add(txtEnterpriseName, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, 211, -1));
 
+        btnCreateEnterprise.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/imgSave.png"))); // NOI18N
         btnCreateEnterprise.setText("CREATE  ENTERPRISE");
         btnCreateEnterprise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateEnterpriseActionPerformed(evt);
             }
         });
+        add(btnCreateEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 550, -1, 48));
 
         comboNetwork.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        comboNetwork.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboNetworkActionPerformed(evt);
-            }
-        });
+        add(comboNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 380, 211, 35));
 
         comboEnterpriseType.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        comboEnterpriseType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboEnterpriseTypeActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(btnBack))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblEnterpriseName, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtEnterpriseName, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblEnterpriseType, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(71, 71, 71)
-                                    .addComponent(comboEnterpriseType, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(71, 71, 71)
-                                    .addComponent(comboNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(217, 217, 217)
-                        .addComponent(btnCreateEnterprise)))
-                .addContainerGap(77, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEnterpriseType, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboEnterpriseType, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEnterpriseName, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEnterpriseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnCreateEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
-        );
+        add(comboEnterpriseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 211, 35));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -175,52 +121,25 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
         cardLayout.previous(userContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void comboNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNetworkActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboNetworkActionPerformed
-
-    private void comboEnterpriseTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEnterpriseTypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboEnterpriseTypeActionPerformed
-
     private void btnCreateEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEnterpriseActionPerformed
         // TODO add your handling code here:
-
         Network network = (Network) comboNetwork.getSelectedItem();
-        for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
-            if (e.getEnterpriseType().equals(comboEnterpriseType.getSelectedItem())) {
-                isEnterpriseAvailable = 1;
-            }
+        Enterprise.EnterpriseType enterprisetype = (Enterprise.EnterpriseType) comboEnterpriseType.getSelectedItem();
+        if (network == null || enterprisetype == null) {
+            JOptionPane.showMessageDialog(null, "Invalid Input!");
+            return;
         }
-
-        if (isNameValid && isEnterpriseAvailable != 1) {
-            //Network network = (Network) networkJComboBox.getSelectedItem();
-            Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) comboEnterpriseType.getSelectedItem();
-
-            if (network == null || type == null) {
-
-                JOptionPane.showMessageDialog(null, "Please enter correct values!");
-                return;
-            }
-
-            String name = txtEnterpriseName.getText();
-            Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type);
-
-            //Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type);
-            this.network = network;
-
-            populateTableEnterprise();
-            txtEnterpriseName.setText("");
-        } else {
-            if (isEnterpriseAvailable == 1) {
-                JOptionPane.showMessageDialog(null, "Enterprise already exists !", "Alert", JOptionPane.INFORMATION_MESSAGE);
-                txtEnterpriseName.setText("");
-            } else {
-                JOptionPane.showMessageDialog(null, "Please enter valid fields", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-
+        if (txtEnterpriseName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter valid input in all fields", "Warining", JOptionPane.WARNING_MESSAGE);
+            return;
         }
+        String name = txtEnterpriseName.getText();
+        Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, enterprisetype);
 
+        JOptionPane.showMessageDialog(this, "Enterprise has been added Successfully");
+
+        populateTableEnterprise();
+        txtEnterpriseName.setText("");
 
     }//GEN-LAST:event_btnCreateEnterpriseActionPerformed
 

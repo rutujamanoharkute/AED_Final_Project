@@ -61,6 +61,7 @@ public class ManageNetworkPanel extends javax.swing.JPanel {
         StatejLabel = new javax.swing.JLabel();
         namejTextField = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setText("BACK");
@@ -69,11 +70,11 @@ public class ManageNetworkPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         TitlejLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         TitlejLabel.setText("MANAGE NETWORK");
-        add(TitlejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 23, 247, 63));
+        add(TitlejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 247, 63));
 
         networkTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,7 +96,7 @@ public class ManageNetworkPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(networkTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 92, -1, 107));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, 107));
 
         deljButton1.setText("DELETE");
         deljButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +104,7 @@ public class ManageNetworkPanel extends javax.swing.JPanel {
                 deljButton1ActionPerformed(evt);
             }
         });
-        add(deljButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 226, -1, -1));
+        add(deljButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
 
         SubmitjButton.setText("SUBMIT");
         SubmitjButton.addActionListener(new java.awt.event.ActionListener() {
@@ -111,17 +112,17 @@ public class ManageNetworkPanel extends javax.swing.JPanel {
                 SubmitjButtonActionPerformed(evt);
             }
         });
-        add(SubmitjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 421, -1, -1));
+        add(SubmitjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, -1, 50));
 
         StatejLabel.setText("Enter State Name:");
-        add(StatejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 352, -1, 25));
+        add(StatejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, -1, 60));
 
         namejTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 namejTextFieldActionPerformed(evt);
             }
         });
-        add(namejTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 352, 115, 25));
+        add(namejTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 240, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
