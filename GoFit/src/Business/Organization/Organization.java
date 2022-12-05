@@ -4,6 +4,7 @@
  */
 package Business.Organization;
 
+import Business.Customer.CustomerDirectory;
 import Business.Employee.EmployeeDirectory;
 import Business.UserAccount.UserAccountDirectory;
 import Business.WorkQueue.WorkQueue;
@@ -19,12 +20,14 @@ public abstract class Organization {
     private WorkQueue workQueue;
     private EmployeeDirectory employeeList;
     private UserAccountDirectory userAccountList;
+    private CustomerDirectory customerList;
     
     public Organization(String name) {
         this.name = name;
         this.employeeList = new EmployeeDirectory();
         this.userAccountList = new UserAccountDirectory();
         this.workQueue = new WorkQueue();
+        this.customerList = new CustomerDirectory();
     }
     
      public enum Type{
@@ -44,6 +47,14 @@ public abstract class Organization {
         public String getValue() {
             return value;
         }
+    }
+
+    public CustomerDirectory getCustomerList() {
+        return customerList;
+    }
+
+    public void setCustomerList(CustomerDirectory customerList) {
+        this.customerList = customerList;
     }
 
     public int getOrganizationId() {

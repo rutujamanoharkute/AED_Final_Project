@@ -6,8 +6,8 @@ package Business.Role;
 
 /**
  *
- * @author Harshada
+ * @author rutujakute
  */
-public class Customer {
+public class CustomerRole  extends Role{
     
 }
