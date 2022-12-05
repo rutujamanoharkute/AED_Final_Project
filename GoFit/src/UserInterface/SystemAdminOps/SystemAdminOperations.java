@@ -59,6 +59,8 @@ public class SystemAdminOperations extends javax.swing.JPanel {
         manageEnterprise = new javax.swing.JButton();
         manageEnterpriseAdmin = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setText("MANAGE SYSTEM ADMIN OPERATIONS");
 
         manageNetwork.setText("MANAGE NETWORK");

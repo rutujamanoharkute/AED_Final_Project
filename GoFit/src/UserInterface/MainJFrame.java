@@ -42,10 +42,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
         leftPane = new javax.swing.JSplitPane();
         leftPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblUsername = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
         txtUsername = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         btnSignUp = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
@@ -58,8 +58,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
         leftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Username");
-        leftPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 90, 40));
+        lblUsername.setText("Username");
+        leftPanel.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 90, 40));
 
         btnLogout.setText("LOGOUT");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -70,8 +70,8 @@ public class MainJFrame extends javax.swing.JFrame {
         leftPanel.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 190, -1));
         leftPanel.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 210, 40));
 
-        jLabel2.setText("Password");
-        leftPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
+        lblPassword.setText("Password");
+        leftPanel.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
 
         btnLogin.setText("LOGIN");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +108,7 @@ public class MainJFrame extends javax.swing.JFrame {
         kGradientPanel2.setLayout(kGradientPanel2Layout);
         kGradientPanel2Layout.setHorizontalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 761, Short.MAX_VALUE)
+            .addGap(0, 721, Short.MAX_VALUE)
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,10 +240,10 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnSignUp;
     private javax.swing.JPanel container;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblUsername;
     private javax.swing.JSplitPane leftPane;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPasswordField txtPassword;
