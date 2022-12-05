@@ -54,14 +54,12 @@ public class SystemAdminOperations extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         manageNetwork = new javax.swing.JButton();
         manageEnterprise = new javax.swing.JButton();
         manageEnterpriseAdmin = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setText("MANAGE SYSTEM ADMIN OPERATIONS");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         manageNetwork.setText("MANAGE NETWORK");
         manageNetwork.addActionListener(new java.awt.event.ActionListener() {
@@ -69,6 +67,7 @@ public class SystemAdminOperations extends javax.swing.JPanel {
                 manageNetworkActionPerformed(evt);
             }
         });
+        add(manageNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 300, 58));
 
         manageEnterprise.setText("MANAGE ENTERPRISE");
         manageEnterprise.addActionListener(new java.awt.event.ActionListener() {
@@ -76,6 +75,7 @@ public class SystemAdminOperations extends javax.swing.JPanel {
                 manageEnterpriseActionPerformed(evt);
             }
         });
+        add(manageEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 300, 62));
 
         manageEnterpriseAdmin.setText("MANAGE ENTERPRISE ADMIN");
         manageEnterpriseAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -83,35 +83,7 @@ public class SystemAdminOperations extends javax.swing.JPanel {
                 manageEnterpriseAdminActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(343, 343, 343)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(manageNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(manageEnterprise, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(manageEnterpriseAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(395, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(manageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(manageEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(manageEnterpriseAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(193, Short.MAX_VALUE))
-        );
+        add(manageEnterpriseAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 300, 68));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageNetworkActionPerformed
@@ -140,7 +112,6 @@ public class SystemAdminOperations extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton manageEnterprise;
     private javax.swing.JButton manageEnterpriseAdmin;
     private javax.swing.JButton manageNetwork;

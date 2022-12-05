@@ -43,86 +43,101 @@ public class MainJFrame extends javax.swing.JFrame {
         leftPane = new javax.swing.JSplitPane();
         leftPanel = new javax.swing.JPanel();
         lblUsername = new javax.swing.JLabel();
-        btnLogout = new javax.swing.JButton();
         txtUsername = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
-        btnLogin = new javax.swing.JButton();
-        btnSignUp = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
-        kGradientPanel1 = new keeptoo.KGradientPanel();
+        btnSignUp = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
         container = new javax.swing.JPanel();
-        kGradientPanel2 = new keeptoo.KGradientPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1025, 604));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        leftPane.setBackground(new java.awt.Color(255, 255, 255));
+        leftPane.setMaximumSize(new java.awt.Dimension(1025, 604));
+        leftPane.setMinimumSize(new java.awt.Dimension(1025, 604));
+        leftPane.setPreferredSize(new java.awt.Dimension(1025, 604));
+
+        leftPanel.setBackground(new java.awt.Color(255, 255, 255));
+        leftPanel.setMaximumSize(new java.awt.Dimension(300, 554));
+        leftPanel.setMinimumSize(new java.awt.Dimension(300, 554));
+        leftPanel.setPreferredSize(new java.awt.Dimension(300, 554));
         leftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblUsername.setText("Username");
-        leftPanel.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 90, 40));
+        leftPanel.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 90, 40));
+        leftPanel.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 190, 40));
 
+        lblPassword.setText("Password");
+        leftPanel.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
+        leftPanel.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 210, 40));
+
+        btnSignUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/addCustomer.png"))); // NOI18N
+        btnSignUp.setText("SIGNUP");
+        leftPanel.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 210, -1));
+
+        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/logout.png"))); // NOI18N
         btnLogout.setText("LOGOUT");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
-        leftPanel.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 190, -1));
-        leftPanel.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 210, 40));
+        leftPanel.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 220, -1));
 
-        lblPassword.setText("Password");
-        leftPanel.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
-
+        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/login.png"))); // NOI18N
         btnLogin.setText("LOGIN");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
             }
         });
-        leftPanel.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 190, -1));
-
-        btnSignUp.setText("SIGNUP");
-        leftPanel.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 560, 180, -1));
-        leftPanel.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 210, 40));
-
-        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
-        kGradientPanel1.setLayout(kGradientPanel1Layout);
-        kGradientPanel1Layout.setHorizontalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-        kGradientPanel1Layout.setVerticalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
-        );
-
-        leftPanel.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 300, 710));
+        leftPanel.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 220, -1));
 
         leftPane.setLeftComponent(leftPanel);
 
+        container.setBackground(new java.awt.Color(255, 255, 255));
+        container.setMaximumSize(new java.awt.Dimension(800, 604));
+        container.setMinimumSize(new java.awt.Dimension(800, 604));
+        container.setPreferredSize(new java.awt.Dimension(800, 604));
         container.setLayout(new java.awt.CardLayout());
-
-        kGradientPanel2.setPreferredSize(new java.awt.Dimension(1031, 710));
-
-        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
-        kGradientPanel2.setLayout(kGradientPanel2Layout);
-        kGradientPanel2Layout.setHorizontalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 721, Short.MAX_VALUE)
-        );
-        kGradientPanel2Layout.setVerticalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
-        );
-
-        container.add(kGradientPanel2, "card2");
-
         leftPane.setRightComponent(container);
 
         getContentPane().add(leftPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 1019, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+        txtUsername.setText("");
+        txtPassword.setText("");
+        btnLogout.setEnabled(false);
+        txtUsername.setEnabled(true);
+        txtPassword.setEnabled(true);
+        btnSignUp.setVisible(true);
+        btnLogin.setEnabled(true);
+
+        container.removeAll();
+        leftPane.setLeftComponent(leftPanel);
+
+        container.setLayout(new java.awt.CardLayout());
+        leftPane.setRightComponent(container);
+        getContentPane().add(leftPane, "card2");
+        pack();
+        leftPane.setDividerLocation(300);
+        dB4OUtil.storeSystem(system);
+        }
+        catch (Exception e)
+        {
+            System.out.println("Logging you out");
+        }
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
@@ -171,34 +186,13 @@ public class MainJFrame extends javax.swing.JFrame {
             container.add("workArea", userAccount.getRole().createWorkArea(container, enterpriseItem, organizationItem, userAccount, system, network));
             layout.next(container);
         }
-        
+
         txtUsername.setEnabled(false);
         btnLogin.setEnabled(false);
         btnLogout.setEnabled(true);
         btnSignUp.setVisible(false);
         txtPassword.setEnabled(false);
     }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
-        txtUsername.setText("");
-        txtPassword.setText("");
-        btnLogout.setEnabled(false);
-        txtUsername.setEnabled(true);
-        txtPassword.setEnabled(true);
-        btnSignUp.setVisible(true);
-        btnLogin.setEnabled(true);
-        
-        container.removeAll();
-        leftPane.setLeftComponent(leftPanel);
-
-        container.setLayout(new java.awt.CardLayout());
-        leftPane.setRightComponent(container);
-        getContentPane().add(leftPane, "card2");
-        pack();
-        leftPane.setDividerLocation(300);
-        dB4OUtil.storeSystem(system);
-    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,8 +234,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnSignUp;
     private javax.swing.JPanel container;
-    private keeptoo.KGradientPanel kGradientPanel1;
-    private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JSplitPane leftPane;
