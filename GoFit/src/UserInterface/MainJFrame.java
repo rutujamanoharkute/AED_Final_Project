@@ -187,7 +187,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-
+        try
+        {
         String userName = txtUsername.getText();
         String password = txtPassword.getText();
         UserAccount userAccount = system.getUserAccountList().authenticateUser(userName, password);
@@ -238,6 +239,11 @@ public class MainJFrame extends javax.swing.JFrame {
         btnLogout.setEnabled(true);
         btnSignUp.setVisible(false);
         txtPassword.setEnabled(false);
+        }
+        catch (Exception e)
+        {
+            System.out.println("Please try again");
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**

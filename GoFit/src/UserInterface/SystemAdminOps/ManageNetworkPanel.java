@@ -142,15 +142,24 @@ public class ManageNetworkPanel extends javax.swing.JPanel {
 
     private void SubmitjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitjButtonActionPerformed
         // TODO add your handling code here:
+        try
+        {
           String name = namejTextField.getText();
             Network network = system.createAndAddNetwork();
             network.setNetworkName(name);
           populatenetworkTable();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Please try again");
+        }
           
     }//GEN-LAST:event_SubmitjButtonActionPerformed
 
     private void deljButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deljButton1ActionPerformed
         // TODO add your handling code here:
+        try
+        {
         int row = networkTable.getSelectedRow();
         if(row<0){
             JOptionPane.showMessageDialog(null, "Select a row on which action is to be performed!!", "Alert:Warning", JOptionPane.WARNING_MESSAGE);
@@ -159,6 +168,11 @@ public class ManageNetworkPanel extends javax.swing.JPanel {
         Network n  = (Network) networkTable.getValueAt(row, 0);
         system.getNetworkList().remove(n);
          populatenetworkTable();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Please try again");
+        }
     }//GEN-LAST:event_deljButton1ActionPerformed
 
 

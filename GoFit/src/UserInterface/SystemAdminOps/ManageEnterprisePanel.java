@@ -123,6 +123,8 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
 
     private void btnCreateEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEnterpriseActionPerformed
         // TODO add your handling code here:
+        try
+        {
         Network network = (Network) comboNetwork.getSelectedItem();
         Enterprise.EnterpriseType enterprisetype = (Enterprise.EnterpriseType) comboEnterpriseType.getSelectedItem();
         if (network == null || enterprisetype == null) {
@@ -140,6 +142,11 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
 
         populateTableEnterprise();
         txtEnterpriseName.setText("");
+        }
+        catch(Exception e)
+        {
+            System.out.println("Please try again");
+        }
 
     }//GEN-LAST:event_btnCreateEnterpriseActionPerformed
 
