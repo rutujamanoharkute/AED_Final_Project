@@ -23,6 +23,7 @@ public class Customer {
     private String goal;
     private double weight;
     private double height;
+    private Boolean is_None;
     private Boolean is_diabetes;
     private Boolean is_physicalInjury;
     private Boolean is_pcos;
@@ -31,6 +32,23 @@ public class Customer {
     private boolean is_hypertension;
     private double calBMI;
     private Network network;
+    private String city;
+
+    public Boolean getIs_None() {
+        return is_None;
+    }
+
+    public void setIs_None(Boolean is_None) {
+        this.is_None = is_None;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 
     public Network getNetwork() {
         return network;

@@ -22,4 +22,21 @@ public class CustomerDirectory {
         this.customerList = customerList;
     }
     
+       public Customer createCustomer(Customer customer){
+        //Customer customer = new Customer();
+        //customer.setName(name);
+        customerList.add(customer);
+        return customer;
+    }
+    
+    public void removeCustomer(Customer c){
+        customerList.remove(c);
+    }
+    public boolean checkUsernameIsUnique(String email){
+        for (Customer e : customerList){
+            if (e.getEmail().equals(email))
+                return false;
+        }
+        return true;
+    }
 }
