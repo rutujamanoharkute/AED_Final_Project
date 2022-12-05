@@ -38,10 +38,10 @@ public abstract class Enterprise extends Organization{
     
     public enum EnterpriseType{
         Trainer("Gym Trainer Enterprise"),
-        Diet("Diet Enterprise"),
+        DietRegime("DietRegime Enterprise"),
         Doctor("Doctor Enterprise"),
-        Pharmacist("Pharmacist Enterprise"),
-        PersonalCoach("Personal Coach Enterprise");
+        StoreOutlet("Store Outlet Enterprise");
+ 
         
         private String value;
         

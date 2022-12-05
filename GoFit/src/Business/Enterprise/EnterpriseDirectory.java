@@ -28,8 +28,8 @@ public class EnterpriseDirectory {
 
     public Enterprise createAndAddEnterprise(String name, Enterprise.EnterpriseType type) {
         Enterprise enterprise = null;
-        if (type == Enterprise.EnterpriseType.Diet) {
-            enterprise = new EnterpriseDiet(name);
+        if (type == Enterprise.EnterpriseType.DietRegime) {
+            enterprise = new DietRegimeEnterprise(name);
             enterpriseList.add(enterprise);
         }
         if (type == Enterprise.EnterpriseType.Trainer) {
@@ -37,17 +37,14 @@ public class EnterpriseDirectory {
             enterpriseList.add(enterprise);
         }
         if (type == Enterprise.EnterpriseType.Doctor) {
-            enterprise = new EnterpriseDoctor(name);
+            enterprise = new DoctorEnterprise(name);
             enterpriseList.add(enterprise);
         }
-        if (type == Enterprise.EnterpriseType.PersonalCoach) {
-            enterprise = new EnterprisePersonalCoach(name);
+        if (type == Enterprise.EnterpriseType.StoreOutlet) {
+            enterprise = new StoreOutletEnterprise(name);
             enterpriseList.add(enterprise);
         }
-        if (type == Enterprise.EnterpriseType.Pharmacist) {
-            enterprise = new EnterprisePharmacist(name);
-            enterpriseList.add(enterprise);
-        }
+       
         return enterprise;
     }
 

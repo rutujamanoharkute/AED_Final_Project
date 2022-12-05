@@ -52,6 +52,5 @@ public class Ecosystem extends Organization {
     }
        public void removeNetwork(Network network){
         networkList.remove(network);
-        //return network;
     }
 }

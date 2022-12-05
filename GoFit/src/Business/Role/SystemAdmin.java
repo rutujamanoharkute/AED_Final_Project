@@ -16,11 +16,11 @@ import javax.swing.JPanel;
  *
  * @author Harshada
  */
-public class Admin extends Role {
+public class SystemAdmin extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, Enterprise enterprise, Organization organization, UserAccount account, Ecosystem business, Network network) {
-         return new SystemAdminOperations(userProcessContainer, enterprise, organization, account, business, network);
+       return new SystemAdminOperations(userProcessContainer, enterprise, organization, account, business, network);
     }
     
 }
