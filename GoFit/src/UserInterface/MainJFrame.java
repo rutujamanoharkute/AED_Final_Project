@@ -223,6 +223,7 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         if (userAccount != null && userAccount.getCustomer() != null) {
             network = userAccount.getCustomer().getNetwork();
+            
 
         }
         if (userAccount == null) {
@@ -240,10 +241,11 @@ public class MainJFrame extends javax.swing.JFrame {
         btnSignUp.setVisible(false);
         txtPassword.setEnabled(false);
         }
-        catch (Exception e)
+        catch(Exception e)
         {
-            System.out.println("Please try again");
+            JOptionPane.showMessageDialog(this, "Please try again");
         }
+      
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**

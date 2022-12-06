@@ -9,6 +9,7 @@ import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Role.Admin;
+import Business.Role.EnterpriseAdmin;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -88,7 +89,6 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnBack = new javax.swing.JButton();
-        TitlejTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         enterprisejTable = new javax.swing.JTable();
         netjLabel = new javax.swing.JLabel();
@@ -102,8 +102,11 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
         EnterpriseComboBox = new javax.swing.JComboBox();
         networkComboBox = new javax.swing.JComboBox();
         passwordjTextField = new javax.swing.JPasswordField();
+        lblTitle = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setText("BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -111,14 +114,7 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-
-        TitlejTextField.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        TitlejTextField.setText("MANAGE ENTERPRISE ADMIN");
-        TitlejTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TitlejTextFieldActionPerformed(evt);
-            }
-        });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 46, -1, -1));
 
         enterprisejTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -133,15 +129,24 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(enterprisejTable);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 99, 487, 87));
+
         netjLabel.setText("Network:");
+        add(netjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 243, 100, 16));
 
         entrjLabel.setText("Enterprise:");
+        add(entrjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 281, -1, -1));
 
         emailjLabel.setText("Email ID:");
+        add(emailjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 329, -1, -1));
 
         passjLabel.setText("Password:");
+        add(passjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 408, -1, -1));
 
         namejLabel.setText("Name:");
+        add(namejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 492, 80, -1));
+        add(emailjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 329, 204, -1));
+        add(namejTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 492, 204, -1));
 
         submitjButton.setText("Submit");
         submitjButton.addActionListener(new java.awt.event.ActionListener() {
@@ -149,8 +154,10 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
                 submitjButtonActionPerformed(evt);
             }
         });
+        add(submitjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 569, 115, 36));
 
         EnterpriseComboBox.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        add(EnterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 281, 190, 30));
 
         networkComboBox.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         networkComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -158,76 +165,12 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
                 networkComboBoxActionPerformed(evt);
             }
         });
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 239, 190, 30));
+        add(passwordjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 408, 190, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnBack)
-                        .addGap(130, 130, 130)
-                        .addComponent(TitlejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(netjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(entrjLabel)
-                            .addComponent(emailjLabel)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(namejLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(passjLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(61, 61, 61)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(emailjTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                                .addComponent(namejTextField)
-                                .addComponent(EnterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(passwordjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(297, 297, 297)
-                        .addComponent(submitjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(416, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnBack)
-                    .addComponent(TitlejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(netjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(entrjLabel)
-                    .addComponent(EnterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(emailjLabel)
-                    .addComponent(emailjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(passjLabel)
-                    .addComponent(passwordjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(namejLabel)
-                    .addComponent(namejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addComponent(submitjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
-        );
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTitle.setText("MANAGE ENTERPRISE ADMIN");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 15, 347, 48));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -239,10 +182,6 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
         CardLayout cardLayout = (CardLayout) userContainer.getLayout();
         cardLayout.previous(userContainer);
     }//GEN-LAST:event_btnBackActionPerformed
-
-    private void TitlejTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TitlejTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TitlejTextFieldActionPerformed
 
     private void networkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkComboBoxActionPerformed
 
@@ -268,7 +207,7 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
 
         Employee employee = enterprise.getEmployeeList().createEmployee(name);
 
-        UserAccount account = enterprise.getUserAccountList().createUserAccount(username, password, employee, new Admin());
+        UserAccount account = enterprise.getUserAccountList().createUserAccount(username, password, employee, new EnterpriseAdmin());
         System.out.println("Account" + account);
         populateTabl();
         networkComboBox.setSelectedIndex(0);
@@ -282,13 +221,13 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox EnterpriseComboBox;
-    private javax.swing.JTextField TitlejTextField;
     private javax.swing.JButton btnBack;
     private javax.swing.JLabel emailjLabel;
     private javax.swing.JTextField emailjTextField;
     private javax.swing.JTable enterprisejTable;
     private javax.swing.JLabel entrjLabel;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel namejLabel;
     private javax.swing.JTextField namejTextField;
     private javax.swing.JLabel netjLabel;
