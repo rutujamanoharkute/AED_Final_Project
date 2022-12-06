@@ -8,13 +8,12 @@ import Business.Ecosystem;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
-import Business.Role.AdminRole;
+import Business.Role.Admin;
 import Business.UserAccount.UserAccount;
-import Business.utilities.tableHeaderColors;
+//import Business.utilities.tableHeaderColors;
 import java.awt.CardLayout;
 import java.awt.Component;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -29,7 +28,7 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
     private JPanel userContainer;
     private boolean emailValid;
     private boolean nameValid;
-    private int entAvail=0;
+
 
     /**
      * Creates new form ManageEnterpriseAdminPanel
@@ -42,7 +41,14 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
         this.system = system;
         this.userContainer = userContainer;
         populateTabl();
+        //enterprisejTable.getTableHeader().setDefaultRenderer(new tableHeaderColors())
         populateNetwrkComboBox();
+           clearLabels();
+    }
+     private void clearLabels() {
+        emailLb.setVisible(false);
+        passLb.setVisible(false);  
+         namelb.setVisible(false);
     }
     
     private void populateTabl() {
@@ -56,7 +62,7 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
                     row[0] = userAccount.getEmployee().getEmpId();
                     row[1] = userAccount.getEmployee().getEmployeeName();
                     row[2] = enterprise.getName();
-                    row[3] = network.getName();
+                    row[3] = network.getNetworkName();
                     row[4] = userAccount.getUsername();
 
                     model.addRow(row);
@@ -64,26 +70,24 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
             }
         }
     }
-    
+   
     private void populateNetwrkComboBox(){
-        networkJComboBox.removeAllItems();
+        networkComboBox.removeAllItems();
         
         for (Network network : system.getNetworkList()){
-            networkJComboBox.addItem(network);
+            networkComboBox.addItem(network);
         }
     }
     
-    private void populateEnterpriseComboBox(Network network){
-        enterpriseJComboBox.removeAllItems();
+    private void populateEnterpComboBox(Network network){
+        EnterpriseComboBox.removeAllItems();
         
-        for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()){
-                enterpriseJComboBox.addItem(enterprise);
+        for (Enterprise enterpr : network.getEnterpriseDirectory().getEnterpriseList()){
+                EnterpriseComboBox.addItem(enterpr);
         }
         
         
     }
-    
-
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -103,12 +107,15 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        networkComboBox = new javax.swing.JComboBox<>();
-        EnterpriseComboBox = new javax.swing.JComboBox<>();
         emailjTextField = new javax.swing.JTextField();
-        passwordjTextField = new javax.swing.JTextField();
         namejTextField = new javax.swing.JTextField();
         submitjButton = new javax.swing.JButton();
+        EnterpriseComboBox = new javax.swing.JComboBox();
+        networkComboBox = new javax.swing.JComboBox();
+        passwordjTextField = new javax.swing.JPasswordField();
+        emailLb = new javax.swing.JLabel();
+        passLb = new javax.swing.JLabel();
+        namelb = new javax.swing.JLabel();
 
         setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
 
@@ -150,22 +157,53 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
 
         jLabel5.setText("Name:");
 
-        networkComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        EnterpriseComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        EnterpriseComboBox.addActionListener(new java.awt.event.ActionListener() {
+        emailjTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnterpriseComboBoxActionPerformed(evt);
+                emailjTextFieldActionPerformed(evt);
             }
         });
 
-        emailjTextField.setText("jTextField2");
-
-        passwordjTextField.setText("jTextField3");
-
-        namejTextField.setText("jTextField4");
-
         submitjButton.setText("Submit");
+        submitjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitjButtonActionPerformed(evt);
+            }
+        });
+
+        EnterpriseComboBox.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+
+        networkComboBox.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        networkComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                networkComboBoxActionPerformed(evt);
+            }
+        });
+
+        passwordjTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordjTextFieldActionPerformed(evt);
+            }
+        });
+        passwordjTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                passwordjTextFieldKeyReleased(evt);
+            }
+        });
+
+        emailLb.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        emailLb.setForeground(new java.awt.Color(181, 7, 7));
+        emailLb.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        emailLb.setText("Valid Format - 'xx@xx.xx'");
+
+        passLb.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        passLb.setForeground(new java.awt.Color(181, 7, 7));
+        passLb.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        passLb.setText("Sample format: Asdf@1");
+
+        namelb.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        namelb.setForeground(new java.awt.Color(181, 7, 7));
+        namelb.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        namelb.setText("Only Alphabets are allowed");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -179,6 +217,9 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
                         .addGap(130, 130, 130)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(152, 152, 152)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,18 +229,19 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(61, 61, 61)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(emailjTextField)
-                            .addComponent(passwordjTextField)
-                            .addComponent(namejTextField)
-                            .addComponent(networkComboBox, 0, 204, Short.MAX_VALUE)
-                            .addComponent(EnterpriseComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(namelb, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(emailjTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                                .addComponent(namejTextField)
+                                .addComponent(EnterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(emailLb, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(passLb, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(passwordjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(281, 281, 281)
-                        .addComponent(submitjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(297, 297, 297)
+                        .addComponent(submitjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(416, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -211,29 +253,37 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(EnterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EnterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(emailjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(emailjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(emailLb, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(passwordjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(passwordjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(passLb, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(namejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(8, 8, 8)
+                .addComponent(namelb, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(submitjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -251,14 +301,69 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void EnterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterpriseComboBoxActionPerformed
+    private void networkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkComboBoxActionPerformed
+
+        Network network = (Network) networkComboBox.getSelectedItem();
+        if (network != null){
+            populateEnterpComboBox(network);
+        }
+
+    }//GEN-LAST:event_networkComboBoxActionPerformed
+
+    private void submitjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitjButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_EnterpriseComboBoxActionPerformed
+        Enterprise enterprise = (Enterprise) EnterpriseComboBox.getSelectedItem();
+
+        if(emailjTextField.getText().isEmpty() || passwordjTextField.getText().isEmpty() || namejTextField.getText().isEmpty()){
+             JOptionPane.showMessageDialog(null,"Field(s) cannot be Empty!","Error",JOptionPane.ERROR_MESSAGE);
+             return;
+        }
+
+
+            String username = emailjTextField.getText();
+            String password = String.valueOf(passwordjTextField.getPassword());
+            String name = namejTextField.getText();
+
+            Employee employee = enterprise.getEmployeeList().createEmployee(name);
+
+            UserAccount account = enterprise.getUserAccountList().createUserAccount(username, password,employee, new Admin());
+            System.out.println("Account" + account);
+            populateTabl();
+           networkComboBox.setSelectedIndex(0);
+            EnterpriseComboBox.setSelectedIndex(0);
+            emailjTextField.setText("");
+            passwordjTextField.setText("");
+            namejTextField.setText("");
+           
+        
+        
+    
+        
+        
+                                                  
+
+    }//GEN-LAST:event_submitjButtonActionPerformed
+
+    private void passwordjTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordjTextFieldKeyReleased
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_passwordjTextFieldKeyReleased
+
+    private void emailjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailjTextFieldActionPerformed
+        // TODO add your handling code here:
+
+            
+    }//GEN-LAST:event_emailjTextFieldActionPerformed
+
+    private void passwordjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordjTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordjTextFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> EnterpriseComboBox;
+    private javax.swing.JComboBox EnterpriseComboBox;
     private javax.swing.JButton btnBack;
+    private javax.swing.JLabel emailLb;
     private javax.swing.JTextField emailjTextField;
     private javax.swing.JTable enterprisejTable;
     private javax.swing.JLabel jLabel1;
@@ -269,8 +374,10 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField namejTextField;
-    private javax.swing.JComboBox<String> networkComboBox;
-    private javax.swing.JTextField passwordjTextField;
+    private javax.swing.JLabel namelb;
+    private javax.swing.JComboBox networkComboBox;
+    private javax.swing.JLabel passLb;
+    private javax.swing.JPasswordField passwordjTextField;
     private javax.swing.JButton submitjButton;
     // End of variables declaration//GEN-END:variables
 }
