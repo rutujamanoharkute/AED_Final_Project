@@ -68,10 +68,15 @@ public class EnterpriseAdminOperationsPanel extends javax.swing.JPanel {
         add(btnManageOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, 60));
 
         btnManageRequests.setText("MANAGE REQUESTS");
-        add(btnManageRequests, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, 250, 60));
+        add(btnManageRequests, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 250, 60));
 
         btnMngEmployee.setText("MANAGE EMPLOYEE");
-        add(btnMngEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 250, 60));
+        btnMngEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMngEmployeeActionPerformed(evt);
+            }
+        });
+        add(btnMngEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 250, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageOrganizationActionPerformed
@@ -81,6 +86,17 @@ public class EnterpriseAdminOperationsPanel extends javax.swing.JPanel {
         CardLayout cardlayout = (CardLayout) userContainer.getLayout();
         cardlayout.next(userContainer);
     }//GEN-LAST:event_btnManageOrganizationActionPerformed
+
+    private void btnMngEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMngEmployeeActionPerformed
+        // TODO add your handling code here:
+        ManageEmployeePanel manageEmployeePanel = new ManageEmployeePanel(userContainer, enterprise.getOrganizationDirectory(),system);
+        userContainer.add("manageEmployeePanel", manageEmployeePanel);
+        CardLayout cardlayout = (CardLayout) userContainer.getLayout();
+        cardlayout.next(userContainer);
+        
+        
+        
+    }//GEN-LAST:event_btnMngEmployeeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

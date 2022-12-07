@@ -4,7 +4,9 @@
  */
 package Business.Organization;
 
+import Business.Role.Psychiatrist;
 import Business.Role.Role;
+import Business.Role.Trainer;
 import java.util.ArrayList;
 
 /**
@@ -19,7 +21,9 @@ public class PsychiatristOrganization extends Organization {
 
     @Override
     public ArrayList<Role> getSupportedRole() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArrayList<Role> roles = new ArrayList();
+        roles.add(new Psychiatrist());
+        return roles;
     }
     
 }

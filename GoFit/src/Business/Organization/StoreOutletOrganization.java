@@ -5,6 +5,8 @@
 package Business.Organization;
 
 import Business.Role.Role;
+import Business.Role.Pharmacist;
+import Business.Role.Trainer;
 import java.util.ArrayList;
 
 /**
@@ -19,7 +21,10 @@ public class StoreOutletOrganization extends Organization {
 
     @Override
     public ArrayList<Role> getSupportedRole() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArrayList<Role> roles = new ArrayList();
+        roles.add(new Pharmacist());
+        System.out.println(roles);
+        return roles;
     }
     
 }

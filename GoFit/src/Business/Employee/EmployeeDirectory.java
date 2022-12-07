@@ -29,10 +29,17 @@ public class EmployeeDirectory {
     }
 
     public Employee createEmployee(String name) {
-        Employee employee = new Employee(getEmployeeList().size() + 1);
+        Employee employee = new Employee();
         employee.setEmployeeName(name);
         employeeList.add(employee);
         return employee;
+    }
+     public boolean checkIfUsernameUnique(String name){
+        for (Employee e : employeeList){
+            if (e.getEmployeeName().equals(name))
+                return false;
+        }
+        return true;
     }
 
 }

@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  *
  * @author Harshada
  */
-public class Customer extends Role {
+public class Pharmacist extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, Enterprise enterprise, Organization organization, UserAccount account, Ecosystem business, Network network) {
