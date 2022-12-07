@@ -10,8 +10,11 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import Business.Ecosystem;
 import Business.Network.Network;
+import java.awt.Color;
+import javax.swing.BorderFactory;
 
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Geets
@@ -21,16 +24,14 @@ public class ManageNetworkPanel extends javax.swing.JPanel {
     private JPanel userContainer;
     private Ecosystem system;
 
-    
     public ManageNetworkPanel(JPanel userContainer, Ecosystem system) {
         initComponents();
 
         this.userContainer = userContainer;
         this.system = system;
-         populatenetworkTable();
+        populatenetworkTable();
     }
-    
-    
+
     private void populatenetworkTable() {
         DefaultTableModel model = (DefaultTableModel) networkTable.getModel();
 
@@ -104,7 +105,7 @@ public class ManageNetworkPanel extends javax.swing.JPanel {
                 deljButton1ActionPerformed(evt);
             }
         });
-        add(deljButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
+        add(deljButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, 40));
 
         SubmitjButton.setText("SUBMIT");
         SubmitjButton.addActionListener(new java.awt.event.ActionListener() {
@@ -137,43 +138,63 @@ public class ManageNetworkPanel extends javax.swing.JPanel {
 
     private void namejTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namejTextFieldActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_namejTextFieldActionPerformed
 
     private void SubmitjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitjButtonActionPerformed
         // TODO add your handling code here:
-        try
-        {
-          String name = namejTextField.getText();
-            Network network = system.createAndAddNetwork();
-            network.setNetworkName(name);
-          populatenetworkTable();
-        }
-        catch(Exception e)
-        {
+        try {
+            if (validateData()) {
+                String name = namejTextField.getText();
+                Network network = system.createAndAddNetwork();
+                network.setNetworkName(name);
+                populatenetworkTable();
+                JOptionPane.showMessageDialog(this, "Network has been added Successfully");
+            }
+
+        } catch (Exception e) {
             System.out.println("Please try again");
         }
-          
+
     }//GEN-LAST:event_SubmitjButtonActionPerformed
 
     private void deljButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deljButton1ActionPerformed
         // TODO add your handling code here:
-        try
-        {
-        int row = networkTable.getSelectedRow();
-        if(row<0){
-            JOptionPane.showMessageDialog(null, "Select a row on which action is to be performed!!", "Alert:Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        Network n  = (Network) networkTable.getValueAt(row, 0);
-        system.getNetworkList().remove(n);
-         populatenetworkTable();
-        }
-        catch(Exception e)
-        {
+        try {
+            int row = networkTable.getSelectedRow();
+            if (row < 0) {
+                JOptionPane.showMessageDialog(null, "Select a row on which action is to be performed!!", "Alert:Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            Network n = (Network) networkTable.getValueAt(row, 0);
+            system.getNetworkList().remove(n);
+            JOptionPane.showMessageDialog(this, "Network has been deleted");
+            populatenetworkTable();
+        } catch (Exception e) {
             System.out.println("Please try again");
         }
     }//GEN-LAST:event_deljButton1ActionPerformed
+
+    public boolean validateData() {
+
+        String networkName = namejTextField.getText();
+
+        if (namejTextField.getText().length() <= 2 || !namejTextField.getText().matches("[a-zA-Z]+")) {
+            namejTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            StatejLabel.setForeground(Color.RED);
+            JOptionPane.showMessageDialog(this, "Please enter a valid name consisting of more than 2 letters");
+            return false;
+        }
+
+        if (networkName == null || networkName.equals("")) {
+            namejTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            StatejLabel.setForeground(Color.RED);
+            JOptionPane.showMessageDialog(null, "Please enter name");
+            return false;
+        }
+
+        return true;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
