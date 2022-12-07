@@ -8,9 +8,12 @@ import Business.Ecosystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -125,6 +128,9 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         try
         {
+        
+        if (validateData())
+        {
         Network network = (Network) comboNetwork.getSelectedItem();
         Enterprise.EnterpriseType enterprisetype = (Enterprise.EnterpriseType) comboEnterpriseType.getSelectedItem();
         if (network == null || enterprisetype == null) {
@@ -143,10 +149,12 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
         populateTableEnterprise();
         txtEnterpriseName.setText("");
         }
+        }
         catch(Exception e)
         {
             System.out.println("Please try again");
         }
+        
 
     }//GEN-LAST:event_btnCreateEnterpriseActionPerformed
 
@@ -192,4 +200,36 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
             }
         }
     }
+    
+    public boolean validateData() {
+
+        String enterpriseName = txtEnterpriseName.getText();
+
+        if (txtEnterpriseName.getText().length() <= 2 || !txtEnterpriseName.getText().matches("[a-zA-Z]+")) {
+            txtEnterpriseName.setBorder(BorderFactory.createLineBorder(Color.RED));
+            lblEnterpriseName.setForeground(Color.RED);
+            JOptionPane.showMessageDialog(this, "Please enter a valid name consisting of more than 2 letters");
+            return false;
+        }
+
+        if (enterpriseName == null || enterpriseName.equals("")) {
+            txtEnterpriseName.setBorder(BorderFactory.createLineBorder(Color.RED));
+            lblEnterpriseName.setForeground(Color.RED);
+            JOptionPane.showMessageDialog(null, "Please enter name");
+            return false;
+        }
+
+        if (comboEnterpriseType.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(this, "Please select an enterprise");
+            return false;
+        }
+        if (comboNetwork.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(this, "Please select a network");
+            return false;
+        }
+
+        return true;
+    }
+    
+    
 }
