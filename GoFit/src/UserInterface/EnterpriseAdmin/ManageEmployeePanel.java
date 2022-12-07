@@ -6,15 +6,16 @@ package UserInterface.EnterpriseAdmin;
 
 import Business.Ecosystem;
 import Business.Employee.Employee;
-import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Role.Role;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -69,25 +70,26 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("CREATE EMPLOYEES");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 35, 244, 50));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 244, 50));
 
         jLabel2.setText("Organization");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         jLabel3.setText("Role");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 90, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 90, 40));
 
         jLabel4.setText("Name");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 200, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 190, -1));
 
         jLabel5.setText("Email Id");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
-        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 172, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 190, -1));
 
         jLabel6.setText("Password");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         btnCreateEmployee.setText("CREATE");
         btnCreateEmployee.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +97,7 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
                 btnCreateEmployeeActionPerformed(evt);
             }
         });
-        add(btnCreateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 138, 44));
+        add(btnCreateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 110, 40));
 
         btnBack.setText("BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -103,11 +105,11 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         comboRole.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        add(comboRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, 190, 40));
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, 180, -1));
+        add(comboRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 190, 40));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 180, -1));
 
         comboOrganization.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         comboOrganization.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +117,7 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
                 comboOrganizationActionPerformed(evt);
             }
         });
-        add(comboOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 190, 40));
+        add(comboOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 190, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -190,7 +192,6 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
               Organization organization = (Organization) comboOrganization.getSelectedItem();
         if (organization != null){
-            //populateEmployeeComboBox(organization);
             comboRolePopulate(organization);
         }
     }//GEN-LAST:event_comboOrganizationActionPerformed
@@ -219,7 +220,7 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
             comboOrganization.addItem(organization);
         }
     }
-
+    
     private void comboRolePopulate(Organization organization) {
         comboRole.removeAllItems();
         for (Role r : organization.getSupportedRole()) {

@@ -68,6 +68,11 @@ public class EnterpriseAdminOperationsPanel extends javax.swing.JPanel {
         add(btnManageOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, 60));
 
         btnManageRequests.setText("MANAGE REQUESTS");
+        btnManageRequests.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageRequestsActionPerformed(evt);
+            }
+        });
         add(btnManageRequests, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 250, 60));
 
         btnMngEmployee.setText("MANAGE EMPLOYEE");
@@ -94,9 +99,16 @@ public class EnterpriseAdminOperationsPanel extends javax.swing.JPanel {
         CardLayout cardlayout = (CardLayout) userContainer.getLayout();
         cardlayout.next(userContainer);
         
-        
-        
     }//GEN-LAST:event_btnMngEmployeeActionPerformed
+
+    private void btnManageRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequestsActionPerformed
+        // TODO add your handling code here:
+         ManageRequestsPanel manageRequestsPanel = new ManageRequestsPanel();
+        userContainer.add("manageEmployeePanel", manageRequestsPanel);
+        CardLayout cardlayout = (CardLayout) userContainer.getLayout();
+        cardlayout.next(userContainer);
+        
+    }//GEN-LAST:event_btnManageRequestsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
