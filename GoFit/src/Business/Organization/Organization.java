@@ -5,8 +5,11 @@
 package Business.Organization;
 
 import Business.Employee.EmployeeDirectory;
+import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
 import Business.WorkQueue.WorkQueue;
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -25,6 +28,8 @@ public abstract class Organization {
         this.employeeList = new EmployeeDirectory();
         this.userAccountList = new UserAccountDirectory();
         this.workQueue = new WorkQueue();
+         Random r = new Random();
+        organizationId = r.nextInt();
     }
     
      public enum Type{
@@ -91,4 +96,5 @@ public abstract class Organization {
     public String toString() {
         return name;
     }
+     public abstract ArrayList<Role> getSupportedRole();
 }

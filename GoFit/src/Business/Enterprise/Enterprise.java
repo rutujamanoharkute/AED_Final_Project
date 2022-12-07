@@ -13,10 +13,12 @@ import Business.Organization.OrganizationDirectory;
  */
 public abstract class Enterprise extends Organization{
     private EnterpriseType enterpriseType;
+    private OrganizationDirectory organizationList;
     
        public Enterprise(String name,EnterpriseType type){
         super(name);
         this.enterpriseType=type;
+        organizationDirectory=new OrganizationDirectory();
     }
 
     public EnterpriseType getEnterpriseType() {
@@ -37,15 +39,15 @@ public abstract class Enterprise extends Organization{
     private OrganizationDirectory organizationDirectory;
     
     public enum EnterpriseType{
-        Trainer("Gym Trainer Enterprise"),
-        DietRegime("DietRegime Enterprise"),
-        Doctor("Doctor Enterprise"),
-        StoreOutlet("Store Outlet Enterprise");
+        Trainer("GymTrainer"),
+        DietRegime("DietRegime"),
+        Doctor("Doctor"),
+        StoreOutlet("StoreOutlet");
  
         
         private String value;
         
-         private EnterpriseType(String value){
+        private EnterpriseType(String value){
             this.value=value;
         }
         public String getValue() {

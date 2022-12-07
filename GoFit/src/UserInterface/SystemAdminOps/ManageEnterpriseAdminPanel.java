@@ -12,9 +12,14 @@ import Business.Role.Admin;
 import Business.Role.EnterpriseAdmin;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,6 +30,7 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
 
     private Ecosystem system;
     private JPanel userContainer;
+    private int isEnterpriseAvailable = 0;
 
     /**
      * Creates new form ManageEnterpriseAdminPanel
@@ -37,7 +43,6 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
         this.system = system;
         this.userContainer = userContainer;
         populateTabl();
-        //enterprisejTable.getTableHeader().setDefaultRenderer(new tableHeaderColors())
         populateNetwrkComboBox();
 
     }
@@ -114,7 +119,7 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 46, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, 50));
 
         enterprisejTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -131,22 +136,22 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 99, 487, 87));
 
-        netjLabel.setText("Network:");
-        add(netjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 243, 100, 16));
+        netjLabel.setText("Network");
+        add(netjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 150, 60));
 
-        entrjLabel.setText("Enterprise:");
-        add(entrjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 281, -1, -1));
+        entrjLabel.setText("Enterprise");
+        add(entrjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 110, 50));
 
-        emailjLabel.setText("Email ID:");
-        add(emailjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 329, -1, -1));
+        emailjLabel.setText("Email ID");
+        add(emailjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 100, 40));
 
-        passjLabel.setText("Password:");
-        add(passjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 408, -1, -1));
+        passjLabel.setText("Password");
+        add(passjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 130, 50));
 
-        namejLabel.setText("Name:");
-        add(namejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 492, 80, -1));
-        add(emailjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 329, 204, -1));
-        add(namejTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 492, 204, -1));
+        namejLabel.setText("Name");
+        add(namejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, 80, 50));
+        add(emailjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 230, 40));
+        add(namejTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 230, 40));
 
         submitjButton.setText("Submit");
         submitjButton.addActionListener(new java.awt.event.ActionListener() {
@@ -154,10 +159,10 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
                 submitjButtonActionPerformed(evt);
             }
         });
-        add(submitjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 569, 115, 36));
+        add(submitjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, 115, 50));
 
         EnterpriseComboBox.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        add(EnterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 281, 190, 30));
+        add(EnterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 230, 40));
 
         networkComboBox.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         networkComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -165,8 +170,8 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
                 networkComboBoxActionPerformed(evt);
             }
         });
-        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 239, 190, 30));
-        add(passwordjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 408, 190, 30));
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 230, 40));
+        add(passwordjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, 230, 40));
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitle.setText("MANAGE ENTERPRISE ADMIN");
@@ -194,29 +199,94 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
 
     private void submitjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitjButtonActionPerformed
         // TODO add your handling code here:
-        Enterprise enterprise = (Enterprise) EnterpriseComboBox.getSelectedItem();
+        if (validateData()) {
+            Enterprise enterprise = (Enterprise) EnterpriseComboBox.getSelectedItem();
+            if (enterprise.getEmployeeList().getEmployeeList().size() != 0) {
+                isEnterpriseAvailable = 1;
+            }
+             else if (isEnterpriseAvailable != 1) {
 
-        if (emailjTextField.getText().isEmpty() || passwordjTextField.getText().isEmpty() || namejTextField.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Field(s) cannot be Empty!", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
+                String username = emailjTextField.getText();
+                String password = String.valueOf(passwordjTextField.getPassword());
+                String name = namejTextField.getText();
+
+                Employee employee = enterprise.getEmployeeList().createEmployee(name);
+
+                UserAccount account = enterprise.getUserAccountList().createUserAccount(username, password, employee, new EnterpriseAdmin());
+                populateTabl();
+                networkComboBox.setSelectedIndex(0);
+                EnterpriseComboBox.setSelectedIndex(0);
+                emailjTextField.setText("");
+                passwordjTextField.setText("");
+                namejTextField.setText("");
+                //clearLabels();
+
+            } else {
+                if (isEnterpriseAvailable == 1) {
+                    JOptionPane.showMessageDialog(null, "Enterprise admin is already added !", "Alert", JOptionPane.INFORMATION_MESSAGE);
+                    emailjTextField.setText("");
+                    passwordjTextField.setText("");
+                    namejTextField.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please enter all the required fields correctly!", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
         }
 
-        String username = emailjTextField.getText();
-        String password = String.valueOf(passwordjTextField.getPassword());
-        String name = namejTextField.getText();
-
-        Employee employee = enterprise.getEmployeeList().createEmployee(name);
-
-        UserAccount account = enterprise.getUserAccountList().createUserAccount(username, password, employee, new EnterpriseAdmin());
-        System.out.println("Account" + account);
-        populateTabl();
-        networkComboBox.setSelectedIndex(0);
-        EnterpriseComboBox.setSelectedIndex(0);
-        emailjTextField.setText("");
-        passwordjTextField.setText("");
-        namejTextField.setText("");
-
     }//GEN-LAST:event_submitjButtonActionPerformed
+
+    public boolean validateData() {
+
+        String name = namejTextField.getText();
+        String password = passwordjTextField.getText();
+
+        namejTextField.setBorder(new LineBorder(new Color(128, 128, 128)));
+        passwordjTextField.setBorder(new LineBorder(new Color(128, 128, 128)));
+
+        if (namejTextField.getText().length() <= 2 || !namejTextField.getText().matches("[a-zA-Z]+")) {
+            namejTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            namejLabel.setForeground(Color.RED);
+            JOptionPane.showMessageDialog(this, "Please enter a valid name consisting of more than 2 letters");
+            return false;
+        }
+
+        if (name == null || name.equals("")) {
+            namejTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            namejLabel.setForeground(Color.RED);
+            JOptionPane.showMessageDialog(null, "Please enter name");
+            return false;
+        }
+
+        if (password == null || password.equals("")) {
+            JOptionPane.showMessageDialog(null, "Password can't be empty.");
+            passwordjTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            passjLabel.setForeground(Color.RED);
+            return false;
+        }
+
+        if (!passwordPatternCorrect()) {
+            JOptionPane.showMessageDialog(null, "Paasword should be at least 6 digits and+"
+                    + " a combination of number, uppercarse, lowercase abd secial cjaracter $,*,#,&");
+            passwordjTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            return false;
+        }
+
+        if (!emailAddressValidation(emailjTextField.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid email address");
+            return false;
+        }
+
+        if (EnterpriseComboBox.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(this, "Please select an enterprise");
+            return false;
+        }
+        if (networkComboBox.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(this, "Please select a network");
+            return false;
+        }
+
+        return true;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -236,4 +306,19 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
     private javax.swing.JPasswordField passwordjTextField;
     private javax.swing.JButton submitjButton;
     // End of variables declaration//GEN-END:variables
+
+    private boolean passwordPatternCorrect() {
+        Pattern p = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[$*#&])[A-Za-z\\d$*#&]{6,}$");
+        Matcher m = p.matcher(passwordjTextField.getText());
+        boolean b = m.matches();
+        return b;
+
+    }
+
+    private boolean emailAddressValidation(String email) {
+        String emailValidation = "^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+        Pattern pattern = Pattern.compile(emailValidation);
+        Matcher m = pattern.matcher(email);
+        return m.matches();
+    }
 }
