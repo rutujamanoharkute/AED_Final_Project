@@ -19,7 +19,7 @@ public class UserAccountDirectory {
     
     public UserAccountDirectory()
     {
-        this.userAccountList = new ArrayList<>();
+        this.userAccountList = new ArrayList();
     }
 
     public ArrayList<UserAccount> getUserAccountList() {
@@ -39,7 +39,10 @@ public class UserAccountDirectory {
         return userAccount;
     }
         
-       public UserAccount createCustomerAccount(String username, String password,Customer customer, Role role){
+
+        
+        public UserAccount createCustomerAccount(String username, String password,Customer customer, Role role){
+
         UserAccount userAccount = new UserAccount();
         userAccount.setUsername(username);
         userAccount.setPassword(password);
@@ -48,16 +51,17 @@ public class UserAccountDirectory {
         userAccount.setRole(role);
         userAccountList.add(userAccount);
         return userAccount;
-    }   
-       
-    public void removeUserAccount(UserAccount ua){
-        userAccountList.remove(ua);
+
     }
+    
+      
     // Update User Account
-    public UserAccount updateUserAccount(UserAccount userAccount, String password){
+        public UserAccount updateUserAccount(UserAccount userAccount, String password){
         userAccount.setPassword(password);
         return userAccount;
     }
+    
+
         public UserAccount authenticateUser(String username, String password){
         for (UserAccount ua : userAccountList)
             if (ua.getUsername().equals(username) && ua.getPassword().equals(password)){
