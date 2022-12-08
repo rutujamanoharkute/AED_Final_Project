@@ -19,7 +19,6 @@ public class Customer {
     private int age;
     private String gender;
     private String zipcode;
-    private long phoneNo;
     private String goal;
     private double weight;
     private double height;
@@ -34,13 +33,6 @@ public class Customer {
     private Network network;
     private String city;
 
-    public Boolean getIs_None() {
-        return is_None;
-    }
-
-    public void setIs_None(Boolean is_None) {
-        this.is_None = is_None;
-    }
 
     public String getCity() {
         return city;
@@ -50,6 +42,15 @@ public class Customer {
         this.city = city;
     }
 
+    public Boolean getIs_None() {
+        return is_None;
+    }
+
+    public void setIs_None(Boolean is_None) {
+        this.is_None = is_None;
+    }
+    
+ 
     public Network getNetwork() {
         return network;
     }
@@ -114,13 +115,7 @@ public class Customer {
         this.zipcode = zipcode;
     }
 
-    public long getPhoneNo() {
-        return phoneNo;
-    }
-
-    public void setPhoneNo(long phoneNo) {
-        this.phoneNo = phoneNo;
-    }
+  
 
     public String getGoal() {
         return goal;
@@ -186,7 +181,7 @@ public class Customer {
         this.is_cholestrol = is_cholestrol;
     }
 
-    public boolean isIs_hypertension() {
+    public boolean getIs_hypertension() {
         return is_hypertension;
     }
 
@@ -203,4 +198,10 @@ public class Customer {
     }
 
 
+      
+    @Override
+    public String toString() {
+        return name;
+    }
+    
 }
