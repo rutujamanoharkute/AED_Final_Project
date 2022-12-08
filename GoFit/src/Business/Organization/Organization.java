@@ -8,6 +8,7 @@ import Business.Customer.CustomerDirectory;
 import Business.Employee.EmployeeDirectory;
 import Business.UserAccount.UserAccountDirectory;
 import Business.WorkQueue.WorkQueue;
+import java.util.Random;
 
 /**
  *
@@ -20,14 +21,19 @@ public abstract class Organization {
     private WorkQueue workQueue;
     private EmployeeDirectory employeeList;
     private UserAccountDirectory userAccountList;
-    private CustomerDirectory customerList;
+
+    private CustomerDirectory customerDirectory;
+    
     
     public Organization(String name) {
         this.name = name;
-        this.employeeList = new EmployeeDirectory();
-        this.userAccountList = new UserAccountDirectory();
-        this.workQueue = new WorkQueue();
-        this.customerList = new CustomerDirectory();
+        employeeList = new EmployeeDirectory();
+        userAccountList = new UserAccountDirectory();
+        workQueue = new WorkQueue();
+        customerDirectory = new CustomerDirectory();
+        Random r = new Random();
+        organizationId = r.nextInt();
+
     }
     
      public enum Type{
@@ -49,12 +55,14 @@ public abstract class Organization {
         }
     }
 
-    public CustomerDirectory getCustomerList() {
-        return customerList;
+
+    public CustomerDirectory getCustomerDirectory() {
+        return customerDirectory;
     }
 
-    public void setCustomerList(CustomerDirectory customerList) {
-        this.customerList = customerList;
+    public void setCustomerDirectory(CustomerDirectory customerDirectory) {
+        this.customerDirectory = customerDirectory;
+
     }
 
     public int getOrganizationId() {
@@ -85,10 +93,6 @@ public abstract class Organization {
         return userAccountList;
     }
 
-    public void setUserAccountList(UserAccountDirectory userAccountList) {
-        this.userAccountList = userAccountList;
-    }
-    
     public String getName() {
         return name;
     }
