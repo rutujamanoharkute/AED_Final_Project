@@ -4,6 +4,8 @@
  */
 package Business.Employee;
 
+import java.util.Random;
+
 /**
  *
  * @author Harshada
@@ -13,9 +15,11 @@ public class Employee {
     private String employeeName;
     private int empId;
     
-    public Employee(int id) {
-        this.empId = id;
+    public Employee() {
+        Random random = new Random();
+        empId = random.nextInt();
     }
+    
 
     public String getEmployeeName() {
         return employeeName;
@@ -31,6 +35,10 @@ public class Employee {
 
     public void setEmpId(int empId) {
         this.empId = empId;
+    }
+        @Override
+    public String toString() {
+        return employeeName;
     }
     
 }

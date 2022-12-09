@@ -4,14 +4,22 @@
  */
 package Business.Enterprise;
 
+import Business.Role.Role;
+import java.util.ArrayList;
+
 /**
  *
  * @author Harshada
  */
-public class DietRegimeEnterprise extends Enterprise  {
-    
-        public DietRegimeEnterprise(String name){
-            
-        super(name,Enterprise.EnterpriseType.DietRegime);
+public class DietRegimeEnterprise extends Enterprise {
+
+    public DietRegimeEnterprise(String name) {
+
+        super(name, Enterprise.EnterpriseType.DietRegime);
+    }
+
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        return null;
     }
 }

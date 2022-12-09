@@ -4,10 +4,25 @@
  */
 package Business.Organization;
 
+import Business.Role.Cardiologist;
+import Business.Role.Role;
+import Business.Role.Trainer;
+import java.util.ArrayList;
+
 /**
  *
  * @author Harshada
  */
-public class CardiologistOrganization  {
-    
+public class CardiologistOrganization extends Organization  {
+    public CardiologistOrganization()
+    {
+         super(Organization.Type.Cardiologist.getValue());
+    }
+
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+         ArrayList<Role> roles = new ArrayList();
+        roles.add(new Cardiologist());
+        return roles;
+    }
 }

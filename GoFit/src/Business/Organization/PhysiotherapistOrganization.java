@@ -4,10 +4,27 @@
  */
 package Business.Organization;
 
+import Business.Role.Physiotherapist;
+import Business.Role.Role;
+import Business.Role.Trainer;
+import java.util.ArrayList;
+
 /**
  *
  * @author Harshada
  */
-public class PhysiotherapistOrganization {
+public class PhysiotherapistOrganization extends Organization {
+
+    PhysiotherapistOrganization() {
+       super(Organization.Type.Physiotherapist.getValue());
+    }
+
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        ArrayList<Role> roles = new ArrayList();
+        roles.add(new Physiotherapist());
+        System.out.println(roles);
+        return roles;
+    }
     
 }
