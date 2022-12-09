@@ -4,6 +4,7 @@
  */
 package Business.Organization;
 
+import Business.Customer.CustomerDirectory;
 import Business.Employee.EmployeeDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
@@ -22,12 +23,14 @@ public abstract class Organization {
     private WorkQueue workQueue;
     private EmployeeDirectory employeeList;
     private UserAccountDirectory userAccountList;
+    private CustomerDirectory customerDirectory;
     
     public Organization(String name) {
         this.name = name;
-        this.employeeList = new EmployeeDirectory();
-        this.userAccountList = new UserAccountDirectory();
-        this.workQueue = new WorkQueue();
+        employeeList = new EmployeeDirectory();
+        userAccountList = new UserAccountDirectory();
+        workQueue = new WorkQueue();
+        customerDirectory = new CustomerDirectory();
          Random r = new Random();
         organizationId = r.nextInt();
     }
@@ -51,6 +54,14 @@ public abstract class Organization {
         public String getValue() {
             return value;
         }
+    }
+     
+    public CustomerDirectory getCustomerDirectory() {
+        return customerDirectory;
+    }
+
+    public void setCustomerDirectory(CustomerDirectory customerDirectory) {
+        this.customerDirectory = customerDirectory;
     }
 
     public int getOrganizationId() {

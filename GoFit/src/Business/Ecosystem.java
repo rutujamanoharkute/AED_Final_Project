@@ -20,12 +20,22 @@ public class Ecosystem extends Organization {
     private static Ecosystem business;
     private ArrayList<Network> networkList;
     private EnterpriseDirectory enterpriseDirectory;
+    
 
     public Ecosystem() {
         super(null);
          enterpriseDirectory=new EnterpriseDirectory();
         networkList = new ArrayList<Network>();
     }
+
+    public EnterpriseDirectory getEnterpriseDirectory() {
+        return enterpriseDirectory;
+    }
+
+    public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
+        this.enterpriseDirectory = enterpriseDirectory;
+    }
+    
 
     public static Ecosystem getBusiness() {
         return business;

@@ -23,10 +23,7 @@ public class Network {
         return enterpriseDirectory;
     }
 
-    public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
-        this.enterpriseDirectory = enterpriseDirectory;
-    }
-
+   
     public String getNetworkName() {
         return networkName;
     }
