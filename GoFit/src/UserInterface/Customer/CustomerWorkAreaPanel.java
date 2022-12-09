@@ -1014,10 +1014,10 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
 
     private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
         // TODO add your handling code here:
-//        PlaceOrderJPanel placeOrder =new PlaceOrderJPanel(userProcessContainer,customer,system,userAccount,enterprise, network);
-//        userProcessContainer.add("CustomerAnalysisJPanel",placeOrder);
-//        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
+        CustomerOrderPanel placeOrder =new CustomerOrderPanel(userProcessContainer,customer,system,userAccount,enterprise, network);
+        userProcessContainer.add("CustomerAnalysisJPanel",placeOrder);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnOrderActionPerformed
 
 
