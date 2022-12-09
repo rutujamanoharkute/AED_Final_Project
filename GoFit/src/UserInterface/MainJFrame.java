@@ -10,6 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import UserInterface.Customer.CreateNewCustomerPanel;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 
@@ -74,6 +75,11 @@ public class MainJFrame extends javax.swing.JFrame {
         btnSignUp.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnSignUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/addCustomer.png"))); // NOI18N
         btnSignUp.setText("SIGNUP");
+        btnSignUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignUpActionPerformed(evt);
+            }
+        });
 
         btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/logout.png"))); // NOI18N
@@ -247,6 +253,15 @@ public class MainJFrame extends javax.swing.JFrame {
 //        }
       
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
+        // TODO add your handling code here:
+        System.out.println("user list  " + system.getUserAccountList().getUserAccountList());
+        CreateNewCustomerPanel createCus =new CreateNewCustomerPanel(container, system);
+        container.add("SignUpJPanel",createCus);
+        CardLayout layout=(CardLayout)container.getLayout();
+        layout.next(container);
+    }//GEN-LAST:event_btnSignUpActionPerformed
 
     /**
      * @param args the command line arguments

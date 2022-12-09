@@ -7,6 +7,7 @@ package Business.UserAccount;
 import Business.Customer.Customer;
 import Business.Employee.Employee;
 import Business.Role.Role;
+import Business.WorkQueue.WorkQueue;
 
 /**
  *
@@ -18,6 +19,16 @@ public class UserAccount {
     private String password;
     private Employee employee;
     private Customer customer;
+     private WorkQueue workQueue;
+
+    public WorkQueue getWorkQueue() {
+        return workQueue;
+    }
+
+    public void setWorkQueue(WorkQueue workQueue) {
+        this.workQueue = workQueue;
+    }
+     
 
     public Customer getCustomer() {
         return customer;
