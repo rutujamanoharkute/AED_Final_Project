@@ -13,12 +13,11 @@ import java.util.ArrayList;
  */
 public class StoreOutletEnterprise extends Enterprise {
     public StoreOutletEnterprise(String name){
-            
         super(name,Enterprise.EnterpriseType.StoreOutlet);
     }
-
     @Override
     public ArrayList<Role> getSupportedRole() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return null;
     }
 }
+

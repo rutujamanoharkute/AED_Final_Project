@@ -15,7 +15,7 @@ public class DietRegimeEnterprise extends Enterprise {
 
     public DietRegimeEnterprise(String name) {
 
-        super(name, Enterprise.EnterpriseType.DietRegime);
+        super(name, EnterpriseType.DietRegime);
     }
 
     @Override

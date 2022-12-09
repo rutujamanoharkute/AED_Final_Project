@@ -47,5 +47,9 @@ public class EnterpriseDirectory {
        
         return enterprise;
     }
+    
+     public void removeEnterprise(Enterprise e){
+        enterpriseList.remove(e);
+    }
 
 }
