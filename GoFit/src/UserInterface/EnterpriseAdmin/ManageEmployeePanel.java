@@ -11,8 +11,10 @@ import Business.Organization.OrganizationDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -57,11 +59,11 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
         btnCreateEmployee = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         comboRole = new javax.swing.JComboBox();
@@ -86,16 +88,16 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
         jLabel3.setText("Role");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 90, 40));
 
-        jLabel4.setText("Name");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        lblName.setText("Name");
+        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
         add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 190, -1));
 
         jLabel5.setText("Email Id");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
         add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 190, -1));
 
-        jLabel6.setText("Password");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        lblPassword.setText("Password");
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         btnCreateEmployee.setText("CREATE");
         btnCreateEmployee.addActionListener(new java.awt.event.ActionListener() {
@@ -185,58 +187,47 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
 
     private void btnCreateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEmployeeActionPerformed
         // TODO add your handling code here:
-        String userName = txtEmail.getText();
-        String password = txtPassword.getText();
+        if (validateData()) {
+            String email = txtEmail.getText();
+            String password = txtPassword.getText();
 
-        Organization organization = (Organization) comboOrganization.getSelectedItem();
+            Organization organization = (Organization) comboOrganization.getSelectedItem();
 
-        Employee employee = new Employee();
-        employee.setEmployeeName(txtName.getText());
+            Employee employee = new Employee();
+            employee.setEmployeeName(txtName.getText());
 
-        Role role = (Role) comboRole.getSelectedItem();
+            Role role = (Role) comboRole.getSelectedItem();
 
-        if (!txtEmail.getText().isEmpty() && !txtPassword.getText().isEmpty() && !txtName.getText().isEmpty()) {
-            if (organization.getEmployeeList().checkIfUsernameUnique(userName)) {
-                if (emailPatternCorrect(userName)) {
-                    if (organization.getUserAccountList().checkIfUsernameUnique(userName)) {
-                        organization.getEmployeeList().createEmployee(txtName.getText());
-                        organization.getUserAccountList().createUserAccount(userName, password, employee, role);
-                        JOptionPane.showMessageDialog(this, "Employee is created successfully");
-                        txtEmail.setText("");
-                        txtPassword.setText("");
-                        txtName.setText("");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "The username you are trying to add already exists", "Warning", JOptionPane.WARNING_MESSAGE);
-                        txtEmail.setText("");
-                        return;
-                    }
+            if (organization.getEmployeeList().checkIfUsernameUnique(email)) {
+                if (organization.getUserAccountList().checkIfUsernameUnique(email)) {
+
+                    organization.getEmployeeList().createEmployee(txtName.getText());
+                    organization.getUserAccountList().createUserAccount(email, password, employee, role);
+                    JOptionPane.showMessageDialog(this, "Employee is created successfully");
+                    txtEmail.setText("");
+                    txtPassword.setText("");
+                    txtName.setText("");
                 } else {
-                    JOptionPane.showMessageDialog(null, "Add email in this format abc@gmail.com", "Warning", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "The username you are trying to add already exists", "Warning", JOptionPane.WARNING_MESSAGE);
                     txtEmail.setText("");
                     return;
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Employee already exists", "Warning", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Employee already exists", "Warning", JOptionPane.WARNING_MESSAGE);
                 txtName.setText("");
                 return;
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Please enter value in all fields", "Warning", JOptionPane.WARNING_MESSAGE);
-            txtName.setText("");
-            if (txtEmail.getText().isEmpty() && txtPassword.getText().isEmpty() && txtName.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please enter all fields", "Warning", JOptionPane.WARNING_MESSAGE);
 
-                return;
-            }
             if (userNameValid && nameValid && passwordValid) {
                 organization.getEmployeeList().createEmployee(txtName.getText());
-                organization.getUserAccountList().createUserAccount(userName, password, employee, role);
-                JOptionPane.showMessageDialog(null, "Employee created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                organization.getUserAccountList().createUserAccount(email, password, employee, role);
+                JOptionPane.showMessageDialog(this, "Employee created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
                 txtEmail.setText("");
                 txtPassword.setText("");
                 txtName.setText("");
 
             }
+
         }
 
 
@@ -244,8 +235,8 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
 
     private void comboOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOrganizationActionPerformed
         // TODO add your handling code here:
-              Organization organization = (Organization) comboOrganization.getSelectedItem();
-        if (organization != null){
+        Organization organization = (Organization) comboOrganization.getSelectedItem();
+        if (organization != null) {
             comboRolePopulate(organization);
         }
     }//GEN-LAST:event_comboOrganizationActionPerformed
@@ -284,11 +275,11 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPassword;
     private javax.swing.JComboBox organizationJComboBox;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
@@ -302,7 +293,7 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
             comboOrganization.addItem(organization);
         }
     }
-    
+
     private void comboRolePopulate(Organization organization) {
         comboRole.removeAllItems();
         for (Role r : organization.getSupportedRole()) {
@@ -313,15 +304,8 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
         }
     }
 
-    private boolean emailPatternCorrect(String userName) {
-        Pattern p = Pattern.compile("^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
-        Matcher m = p.matcher(userName);
-        boolean b = m.matches();
-        return b;
-    }
-
     private void populateTable(Organization organization) {
-       
+
         DefaultTableModel model = (DefaultTableModel) employeeJTable.getModel();
 
         model.setRowCount(0);
@@ -334,8 +318,7 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
             row[2] = userAccount;
             model.addRow(row);
 
-      
-    }
+        }
 
     }
 
@@ -345,6 +328,67 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
         for (Organization organization : organizationDirectory.getOrganizationList()) {
             organizationJComboBox.addItem(organization);
         }
+    }
+
+    private boolean validateData() {
+        String employeeName = txtName.getText();
+        String password = txtPassword.getText();
+
+        if (txtName.getText().length() <= 2 || !txtName.getText().matches("[a-zA-Z]+")) {
+            txtName.setBorder(BorderFactory.createLineBorder(Color.RED));
+            lblName.setForeground(Color.RED);
+            JOptionPane.showMessageDialog(this, "Please enter a valid name consisting of more than 2 letters");
+            return false;
+        }
+
+        if (employeeName == null || employeeName.equals("")) {
+            txtName.setBorder(BorderFactory.createLineBorder(Color.RED));
+            lblName.setForeground(Color.RED);
+            JOptionPane.showMessageDialog(null, "Please enter employee  name");
+            return false;
+        }
+
+        if (comboRole.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(this, "Please select an enterprise");
+            return false;
+        }
+        if (comboOrganization.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(this, "Please select a network");
+            return false;
+        }
+        if (password == null || password.equals("")) {
+            JOptionPane.showMessageDialog(null, "Password can't be empty.");
+            txtPassword.setBorder(BorderFactory.createLineBorder(Color.RED));
+            lblPassword.setForeground(Color.RED);
+            return false;
+        }
+
+        if (!passwordPatternCorrect()) {
+            JOptionPane.showMessageDialog(null, "Paasword should be at least 6 digits and+"
+                    + " a combination of number, uppercarse, lowercase abd secial cjaracter $,*,#,&");
+            txtPassword.setBorder(BorderFactory.createLineBorder(Color.RED));
+            return false;
+        }
+        if (!emailAddressValidation(txtEmail.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid email address");
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean emailAddressValidation(String email) {
+        String emailValidation = "^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+        Pattern pattern = Pattern.compile(emailValidation);
+        Matcher m = pattern.matcher(email);
+        return m.matches();
+    }
+
+    private boolean passwordPatternCorrect() {
+        Pattern p = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[$*#&])[A-Za-z\\d$*#&]{6,}$");
+        Matcher m = p.matcher(txtPassword.getText());
+        boolean b = m.matches();
+        return b;
     }
 
 }
