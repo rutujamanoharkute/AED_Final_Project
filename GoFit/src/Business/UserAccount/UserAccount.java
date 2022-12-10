@@ -19,7 +19,6 @@ public class UserAccount {
     private String password;
     private Employee employee;
     private Customer customer;
-     private WorkQueue workQueue;
     private WorkQueue workQueue;
      
     public UserAccount() {
