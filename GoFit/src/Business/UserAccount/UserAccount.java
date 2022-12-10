@@ -20,6 +20,11 @@ public class UserAccount {
     private Employee employee;
     private Customer customer;
      private WorkQueue workQueue;
+    private WorkQueue workQueue;
+     
+    public UserAccount() {
+        workQueue = new WorkQueue();
+    }
 
     public WorkQueue getWorkQueue() {
         return workQueue;
