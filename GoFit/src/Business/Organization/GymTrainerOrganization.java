@@ -12,9 +12,9 @@ import java.util.ArrayList;
  *
  * @author Harshada
  */
-public class GymTrainer extends Organization {
+public class GymTrainerOrganization extends Organization {
 
-    GymTrainer() {
+    GymTrainerOrganization() {
          super(Organization.Type.GymTrainer.getValue());
     }
 
