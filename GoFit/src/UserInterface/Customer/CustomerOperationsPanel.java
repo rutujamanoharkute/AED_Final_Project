@@ -15,6 +15,7 @@ import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.NutritionistWorkRequest;
 import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -77,7 +78,7 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
     }
     
      private void populateDietStatusTable() {
-        DefaultTableModel dtm = (DefaultTableModel) dietStatusTbl.getModel();
+        DefaultTableModel dtm = (DefaultTableModel) tblDietStatus.getModel();
         dtm.setRowCount(0);
         Organization org = null;
         for(Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()){
@@ -117,10 +118,10 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
 
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        dietStatusTbl = new javax.swing.JTable();
-        submitRequest = new javax.swing.JButton();
-        trainerAptBtn = new javax.swing.JButton();
-        btnDocApp = new javax.swing.JButton();
+        tblDietStatus = new javax.swing.JTable();
+        btnRequestToNutrition = new javax.swing.JButton();
+        btnTrainingWorkout = new javax.swing.JButton();
+        btnDoctorAppointment = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtBMI = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -128,10 +129,11 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         goalComboBox = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        backJButton = new javax.swing.JButton();
+        btnback = new javax.swing.JButton();
+        btnRequestToPersonalCoach = new javax.swing.JButton();
 
-        dietStatusTbl.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        dietStatusTbl.setModel(new javax.swing.table.DefaultTableModel(
+        tblDietStatus.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        tblDietStatus.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -150,29 +152,29 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(dietStatusTbl);
+        jScrollPane1.setViewportView(tblDietStatus);
 
-        submitRequest.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        submitRequest.setText("Submit Request to Nutrition");
-        submitRequest.addActionListener(new java.awt.event.ActionListener() {
+        btnRequestToNutrition.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        btnRequestToNutrition.setText("Submit Request to Nutrition");
+        btnRequestToNutrition.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitRequestActionPerformed(evt);
+                btnRequestToNutritionActionPerformed(evt);
             }
         });
 
-        trainerAptBtn.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        trainerAptBtn.setText("Get Training Workouts");
-        trainerAptBtn.addActionListener(new java.awt.event.ActionListener() {
+        btnTrainingWorkout.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        btnTrainingWorkout.setText("Get Training Workouts");
+        btnTrainingWorkout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                trainerAptBtnActionPerformed(evt);
+                btnTrainingWorkoutActionPerformed(evt);
             }
         });
 
-        btnDocApp.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        btnDocApp.setText("Get Doctor Appointment");
-        btnDocApp.addActionListener(new java.awt.event.ActionListener() {
+        btnDoctorAppointment.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        btnDoctorAppointment.setText("Get Doctor Appointment");
+        btnDoctorAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDocAppActionPerformed(evt);
+                btnDoctorAppointmentActionPerformed(evt);
             }
         });
 
@@ -214,11 +216,19 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Diet Status");
 
-        backJButton.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        backJButton.setText("<< Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
+        btnback.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        btnback.setText(" Back");
+        btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
+                btnbackActionPerformed(evt);
+            }
+        });
+
+        btnRequestToPersonalCoach.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        btnRequestToPersonalCoach.setText("PersonalCoach");
+        btnRequestToPersonalCoach.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRequestToPersonalCoachActionPerformed(evt);
             }
         });
 
@@ -228,38 +238,40 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                            .addGap(45, 45, 45)
-                            .addComponent(submitRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(52, 52, 52)
-                            .addComponent(trainerAptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnDocApp, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                            .addGap(21, 21, 21)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(58, 58, 58)
-                                .addComponent(goalComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtWtDec, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(61, 61, 61)
-                                    .addComponent(txtBMI, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addComponent(backJButton)
+                        .addComponent(btnback)
                         .addGap(55, 55, 55)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
+                            .addGap(48, 48, 48)
+                            .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(58, 58, 58)
+                                    .addComponent(goalComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtWtDec, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(61, 61, 61)
+                                        .addComponent(txtBMI, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRequestToPersonalCoach))
+                        .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                            .addGap(45, 45, 45)
+                            .addComponent(btnRequestToNutrition, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(48, 48, 48)
+                            .addComponent(btnTrainingWorkout, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDoctorAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                            .addGap(21, 21, 21)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -271,28 +283,33 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
                         .addComponent(jLabel5))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(backJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBMI, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtWtDec, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(goalComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(submitRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtWtDec, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(goalComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(52, 52, 52))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRequestToPersonalCoach, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)))
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRequestToNutrition, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(trainerAptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnDocApp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(77, Short.MAX_VALUE))
+                        .addComponent(btnTrainingWorkout, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDoctorAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -307,7 +324,7 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void submitRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitRequestActionPerformed
+    private void btnRequestToNutritionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestToNutritionActionPerformed
         // TODO add your handling code here:
         if(userAccount.getWorkQueue().getWorkRequestList().size()== 0){
             String bmi = txtBMI.getText();
@@ -373,23 +390,25 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
             }
         }
 
-    }//GEN-LAST:event_submitRequestActionPerformed
+    }//GEN-LAST:event_btnRequestToNutritionActionPerformed
 
-    private void trainerAptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trainerAptBtnActionPerformed
+    private void btnTrainingWorkoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrainingWorkoutActionPerformed
         // TODO add your handling code here:
-//        TrainerAppointmentJPanel trainer =new TrainerAppointmentJPanel(userProcessContainer, system, network, userAccount);
-//        userProcessContainer.add("TrainerAppointmentJPanel",trainer);
-//        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
-    }//GEN-LAST:event_trainerAptBtnActionPerformed
+        GymnTrainerPanel trainer =new  GymnTrainerPanel(userProcessContainer, system, network, userAccount);
+        userProcessContainer.add("FitnessTrainerJPanel", trainer);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
 
-    private void btnDocAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDocAppActionPerformed
-//        DoctorAppointmentJPanel doc =new DoctorAppointmentJPanel(userProcessContainer, system, network, userAccount);
-//        userProcessContainer.add("DoctorAppointmentJPanel",doc);
-//        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
+
+    }//GEN-LAST:event_btnTrainingWorkoutActionPerformed
+
+    private void btnDoctorAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorAppointmentActionPerformed
+        DoctorAppointmentPanel doc =new DoctorAppointmentPanel(userProcessContainer, system, network, userAccount);
+        userProcessContainer.add("DoctorAppointmentJPanel",doc);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnDocAppActionPerformed
+    }//GEN-LAST:event_btnDoctorAppointmentActionPerformed
 
     private void txtBMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBMIActionPerformed
         // TODO add your handling code here:
@@ -399,17 +418,28 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtWtDecActionPerformed
 
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-//        userProcessContainer.remove(this);
-//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
+    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnbackActionPerformed
+
+    private void btnRequestToPersonalCoachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestToPersonalCoachActionPerformed
+        // TODO add your handling code here:
+        PersonalCoachPanel doc =new PersonalCoachPanel(userProcessContainer, system, network, userAccount);
+        userProcessContainer.add("PersonalCoachJPanel",doc);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        
+    }//GEN-LAST:event_btnRequestToPersonalCoachActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backJButton;
-    private javax.swing.JButton btnDocApp;
-    private javax.swing.JTable dietStatusTbl;
+    private javax.swing.JButton btnDoctorAppointment;
+    private javax.swing.JButton btnRequestToNutrition;
+    private javax.swing.JButton btnRequestToPersonalCoach;
+    private javax.swing.JButton btnTrainingWorkout;
+    private javax.swing.JButton btnback;
     private javax.swing.JComboBox<String> goalComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -417,8 +447,7 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
-    private javax.swing.JButton submitRequest;
-    private javax.swing.JButton trainerAptBtn;
+    private javax.swing.JTable tblDietStatus;
     private javax.swing.JTextField txtBMI;
     private javax.swing.JTextField txtWtDec;
     // End of variables declaration//GEN-END:variables
