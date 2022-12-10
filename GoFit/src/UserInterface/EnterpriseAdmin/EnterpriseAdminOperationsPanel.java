@@ -103,7 +103,7 @@ public class EnterpriseAdminOperationsPanel extends javax.swing.JPanel {
 
     private void btnManageRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequestsActionPerformed
         // TODO add your handling code here:
-         ManageRequestsPanel manageRequestsPanel = new ManageRequestsPanel();
+         ManageRequestsPanel manageRequestsPanel = new ManageRequestsPanel(userContainer, enterprise,  account,  organization,  system);
         userContainer.add("manageEmployeePanel", manageRequestsPanel);
         CardLayout cardlayout = (CardLayout) userContainer.getLayout();
         cardlayout.next(userContainer);
