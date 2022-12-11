@@ -59,6 +59,8 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
         lblTitle = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setText("Organization");
 
         btnSearch.setText("Search");
