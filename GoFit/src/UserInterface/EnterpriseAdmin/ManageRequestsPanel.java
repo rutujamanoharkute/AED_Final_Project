@@ -180,6 +180,8 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        try
+        {
         comboEmployee.removeAllItems();
         String organization = comboOrganization.getSelectedItem().toString();
         for (Organization o : enterprise.getOrganizationDirectory().getOrganizationList()) {
@@ -191,11 +193,17 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
             }
             populateTableWorkRequest();
         }
-        // TODO add your handling code here:
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void assignBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignBtnActionPerformed
         // TODO add your handling code here:
+        try
+        {
         int selectedRow = tblWorkRequest.getSelectedRow();
         if (selectedRow >= 0)
         {
@@ -246,13 +254,25 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(this, "Please select a row to perform operation", "Error", JOptionPane.ERROR_MESSAGE);
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_assignBtnActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        try
+        {
         userContainer.remove(this);
         CardLayout layout = (CardLayout) userContainer.getLayout();
         layout.previous(userContainer);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_btnBackActionPerformed
 
 
@@ -270,12 +290,19 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateComboOrganization() {
+        try
+        {
          comboOrganization.removeAllItems();
 
         comboEmployee.removeAllItems();
 
         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
             comboOrganization.addItem(organization.toString());
+        }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
         }
     }
 

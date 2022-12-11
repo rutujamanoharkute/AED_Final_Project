@@ -21,7 +21,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
-
 /**
  *
  * @author Geets
@@ -34,40 +33,46 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
     NutritionistOrganization nutritionOrganisation;
     Network network;
     Ecosystem ecosystem;
+
     /**
      * Creates new form PhysiotherapistWorkAreaJPanel
      */
     public PhysiotherapistWorkAreaJPanel(JPanel userContainer, Enterprise enterprise, Organization organization, UserAccount account, Ecosystem business, Network network) {
         initComponents();
-         this.network = network;
-         this.enterprise = enterprise;
-         this.ecosystem = business;
-         this.userContainer = userContainer;
-         this.account = account;
-         
-         welLbl.setText(account.getEmployee().getEmployeeName() + "!!");
-         populateCustom();
-    
+        this.network = network;
+        this.enterprise = enterprise;
+        this.ecosystem = business;
+        this.userContainer = userContainer;
+        this.account = account;
+
+        welLbl.setText(account.getEmployee().getEmployeeName() + "!!");
+        populateCustom();
+
     }
-    public void populateCustom(){
-        DefaultTableModel dtm = (DefaultTableModel) CustomerListTbl.getModel();
-        dtm.setRowCount(0);
-        
-        for(Organization org: enterprise.getOrganizationDirectory().getOrganizationList()){
-        for(Employee emp : org.getEmployeeList().getEmployeeList()){
-            if(emp.toString().equals(account.getEmployee().getEmployeeName())){
-                for( WorkRequest request: account.getWorkQueue().getWorkRequestList()){
-                Customer cust = request.getSender().getCustomer();
-            
-            Object[] row = new Object[4];
-            row[0] = cust.getId();
-            row[1] = cust;
-            row[2] = request;
-            row[3] = request.getWorkStatus();
-            dtm.addRow(row);
-           }
+
+    public void populateCustom() {
+        try {
+            DefaultTableModel dtm = (DefaultTableModel) CustomerListTbl.getModel();
+            dtm.setRowCount(0);
+
+            for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
+                for (Employee emp : org.getEmployeeList().getEmployeeList()) {
+                    if (emp.toString().equals(account.getEmployee().getEmployeeName())) {
+                        for (WorkRequest request : account.getWorkQueue().getWorkRequestList()) {
+                            Customer cust = request.getSender().getCustomer();
+
+                            Object[] row = new Object[4];
+                            row[0] = cust.getId();
+                            row[1] = cust;
+                            row[2] = request;
+                            row[3] = request.getWorkStatus();
+                            dtm.addRow(row);
+                        }
+                    }
+                }
             }
-        }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please try again");
         }
     }
 
@@ -377,14 +382,16 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
 
     private void viewDetButnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetButnActionPerformed
         // TODO add your handling code here:
+        try
+        {
         int selectedRow = CustomerListTbl.getSelectedRow();
-        if(selectedRow >=0){
+        if (selectedRow >= 0) {
             Customer customer = (Customer) CustomerListTbl.getValueAt(selectedRow, 1);
             nameTxtField.setText(customer.getName());
             ageTxtField.setText(String.valueOf(customer.getAge()));
-            if(customer.getGender().toLowerCase().equals("male")){
+            if (customer.getGender().toLowerCase().equals("male")) {
                 Maleradio.setSelected(true);
-            }else{
+            } else {
                 Femaleradio.setSelected(false);
             }
             heightTxtField.setText(String.valueOf(customer.getHeight()));
@@ -395,9 +402,14 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
             noneCheckbox.setSelected(customer.getIs_None());
             thyroidCheckbox.setSelected(customer.getIs_thyroid());
             pcosCheckbox.setSelected(customer.getIs_pcos());
-            
-        }else{
-            JOptionPane.showMessageDialog(null,"Please Select a row","Error",JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please Select a row", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
         }
     }//GEN-LAST:event_viewDetButnActionPerformed
 
@@ -406,23 +418,30 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_hyperCheckboxActionPerformed
 
     private void ProcessReqjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcessReqjButtonActionPerformed
+        try
+        {
         int selectedRow = CustomerListTbl.getSelectedRow();
-        if(selectedRow >=0){
+        if (selectedRow >= 0) {
             PhysiotherapistWorkRequest request = (PhysiotherapistWorkRequest) CustomerListTbl.getValueAt(selectedRow, 2);
-            if(!"Result Posted".equals(request.getWorkStatus())){
+            if (!"Result Posted".equals(request.getWorkStatus())) {
                 request.setWorkStatus("Result Posted");
                 request.setPhysiotherapistResult(docMsgTxt.getText());
                 String email = request.getSender().getUsername();
                 String name = account.getEmployee().getEmployeeName();
                 populateCustom();
-                JOptionPane.showMessageDialog(null,"Email has been sent to Customer!","Success",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Email has been sent to Customer!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 docMsgTxt.setText("");
-            }else{
-                JOptionPane.showMessageDialog(null,"Result has been already Processed","INFORMATION",JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Result has been already Processed", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
             }
 
-        }else{
-            JOptionPane.showMessageDialog(null,"Please Select a row","Error",JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please Select a row", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
         }
 
         // TODO add your handling code here:

@@ -34,65 +34,70 @@ public class CustomerOrderPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private Ecosystem business;
     private Enterprise enterprise;
-    private int cartCount=0;
+    private int cartCount = 0;
     private String total;
     private int itemCount = 0;
     private ArrayList<Products> cusList;
     private ArrayList<Products> histList;
     private Customer customer;
     private Network network;
-    
-    
+
     public CustomerOrderPanel(JPanel userProcessContainer, Customer customer, Ecosystem system, UserAccount userAccount, Enterprise enterprise, Network network) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
         this.customer = customer;
-        this.business=system;
-        this.enterprise=enterprise;
+        this.business = system;
+        this.enterprise = enterprise;
         this.network = network;
         this.cusList = new ArrayList<>();
         this.histList = new ArrayList<>();
-        
+
         populateStoreProducts();
     }
 
-    private void populateStoreProducts(){
-    DefaultTableModel dtm = (DefaultTableModel) storeTbl.getModel();
-        dtm.setRowCount(0);
-        for(Network net : business.getNetworkList()){ 
-            for(Enterprise e: net.getEnterpriseDirectory().getEnterpriseList()){
-                 for(Products i: e.getProductsList()) {
-                    Object row[] = new Object[3];
-                    row[0] = i.getProductType();
-                    row[1] = i;
-                    row[2] = i.getPrice();
-                    dtm.addRow(row);
-                 }
-            }
-        }
-        
-       DefaultTableModel dtm1 = (DefaultTableModel) histTbl.getModel();
-       dtm1.setRowCount(0);
-        for(Network net : business.getNetworkList()){ 
-            for(Enterprise e : net.getEnterpriseDirectory().getEnterpriseList()){
-                for(Organization o: e.getOrganizationDirectory().getOrganizationList()){
-                    for(WorkRequest request : o.getWorkQueue().getWorkRequestList()){
-                           if(request.getReceiver() != null && request.getReceiver().getRole().toString().equals("Business.Role.DeliveryMan")){
-                               if(request.getWorkStatus().toLowerCase().equals("delivered")){
-                                   int ord = request.getRequestID();
-                                   Object row[] = new Object[4];
-                                        row[0] = ord;
-                                        row[1] = request.getWorkRequestDate();
-                                        row[2] = request;
-                                        row[3] = ((StoreOutletWorkRequest)request).getTotalBill();
-                                        dtm1.addRow(row);
-                               }
-                           }
+    private void populateStoreProducts() {
+        try {
+            DefaultTableModel dtm = (DefaultTableModel) storeTbl.getModel();
+            dtm.setRowCount(0);
+            for (Network net : business.getNetworkList()) {
+                for (Enterprise e : net.getEnterpriseDirectory().getEnterpriseList()) {
+                    for (Products i : e.getProductsList()) {
+                        Object row[] = new Object[3];
+                        row[0] = i.getProductType();
+                        row[1] = i;
+                        row[2] = i.getPrice();
+                        dtm.addRow(row);
                     }
                 }
             }
-        }}
+
+            DefaultTableModel dtm1 = (DefaultTableModel) histTbl.getModel();
+            dtm1.setRowCount(0);
+            for (Network net : business.getNetworkList()) {
+                for (Enterprise e : net.getEnterpriseDirectory().getEnterpriseList()) {
+                    for (Organization o : e.getOrganizationDirectory().getOrganizationList()) {
+                        for (WorkRequest request : o.getWorkQueue().getWorkRequestList()) {
+                            if (request.getReceiver() != null && request.getReceiver().getRole().toString().equals("Business.Role.DeliveryMan")) {
+                                if (request.getWorkStatus().toLowerCase().equals("delivered")) {
+                                    int ord = request.getRequestID();
+                                    Object row[] = new Object[4];
+                                    row[0] = ord;
+                                    row[1] = request.getWorkRequestDate();
+                                    row[2] = request;
+                                    row[3] = ((StoreOutletWorkRequest) request).getTotalBill();
+                                    dtm1.addRow(row);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please try again");
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -325,71 +330,86 @@ public class CustomerOrderPanel extends javax.swing.JPanel {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        try {
+            userProcessContainer.remove(this);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.previous(userProcessContainer);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void addToCartBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartBtnActionPerformed
         // TODO add your handling code here:
-        int selectedRow = storeTbl.getSelectedRow();
-        if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, "Please select a row","Error",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        else{
-            Products i = (Products)storeTbl.getValueAt(selectedRow,1);
-            cartCount++;
-            cusList.add(i);
-            this.total=populateTable();
-            totBillTxt.setText(this.total);
-            JOptionPane.showMessageDialog(null, "Added to cart successfully","Success",JOptionPane.INFORMATION_MESSAGE);
+        try {
+            int selectedRow = storeTbl.getSelectedRow();
+            if (selectedRow < 0) {
+                JOptionPane.showMessageDialog(null, "Please select a row", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            } else {
+                Products i = (Products) storeTbl.getValueAt(selectedRow, 1);
+                cartCount++;
+                cusList.add(i);
+                this.total = populateTable();
+                totBillTxt.setText(this.total);
+                JOptionPane.showMessageDialog(null, "Added to cart successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please try again");
         }
     }//GEN-LAST:event_addToCartBtnActionPerformed
 
     private void addToCartHistBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartHistBtnActionPerformed
         // TODO add your handling code here:
-        int selectedRow = histTbl.getSelectedRow();
-        if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, "Please select a row","Error",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        else{
-            WorkRequest i = (WorkRequest)histTbl.getValueAt(selectedRow,2);
-            histList = ((StoreOutletWorkRequest)i).getCustomerList();
-            DefaultTableModel dtm = (DefaultTableModel) histItemTbl.getModel();
-            dtm.setRowCount(0);
-            for(int d=0;d<histList.size();d++){
-                Object row[] = new Object[2];
+        try {
+            int selectedRow = histTbl.getSelectedRow();
+            if (selectedRow < 0) {
+                JOptionPane.showMessageDialog(null, "Please select a row", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            } else {
+                WorkRequest i = (WorkRequest) histTbl.getValueAt(selectedRow, 2);
+                histList = ((StoreOutletWorkRequest) i).getCustomerList();
+                DefaultTableModel dtm = (DefaultTableModel) histItemTbl.getModel();
+                dtm.setRowCount(0);
+                for (int d = 0; d < histList.size(); d++) {
+                    Object row[] = new Object[2];
 
-                row[0] = histList.get(d).getProductName();
-                row[1] = histList.get(d).getPrice();
-                dtm.addRow(row);
+                    row[0] = histList.get(d).getProductName();
+                    row[1] = histList.get(d).getPrice();
+                    dtm.addRow(row);
+                }
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please try again");
         }
 
     }//GEN-LAST:event_addToCartHistBtnActionPerformed
 
     private void delCartBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delCartBtnActionPerformed
         // TODO add your handling code here:
-        int selectedRow = invoiceTbl.getSelectedRow();
-        if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, "Please select a row","Error",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        else{
-            Products i = (Products)invoiceTbl.getValueAt(selectedRow,0 );
-            cusList.remove(i);
-            this.total=populateTable();
-            totBillTxt.setText(this.total);
+        try {
+            int selectedRow = invoiceTbl.getSelectedRow();
+            if (selectedRow < 0) {
+                JOptionPane.showMessageDialog(null, "Please select a row", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            } else {
+                Products i = (Products) invoiceTbl.getValueAt(selectedRow, 0);
+                cusList.remove(i);
+                this.total = populateTable();
+                totBillTxt.setText(this.total);
 
-            //JOptionPane.showMessageDialog(null, "Deleted from cart successfully","Success",JOptionPane.INFORMATION_MESSAGE)
+                //JOptionPane.showMessageDialog(null, "Deleted from cart successfully","Success",JOptionPane.INFORMATION_MESSAGE)
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please try again");
         }
     }//GEN-LAST:event_delCartBtnActionPerformed
 
     private void placeOrderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placeOrderBtnActionPerformed
         // TODO add your handling code here:
-        if(invoiceTbl.getRowCount() > 0 && cartCount > 0){
+        try
+        {
+        if (invoiceTbl.getRowCount() > 0 && cartCount > 0) {
             StoreOutletWorkRequest request = new StoreOutletWorkRequest();
             request.setCustomerList(cusList);
             request.setSender(userAccount);
@@ -397,11 +417,11 @@ public class CustomerOrderPanel extends javax.swing.JPanel {
             request.setTotalBill(Integer.parseInt(totBillTxt.getText()));
             request.setWorkMessage(customerNotes.getText());
             Organization org = null;
-            for(Network net: business.getNetworkList()){
-                for(Enterprise enter : net.getEnterpriseDirectory().getEnterpriseList()){
-                    if(enter instanceof StoreOutletEnterprise){
-                        for (Organization organization : enter.getOrganizationDirectory().getOrganizationList()){
-                            if (organization instanceof StoreOutletOrganization){
+            for (Network net : business.getNetworkList()) {
+                for (Enterprise enter : net.getEnterpriseDirectory().getEnterpriseList()) {
+                    if (enter instanceof StoreOutletEnterprise) {
+                        for (Organization organization : enter.getOrganizationDirectory().getOrganizationList()) {
+                            if (organization instanceof StoreOutletOrganization) {
                                 org = organization;
                                 break;
                             }
@@ -410,54 +430,62 @@ public class CustomerOrderPanel extends javax.swing.JPanel {
                 }
             }
 
-            if (org!=null){
+            if (org != null) {
                 org.getWorkQueue().getWorkRequestList().add(request);
                 userAccount.getWorkQueue().getWorkRequestList().add(request);
-                JOptionPane.showMessageDialog(null, "Order placed successfully","Success",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Order placed successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
             }
 
-        }else{
-            JOptionPane.showMessageDialog(null, "Please add the menus to the cart to place the order.","INFORMATION",JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please add the menus to the cart to place the order.", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
             return;
+        }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
         }
 
     }//GEN-LAST:event_placeOrderBtnActionPerformed
 
-    
-        private void populateRequestTable(String name) {
+    private void populateRequestTable(String name) {
+        try
+        {
         DefaultTableModel dtm = (DefaultTableModel) storeTbl.getModel();
         dtm.setRowCount(0);
-        for(Enterprise e:business.getEnterpriseDirectory().getEnterpriseList())
-        {
-            if(name == String.valueOf(e)){
-                 for(Products item:e.getProductsList())
-                    {
-                         Object row[] = new Object[2];
-                         row[0] = item;
-                         row[1] = item.getPrice();
-                         dtm.addRow(row);
-                     }
+        for (Enterprise e : business.getEnterpriseDirectory().getEnterpriseList()) {
+            if (name == String.valueOf(e)) {
+                for (Products item : e.getProductsList()) {
+                    Object row[] = new Object[2];
+                    row[0] = item;
+                    row[1] = item.getPrice();
+                    dtm.addRow(row);
+                }
             }
-      
+
+        }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
         }
     }
 
-    public String populateTable(){
+    public String populateTable() {
         DefaultTableModel dtm = (DefaultTableModel) invoiceTbl.getModel();
         dtm.setRowCount(0);
-        int totalBill=0;
-        for(int i=itemCount;i<cusList.size();i++) {
+        int totalBill = 0;
+        for (int i = itemCount; i < cusList.size(); i++) {
             Object row[] = new Object[2];
-            
+
             row[0] = cusList.get(i);
             row[1] = cusList.get(i).getPrice();
-            totalBill=totalBill+ cusList.get(i).getPrice();
+            totalBill = totalBill + cusList.get(i).getPrice();
             dtm.addRow(row);
         }
-        
-        
-    return String.valueOf(totalBill);
-     }
+
+        return String.valueOf(totalBill);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addToCartBtn;

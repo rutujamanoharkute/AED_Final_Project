@@ -43,6 +43,8 @@ public class CardiologistPanel extends javax.swing.JPanel {
     }
     
     private void populateCardioStatusTable() {
+        try
+        {
          DefaultTableModel dtm = (DefaultTableModel) cardioTbl.getModel();
         dtm.setRowCount(0);
         Organization org = null;
@@ -69,6 +71,11 @@ public class CardiologistPanel extends javax.swing.JPanel {
             dtm.addRow(row);
             }
     }
+        }
+        }
+          catch(Exception e)
+        {
+            System.out.println("Something went wrong. Please try again");
         }
     }
 
@@ -192,6 +199,8 @@ public class CardiologistPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBookAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAppointmentActionPerformed
+        try
+        {
         if(userAccount.getWorkQueue().getWorkRequestList().size()== 0){
            CardiologistWorkRequest req = new CardiologistWorkRequest();
             req.setSender(userAccount);
@@ -247,6 +256,11 @@ public class CardiologistPanel extends javax.swing.JPanel {
             } else {
                 JOptionPane.showMessageDialog(null,"Please wait until the previous request has been processed !","Alert",JOptionPane.WARNING_MESSAGE);
             }
+        }
+        }
+          catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Please try again");
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBookAppointmentActionPerformed

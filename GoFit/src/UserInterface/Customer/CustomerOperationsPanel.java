@@ -53,6 +53,8 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
     }
     
     public void calculateBMI(){
+        try
+        {
        double heightMts = customer.getHeight()/100;
        double heightSquare = heightMts*heightMts;
        bmi = customer.getWeight()/heightSquare;
@@ -60,9 +62,16 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
        String bmiStr = String.format("%.2f", bmi);
        txtBMI.setText(String.valueOf(bmiStr));
       // txtHealthIssue.setText(customer.getHealthIssue());
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }
     
     public void calculateWeightCategory(){
+        try
+        {
         if(bmi <= 18.5){
             txtWtDec.setText("UNDER WEIGHT");
         }
@@ -75,9 +84,16 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
         else if(bmi >= 30){
             txtWtDec.setText("OBESE");
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }
     
      private void populateDietStatusTable() {
+         try
+         {
         DefaultTableModel dtm = (DefaultTableModel) tblDietStatus.getModel();
         dtm.setRowCount(0);
         Organization org = null;
@@ -104,6 +120,11 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
             dtm.addRow(row);
             }
     }
+        }
+         }
+          catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
         }
     }
 
@@ -326,6 +347,8 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
 
     private void btnRequestToNutritionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestToNutritionActionPerformed
         // TODO add your handling code here:
+        try
+        {
         if(userAccount.getWorkQueue().getWorkRequestList().size()== 0){
             String bmi = txtBMI.getText();
             String goal = (String)goalComboBox.getSelectedItem();
@@ -389,24 +412,43 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null,"Please wait until the previous request has been processed !","Alert",JOptionPane.WARNING_MESSAGE);
             }
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
 
     }//GEN-LAST:event_btnRequestToNutritionActionPerformed
 
     private void btnTrainingWorkoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrainingWorkoutActionPerformed
         // TODO add your handling code here:
+        try
+        {
         GymTrainerPanel trainer =new  GymTrainerPanel(userProcessContainer, system, network, userAccount);
         userProcessContainer.add("FitnessTrainerJPanel", trainer);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
 
 
     }//GEN-LAST:event_btnTrainingWorkoutActionPerformed
 
     private void btnDoctorAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorAppointmentActionPerformed
+        try
+        {
         DoctorAppointmentPanel doc =new DoctorAppointmentPanel(userProcessContainer, system, network, userAccount);
         userProcessContainer.add("DoctorAppointmentJPanel",doc);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDoctorAppointmentActionPerformed
 
@@ -419,17 +461,31 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtWtDecActionPerformed
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
+        try
+        {
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_btnbackActionPerformed
 
     private void btnRequestToPersonalCoachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestToPersonalCoachActionPerformed
         // TODO add your handling code here:
+        try
+        {
         PersonalCoachPanel doc =new PersonalCoachPanel(userProcessContainer, system, network, userAccount);
         userProcessContainer.add("PersonalCoachJPanel",doc);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
         
     }//GEN-LAST:event_btnRequestToPersonalCoachActionPerformed
 

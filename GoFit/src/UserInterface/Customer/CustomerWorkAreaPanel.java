@@ -236,11 +236,6 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
         lblCustomerRegistration.setText("Customer Registration");
         kGradientPanel1.add(lblCustomerRegistration, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
 
-        txtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
-            }
-        });
         txtName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNameKeyReleased(evt);
@@ -608,12 +603,10 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
-
     private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
         // TODO add your handling code here:
+        try
+        {
         if (!checkNamePattern(txtName.getText()) && !(txtName.getText().isEmpty())){
             lblNameValidation.setVisible(true);
             lblNameTick.setVisible(false);
@@ -625,11 +618,17 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
             lblNameValidation.setVisible(false);
             lblNameTick.setVisible(true);
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_txtNameKeyReleased
 
     private void txtAgeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyReleased
         // TODO add your handling code here:
-
+        try
+        {
         int age=0;
         try{
             age = Integer.parseInt(txtAge.getText());
@@ -661,10 +660,17 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
             ageValid = true;
             lblAgeTick.setVisible(true);
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_txtAgeKeyReleased
 
     private void txtAddressKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyReleased
         // TODO add your handling code here:
+        try
+        {
         if(!checkAddressPattern(txtAddress.getText()) && !(txtAddress.getText().isEmpty())){
             lblAddressTick.setVisible(false);
             lblAddressValidation.setVisible(true);
@@ -675,10 +681,17 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
             lblAddressValidation.setVisible(false);
             lblAddressTick.setVisible(true);
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_txtAddressKeyReleased
 
     private void txtPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyReleased
         // TODO add your handling code here:
+        try
+        {
         if(! checkPasswordPattern(txtPassword.getText()) && !(txtPassword.getText().isEmpty())){
             lblPasswordTick.setVisible(false);
             lblPasswordValidation.setVisible(true);
@@ -690,10 +703,17 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
             lblPasswordValidation.setVisible(false);
             lblPasswordTick.setVisible(true);
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_txtPasswordKeyReleased
 
     private void txtCityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCityKeyReleased
         // TODO add your handling code here:
+        try
+        {
         if(! checkCityPattern(txtCity.getText()) && !(txtCity.getText().isEmpty())){
             lblCityTick.setVisible(false);
             lblCityValidation.setVisible(true);
@@ -708,10 +728,17 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
             lblCityValidation.setVisible(false);
             lblCityTick.setVisible(true);
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_txtCityKeyReleased
 
     private void txtZipKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtZipKeyReleased
         // TODO add your handling code here:
+        try
+        {
         int zip=0;
         try{
             zip = Integer.parseInt(txtZip.getText());
@@ -737,6 +764,11 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
                 return;
             }
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_txtZipKeyReleased
 
     private void radioFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioFemaleActionPerformed
@@ -757,6 +789,8 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
 
     private void txtHeightKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHeightKeyReleased
         // TODO add your handling code here:
+        try
+        {
         int height=0;
         if(txtHeight.getText().isEmpty()){
             lblHeightTick.setVisible(false);
@@ -786,10 +820,17 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
             lblHeightValidation.setVisible(false);
             lblHeightTick.setVisible(true);
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_txtHeightKeyReleased
 
     private void txtWeightKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtWeightKeyReleased
         // TODO add your handling code here:
+        try
+        {
         int weight=0;
         if(txtWeight.getText().isEmpty()){
             //        weightSuccessLbl.setVisible(false);
@@ -818,6 +859,11 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
             weightValid = true;
             lblWeightValidation.setVisible(false);
             lblWeightTick.setVisible(true);
+        }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
         }
     }//GEN-LAST:event_txtWeightKeyReleased
 
@@ -876,6 +922,8 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+        try
+        {
         Network network = (Network) combxNetwork.getSelectedItem();
         if(txtName.getText().isEmpty() || txtAge.getText().isEmpty() || txtWeight.getText().isEmpty() || txtHeight.getText().isEmpty() || txtAddress.getText().isEmpty() || txtCity.getText().isEmpty() || txtZip.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Field(s) cannot be Empty!","Error",JOptionPane.ERROR_MESSAGE);
@@ -943,47 +991,17 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
         }else {
             JOptionPane.showMessageDialog(null, "Please enter all the required fields correctly!","Error",JOptionPane.ERROR_MESSAGE);
         }
-
-        /*String name = txtName.getText();
-        String add = txtAdress.getText();
-        String city = txtCity.getText();
-        String gender="";
-        if(maleRadioBtn.isSelected()){
-            gender = "Male";
-        }else{
-            gender = "Female";
         }
-        customer = new Customer();
-        customer.setName(name);
-        customer.setHeight(Integer.parseInt(txtHeight.getText()));
-        customer.setWeight(Integer.parseInt(txtWeight.getText()));
-        customer.setGender(gender);
-        customer.setAge(Integer.parseInt(txtAge.getText()));
-        customer.setAddress(add);
-        customer.setCity(city);
-        customer.setZipcode(Integer.parseInt(txtZipcode.getText()));
-        customer.setNone(noneChkBox.isSelected());
-        customer.setDiabetes(diabetesChkBox.isSelected());
-        customer.setCholestrol(cholestrolChkBox.isSelected());
-        customer.setHypertension(hyperChkBox.isSelected());
-        customer.setPcos(pcosChkBox.isSelected());
-        customer.setThyroid(thyroidChkBox.isSelected());
-
-        // User Name Already Exists Validation
-        if(system.getCustomerDirectory().checkIfUsernameIsUnique(customer.getEmail())){
-            system.getCustomerDirectory().createCustomer(customer);
-            //system.getUserAccountDirectory().createUserAccount(customer, new CustomerRole());
-            JOptionPane.showMessageDialog(null, "Customer added successfully");
-            //clearValues();
+        catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Customer already exists");
-        }*/
-        // Disable Back
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        try
+        {
         txtName.setEditable(true);
         txtName.setEnabled(true);
         txtAge.setEditable(true);
@@ -1011,31 +1029,56 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
         chkbxThyroid.setEnabled(true);
         btnSave.setEnabled(true);
         btnUpdate.setEnabled(false);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnOperationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOperationsActionPerformed
-
+        try
+        {
         CustomerOperationsPanel customerOperationsPanel  = new CustomerOperationsPanel(userProcessContainer,customer,system,userAccount,enterprise, network);
         userProcessContainer.add("CustomerAnalysisJPanel",customerOperationsPanel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnOperationsActionPerformed
 
     private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
         // TODO add your handling code here:
+        try
+        {
         CustomerOrderPanel placeOrder =new CustomerOrderPanel(userProcessContainer,customer,system,userAccount,enterprise, network);
         userProcessContainer.add("CustomerAnalysisJPanel",placeOrder);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_btnOrderActionPerformed
 
     private void btnGraphActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraphActionPerformed
         // TODO add your handling code here:
+        try
+        {
         CustomerGraph customergraph  = new CustomerGraph(userProcessContainer,customer,system,userAccount,enterprise, network);
         userProcessContainer.add("customergraph",customergraph);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_btnGraphActionPerformed
 
 
