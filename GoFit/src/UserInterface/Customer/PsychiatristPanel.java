@@ -43,7 +43,7 @@ public class PsychiatristPanel extends javax.swing.JPanel {
   
     
       private void populatePsychStatusTable() {
-         DefaultTableModel dtm = (DefaultTableModel) physioTbl.getModel();
+         DefaultTableModel dtm = (DefaultTableModel) psychTbl.getModel();
         dtm.setRowCount(0);
         Organization org = null;
         for(Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()){
@@ -88,7 +88,7 @@ public class PsychiatristPanel extends javax.swing.JPanel {
         msgTxt = new javax.swing.JTextArea();
         btnBookAppointment = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        physioTbl = new javax.swing.JTable();
+        psychTbl = new javax.swing.JTable();
         backBtn = new javax.swing.JButton();
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -123,8 +123,8 @@ public class PsychiatristPanel extends javax.swing.JPanel {
         });
         kGradientPanel1.add(btnBookAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 150, 30));
 
-        physioTbl.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        physioTbl.setModel(new javax.swing.table.DefaultTableModel(
+        psychTbl.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        psychTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -143,7 +143,7 @@ public class PsychiatristPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(physioTbl);
+        jScrollPane2.setViewportView(psychTbl);
 
         kGradientPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 480, 80));
 
@@ -257,6 +257,6 @@ public class PsychiatristPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTextArea msgTxt;
-    private javax.swing.JTable physioTbl;
+    private javax.swing.JTable psychTbl;
     // End of variables declaration//GEN-END:variables
 }
