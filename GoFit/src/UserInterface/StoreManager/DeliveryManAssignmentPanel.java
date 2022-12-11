@@ -113,13 +113,20 @@ public class DeliveryManAssignmentPanel extends javax.swing.JPanel {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
+       try{
         userContainer.remove(this);
         CardLayout layout = (CardLayout)userContainer.getLayout();
         layout.previous(userContainer);
+       }
+       catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void appointDelManBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appointDelManBtnActionPerformed
         // TODO add your handling code here:
+        try{
         for(Organization org: enterprise.getOrganizationDirectory().getOrganizationList()){
             for(UserAccount user: org.getUserAccountList().getUserAccountList()){
                 if(deliveryManCmbBox.getSelectedItem().equals(user.getEmployee().getEmployeeName())){
@@ -129,6 +136,10 @@ public class DeliveryManAssignmentPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this, "Deliveryman assigned successfully!","Success",JOptionPane.INFORMATION_MESSAGE);
                 }
             }
+        }}
+        catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
         }
     }//GEN-LAST:event_appointDelManBtnActionPerformed
 
