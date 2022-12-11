@@ -10,6 +10,7 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import UserInterface.Psychiatrist.PsychiatristWorkAreaJPanel;
 
 /**
  *
@@ -18,8 +19,8 @@ import javax.swing.JPanel;
 public class Psychiatrist extends Role {
 
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, Enterprise enterprise, Organization organization, UserAccount account, Ecosystem business, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public JPanel createWorkArea(JPanel userContainer, Enterprise enterprise, Organization organization, UserAccount account, Ecosystem business, Network network) {
+       return new PsychiatristWorkAreaJPanel(userContainer, enterprise, organization, account, business, network);
     }
     
 }
