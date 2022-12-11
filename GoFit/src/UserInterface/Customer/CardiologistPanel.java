@@ -43,7 +43,7 @@ public class CardiologistPanel extends javax.swing.JPanel {
     }
     
     private void populateCardioStatusTable() {
-         DefaultTableModel dtm = (DefaultTableModel) physioTbl.getModel();
+         DefaultTableModel dtm = (DefaultTableModel) cardioTbl.getModel();
         dtm.setRowCount(0);
         Organization org = null;
         for(Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()){
@@ -90,7 +90,7 @@ public class CardiologistPanel extends javax.swing.JPanel {
         msgTxt = new javax.swing.JTextArea();
         btnBookAppointment = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        physioTbl = new javax.swing.JTable();
+        cardioTbl = new javax.swing.JTable();
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -123,8 +123,8 @@ public class CardiologistPanel extends javax.swing.JPanel {
         });
         kGradientPanel1.add(btnBookAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 150, 30));
 
-        physioTbl.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        physioTbl.setModel(new javax.swing.table.DefaultTableModel(
+        cardioTbl.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        cardioTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -143,7 +143,7 @@ public class CardiologistPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(physioTbl);
+        jScrollPane2.setViewportView(cardioTbl);
 
         kGradientPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 480, 80));
 
@@ -196,7 +196,7 @@ public class CardiologistPanel extends javax.swing.JPanel {
            CardiologistWorkRequest req = new CardiologistWorkRequest();
             req.setSender(userAccount);
             req.setWorkMessage(msgTxt.getText());
-            req.setWorkStatus("Request sent to Physiotherapist");
+            req.setWorkStatus("Request sent to Cardiologist");
             Organization org = null;
 
             for(Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()){
@@ -224,7 +224,7 @@ public class CardiologistPanel extends javax.swing.JPanel {
                CardiologistWorkRequest req = new CardiologistWorkRequest();
                 req.setSender(userAccount);
                 req.setWorkMessage(msgTxt.getText());
-                req.setWorkStatus("Request sent to Physiotherapist");
+                req.setWorkStatus("Request sent to Cardiologist");
                 Organization org = null;
 
                 for(Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()){
@@ -254,6 +254,7 @@ public class CardiologistPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBookAppointment;
+    private javax.swing.JTable cardioTbl;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
@@ -262,6 +263,5 @@ public class CardiologistPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTextArea msgTxt;
-    private javax.swing.JTable physioTbl;
     // End of variables declaration//GEN-END:variables
 }
