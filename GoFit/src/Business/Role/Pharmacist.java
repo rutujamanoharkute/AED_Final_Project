@@ -9,6 +9,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import UserInterface.StoreManager.ManageStoreOperationsPanel;
 import javax.swing.JPanel;
 
 /**
@@ -19,7 +20,7 @@ public class Pharmacist extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, Enterprise enterprise, Organization organization, UserAccount account, Ecosystem business, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       return new ManageStoreOperationsPanel(userProcessContainer, enterprise, organization, account, business, network);
     }
     
 }
