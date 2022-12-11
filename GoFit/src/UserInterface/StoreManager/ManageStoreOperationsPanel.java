@@ -10,6 +10,7 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -100,17 +101,32 @@ public class ManageStoreOperationsPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageInventoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageInventoryBtnActionPerformed
-        ManageStockPanel panel = new ManageStockPanel(userContainer,organization,system,enterprise,account);
+        try {
+            ManageStockPanel panel = new ManageStockPanel(userContainer,organization,system,enterprise,account);
         userContainer.add("ManageStockPanel", panel);
         CardLayout layout = (CardLayout) userContainer.getLayout();
         layout.next(userContainer);
+        }
+        
+        catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_manageInventoryBtnActionPerformed
 
     private void manageOrdersBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrdersBtnActionPerformed
-        ManageOrdersPanel panel = new ManageOrdersPanel(userContainer,organization, system,enterprise,account);
+       try {
+           ManageOrdersPanel panel = new ManageOrdersPanel(userContainer,organization, system,enterprise,account);
+       
         userContainer.add("ManageOrdersJPanel", panel);
         CardLayout layout = (CardLayout) userContainer.getLayout();
         layout.next(userContainer);
+       }
+       catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
+       
     }//GEN-LAST:event_manageOrdersBtnActionPerformed
 
 
