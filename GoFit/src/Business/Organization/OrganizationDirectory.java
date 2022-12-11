@@ -52,7 +52,7 @@ public class OrganizationDirectory {
             organizationList.add(organization);
         }
          else if (type.getValue().equals(Organization.Type.GymTrainer.getValue())){
-            organization = new GymTrainer();
+            organization = new GymTrainerOrganization();
             organizationList.add(organization);
         }
          /*TBD*/

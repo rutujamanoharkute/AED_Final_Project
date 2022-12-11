@@ -6,6 +6,7 @@ package Business.WorkQueue;
 
 import Business.UserAccount.UserAccount;
 import java.util.Date;
+import java.util.Random;
 
 /**
  *
@@ -17,16 +18,30 @@ public class WorkRequest {
     private String workStatus;
     private Date workRequestDate;
     private Date workResolvedDate;
-       private UserAccount userAccountRequested;
+    private UserAccount sender;
     private UserAccount receiver;
-    private String status;
-
-    public UserAccount getUserAccountRequested() {
-        return userAccountRequested;
+    private int RequestID;
+    
+     public WorkRequest(){
+        workRequestDate = new Date();
+        Random r = new Random();
+        RequestID = r.nextInt();
     }
 
-    public void setUserAccountRequested(UserAccount userAccountRequested) {
-        this.userAccountRequested = userAccountRequested;
+    public int getRequestID() {
+        return RequestID;
+    }
+
+    public void setRequestID(int RequestID) {
+        this.RequestID = RequestID;
+    }
+
+    public UserAccount getSender() {
+        return sender;
+    }
+
+    public void setSender(UserAccount sender) {
+        this.sender = sender;
     }
 
     public UserAccount getReceiver() {
@@ -35,14 +50,6 @@ public class WorkRequest {
 
     public void setReceiver(UserAccount receiver) {
         this.receiver = receiver;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public String getWorkMessage() {
@@ -75,6 +82,10 @@ public class WorkRequest {
 
     public void setWorkResolvedDate(Date workResolvedDate) {
         this.workResolvedDate = workResolvedDate;
+    }
+     @Override
+    public String toString() {
+        return workMessage;
     }
 
 }

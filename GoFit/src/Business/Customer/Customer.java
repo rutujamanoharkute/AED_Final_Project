@@ -32,6 +32,24 @@ public class Customer {
     private double calBMI;
     private Network network;
 
+    public Boolean getIs_None() {
+        return is_None;
+    }
+
+    public void setIs_None(Boolean is_None) {
+        this.is_None = is_None;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+    private Boolean is_None;
+    private String city;
+
     public Network getNetwork() {
         return network;
     }
@@ -168,7 +186,7 @@ public class Customer {
         this.is_cholestrol = is_cholestrol;
     }
 
-    public boolean isIs_hypertension() {
+    public boolean getIs_hypertension() {
         return is_hypertension;
     }
 

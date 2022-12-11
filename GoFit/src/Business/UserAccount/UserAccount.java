@@ -14,19 +14,26 @@ import Business.WorkQueue.WorkQueue;
  * @author Harshada
  */
 public class UserAccount {
-    
+
     private String username;
     private String password;
     private Employee employee;
     private Customer customer;
-        public WorkQueue getWorkQueue() {
+    private WorkQueue workQueue;
+
+    public UserAccount()
+    {
+        workQueue = new WorkQueue();
+    }
+    
+    
+    public WorkQueue getWorkQueue() {
         return workQueue;
     }
 
     public void setWorkQueue(WorkQueue workQueue) {
         this.workQueue = workQueue;
     }
-    private WorkQueue workQueue;
     
 
     public Customer getCustomer() {
@@ -69,7 +76,8 @@ public class UserAccount {
     public void setPassword(String password) {
         this.password = password;
     }
-      @Override
+
+    @Override
     public String toString() {
         return username;
     }

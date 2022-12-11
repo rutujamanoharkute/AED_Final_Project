@@ -198,7 +198,7 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
         if (selectedRow >= 0)
         {
             WorkRequest r = (WorkRequest) tblWorkRequest.getValueAt(selectedRow, 2);
-            if (!r.getStatus().equals("Assigned") && !r.getStatus().equals("Result Posted"))
+            if (!r.getWorkStatus().equals("Assigned") && !r.getWorkStatus().equals("Result Posted"))
             {
                 for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList())
                 {
@@ -217,14 +217,14 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
 
                                 } else {
                                     r.setReceiver(user);
-                                    r.setStatus("Assigned");
+                                    r.setWorkStatus("Assigned");
                                     JOptionPane.showMessageDialog(this, "Request has been assigned successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
                                     user.getWorkQueue().getWorkRequestList().add(r);
 
                                 }
                             } else {
                                 r.setReceiver(user);
-                                r.setStatus("Assigned");
+                                r.setWorkStatus("Assigned");
                                 JOptionPane.showMessageDialog(this, "Request is assigned successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
                                 user.getWorkQueue().getWorkRequestList().add(r);
 
@@ -234,9 +234,9 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
                 }
                 populateTableWorkRequest();
             } else {
-                if (r.getStatus().equals("Assigned")) {
+                if (r.getWorkStatus().equals("Assigned")) {
                     JOptionPane.showMessageDialog(this, "Request is assigned already. Please wait till it gets processed", "Alert", JOptionPane.INFORMATION_MESSAGE);
-                } else if (r.getStatus().equals("Result has been posted. Please check")) {
+                } else if (r.getWorkStatus().equals("Result has been posted. Please check")) {
                     JOptionPane.showMessageDialog(this, "Request is posted already", "Alert", JOptionPane.INFORMATION_MESSAGE);
                 }
 
@@ -287,10 +287,10 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
                 for (WorkRequest workRequest : o.getWorkQueue().getWorkRequestList()) {
                     Object[] row = new Object[4];
 
-                    row[0] = workRequest.getUserAccountRequested().getCustomer().getName();
+                    row[0] = workRequest.getSender().getCustomer().getName();
                     row[1] = workRequest.getReceiver() == null ? null : workRequest.getReceiver().getEmployee().getEmployeeName();
                     row[2] = workRequest;
-                    row[3] = workRequest.getStatus();
+                    row[3] = workRequest.getWorkStatus();
 
                     model.addRow(row);
                 }

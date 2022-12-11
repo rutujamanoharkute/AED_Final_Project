@@ -9,17 +9,21 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import UserInterface.Customer.CustomerWorkAreaPanel;
 import javax.swing.JPanel;
 
 /**
  *
  * @author Harshada
  */
-public class Customer extends Role {
+public class CustomerRole extends Role {
 
-    @Override
+
+     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, Enterprise enterprise, Organization organization, UserAccount account, Ecosystem business, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return new CustomerWorkAreaPanel(userProcessContainer, enterprise, organization, account, business, network);
+    
+        
     }
     
 }

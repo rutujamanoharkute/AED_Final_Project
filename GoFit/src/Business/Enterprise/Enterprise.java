@@ -6,6 +6,7 @@ package Business.Enterprise;
 
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,11 +15,29 @@ import Business.Organization.OrganizationDirectory;
 public abstract class Enterprise extends Organization{
     private EnterpriseType enterpriseType;
     private OrganizationDirectory organizationList;
+      private ArrayList<Products> productsList;
+
+    public OrganizationDirectory getOrganizationList() {
+        return organizationList;
+    }
+
+    public void setOrganizationList(OrganizationDirectory organizationList) {
+        this.organizationList = organizationList;
+    }
+
+    public ArrayList<Products> getProductsList() {
+        return productsList;
+    }
+
+    public void setProductsList(ArrayList<Products> productsList) {
+        this.productsList = productsList;
+    }
     
        public Enterprise(String name,EnterpriseType type){
         super(name);
         this.enterpriseType=type;
         organizationDirectory=new OrganizationDirectory();
+          this.productsList = new ArrayList<>();
     }
 
     public EnterpriseType getEnterpriseType() {
@@ -59,4 +78,13 @@ public abstract class Enterprise extends Organization{
         }
          
 }
+    public Products createMenuItem() {
+        Products item = new Products();
+        this.productsList.add(item);
+        return item;
+    }
+    
+    public void deleteItem(Products product){
+        this.productsList.remove(product); 
+    }
 }

@@ -4,6 +4,7 @@
  */
 package Business.Organization;
 
+import Business.Customer.CustomerDirectory;
 import Business.Employee.EmployeeDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
@@ -16,25 +17,35 @@ import java.util.Random;
  * @author Harshada
  */
 public abstract class Organization {
-    
+
     private String name;
     private int organizationId;
     private WorkQueue workQueue;
     private EmployeeDirectory employeeList;
     private UserAccountDirectory userAccountList;
-    
+    private CustomerDirectory customerDirectory;
+
+    public CustomerDirectory getCustomerDirectory() {
+        return customerDirectory;
+    }
+
+    public void setCustomerDirectory(CustomerDirectory customerDirectory) {
+        this.customerDirectory = customerDirectory;
+    }
+
     public Organization(String name) {
         this.name = name;
         this.employeeList = new EmployeeDirectory();
         this.userAccountList = new UserAccountDirectory();
         this.workQueue = new WorkQueue();
-         Random r = new Random();
+        customerDirectory = new CustomerDirectory();
+        Random r = new Random();
         organizationId = r.nextInt();
     }
-    
-     public enum Type{
-        Admin("Admin Organization"), 
-        Nutritionist("Nutritionist Organization"), 
+
+    public enum Type {
+        Admin("Admin Organization"),
+        Nutritionist("Nutritionist Organization"),
         Cardiologist("Cardiologist Organization"),
         Psychiatrist("Psychiatrist Organization"),
         PersonalCoach("PersonalCoach Organization"),
@@ -43,11 +54,13 @@ public abstract class Organization {
         StoreOutlet("StoreOutlet Organization "),
         Delivery("DeliveryMan Organization"),
         Doctor("Doctor Organization");
-        
+
         private String value;
+
         private Type(String value) {
             this.value = value;
         }
+
         public String getValue() {
             return value;
         }
@@ -84,7 +97,7 @@ public abstract class Organization {
     public void setUserAccountList(UserAccountDirectory userAccountList) {
         this.userAccountList = userAccountList;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -92,10 +105,12 @@ public abstract class Organization {
     public void setName(String name) {
         this.name = name;
     }
-       @Override
+
+    @Override
     public String toString() {
         return name;
     }
-     public abstract ArrayList<Role> getSupportedRole();
-     
+
+    public abstract ArrayList<Role> getSupportedRole();
+
 }
