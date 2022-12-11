@@ -20,6 +20,6 @@ public class DoctorEnterprise extends Enterprise {
 
     @Override
     public ArrayList<Role> getSupportedRole() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       return null;
     }
 }
