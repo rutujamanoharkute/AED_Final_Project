@@ -231,15 +231,21 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        try{
         userContainer.remove(this);
         CardLayout layout = (CardLayout)userContainer.getLayout();
         layout.previous(userContainer);
-        
+        }
+        catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
         
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void viewOrderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewOrderBtnActionPerformed
         // TODO add your handling code here:
+        try{
         int selectedRow = tblOrderManagement.getSelectedRow();
         if (selectedRow < 0){
             JOptionPane.showMessageDialog(this, "Please select a row to perform any operation","INFORMATION",JOptionPane.INFORMATION_MESSAGE);
@@ -256,6 +262,11 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
             dtm.addRow(row);
         }
         totBillTxt.setText(String.valueOf(request.getTotalBill()));
+        }
+        catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_viewOrderBtnActionPerformed
 
     private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtnActionPerformed
@@ -265,6 +276,7 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
 
     private void btnTakeOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTakeOrderActionPerformed
         // TODO add your handling code here:
+        try{
         int selectedRow = tblOrderManagement.getSelectedRow();
 
         if (selectedRow < 0){
@@ -281,10 +293,16 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
 
         JOptionPane.showMessageDialog(this, "Order accepted successfully.","Success",JOptionPane.INFORMATION_MESSAGE);
         populateTable();
+        }
+        catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_btnTakeOrderActionPerformed
 
     private void btnAssignDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignDeliveryManActionPerformed
         // TODO add your handling code here:
+        try{
         int selectedRow = tblOrderManagement.getSelectedRow();
 
         if (selectedRow < 0){
@@ -308,6 +326,11 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
         userContainer.add("AssignDeliveryManJPanel", panel);
         CardLayout cardlayout = (CardLayout) userContainer.getLayout();
         cardlayout.next(userContainer);
+        }
+        catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_btnAssignDeliveryManActionPerformed
 
 
