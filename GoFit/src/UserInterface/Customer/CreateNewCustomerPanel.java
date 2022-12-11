@@ -9,8 +9,18 @@ import Business.Ecosystem;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Role.CustomerRole;
+import static UserInterface.MainJFrame.ACCOUNT_SID;
+import static UserInterface.MainJFrame.AUTH_TOKEN;
+import com.twilio.Twilio;
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -979,12 +989,18 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
             c.setIs_pcos(chkbxPCOS.isSelected());
             c.setIs_thyroid(chkbxThyroid.isSelected());
             c.setNetwork(network);
-            //
-            //            // User Name Already Exists Validation
-            //
             system.getCustomerDirectory().createCustomer(c);
             system.getUserAccountList().createCustomerAccount(email, password,c, new CustomerRole());
             JOptionPane.showMessageDialog(null, "Customer added successfully","Success",JOptionPane.INFORMATION_MESSAGE);
+            sendEmail();
+                Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+            com.twilio.rest.api.v2010.account.Message message = com.twilio.rest.api.v2010.account.Message.creator(
+                    new com.twilio.type.PhoneNumber("+19145317012"),
+                    new com.twilio.type.PhoneNumber("+13867031167"),
+                    "You have been registerd sucessfully on GoFit!!")
+                    .create();
+
+            System.out.println(message.getSid());
             clearValues();
 
         }
@@ -993,6 +1009,46 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
+    private void sendEmail() {                                             
+        // TODO add your handling code here:
+        String toEmail = txtEmail.getText();
+        String fromEmail = "goFit776@gmail.com";
+        String fromEmailPassword = "ptcacpbbyrcwwssv";
+        String subject = "GoFit Account Registration";
+        
+        Properties p = new Properties();
+       p.put("mail.smtp.host", "smtp.gmail.com");
+        p.put("mail.smtp.socketFactory.port", "465");
+        p.put("mail.smtp.socketFactory.class",
+                "javax.net.ssl.SSLSocketFactory");
+        p.put("mail.smtp.auth", "true");
+        p.put("mail.smtp.port", "465");
+        p.put("mail.smtp.ssl.protocols", "TLSv1.2");
+
+        Session session = Session.getInstance(p, new javax.mail.Authenticator() {
+            @Override
+            protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
+                return new javax.mail.PasswordAuthentication(fromEmail, fromEmailPassword);
+            }
+        });
+        //Start our mail message
+        MimeMessage msg = new MimeMessage(session);
+        try {
+            msg.setFrom(new InternetAddress(fromEmail));
+            msg.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
+            msg.setSubject(subject);
+            msg.setText("Welcome to GoFit! You are registered successfully. Your account will be activated in a hour. Hope you have a good journey with GoFit!");
+            Transport.send(msg);
+            System.out.println("Sent message");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }                          
+    
+    
+    
+    
+    
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
         clearValues();

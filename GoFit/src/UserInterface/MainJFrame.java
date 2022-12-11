@@ -11,6 +11,8 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import UserInterface.Customer.CreateNewCustomerPanel;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 
@@ -23,6 +25,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private final DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     Ecosystem system;
     Network network;
+    public static final String ACCOUNT_SID = "AC56e7c380549e9155377e07b97986c016";
+    public static final String AUTH_TOKEN = "ebacb1b028f7b13b38e8b41c63db3e20  ";
 
     /**
      * Creates new form MainJFrame
@@ -169,6 +173,16 @@ public class MainJFrame extends javax.swing.JFrame {
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
         try {
+
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+            Message message = Message.creator(
+                    new com.twilio.type.PhoneNumber("+19145317012"),
+                    new com.twilio.type.PhoneNumber("+13867031167"),
+                    "You have been logged out from GoFit")
+                    .create();
+
+            System.out.println(message.getSid());
+
             txtUsername.setText("");
             txtPassword.setText("");
             btnLogout.setEnabled(false);
@@ -229,7 +243,6 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         if (userAccount != null && userAccount.getCustomer() != null) {
             network = userAccount.getCustomer().getNetwork();
-            
 
         }
         if (userAccount == null) {
@@ -238,6 +251,14 @@ public class MainJFrame extends javax.swing.JFrame {
         } else {
             CardLayout layout = (CardLayout) container.getLayout();
             container.add("workArea", userAccount.getRole().createWorkArea(container, enterpriseItem, organizationItem, userAccount, system, network));
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+            Message message = Message.creator(
+                    new com.twilio.type.PhoneNumber("+19145317012"),
+                    new com.twilio.type.PhoneNumber("+13867031167"),
+                    "You are logged in to GoFit!")
+                    .create();
+
+            System.out.println(message.getSid());
             layout.next(container);
         }
 
@@ -251,17 +272,17 @@ public class MainJFrame extends javax.swing.JFrame {
 //        {
 //            JOptionPane.showMessageDialog(this, "Please try again");
 //        }
-      
+
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
         // TODO add your handling code here:
-          System.out.println("user list  " + system.getUserAccountList().getUserAccountList());
-        CreateNewCustomerPanel createCus =new CreateNewCustomerPanel(container, system);
-        container.add("SignUpJPanel",createCus);
-        CardLayout layout=(CardLayout)container.getLayout();
+        System.out.println("user list  " + system.getUserAccountList().getUserAccountList());
+        CreateNewCustomerPanel createCus = new CreateNewCustomerPanel(container, system);
+        container.add("SignUpJPanel", createCus);
+        CardLayout layout = (CardLayout) container.getLayout();
         layout.next(container);
-        
+
     }//GEN-LAST:event_btnSignUpActionPerformed
 
     /**

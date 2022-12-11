@@ -14,6 +14,13 @@ import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.NutritionistWorkRequest;
 import Business.WorkQueue.WorkRequest;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -72,8 +79,6 @@ public class NutritionistWorkAreaPanel extends javax.swing.JPanel {
         txtHeight = new javax.swing.JTextField();
         lblWeight = new javax.swing.JLabel();
         txtWeight = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        combxDietChart = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtmessage = new javax.swing.JTextArea();
@@ -181,29 +186,14 @@ public class NutritionistWorkAreaPanel extends javax.swing.JPanel {
         txtWeight.setEditable(false);
         kGradientPanel1.add(txtWeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 150, 30));
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Diet Chart:");
-        kGradientPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 80, 30));
-
-        combxDietChart.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        combxDietChart.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Weight Gain-1", "Weight Gain-2", "Weight Loss-1", "Weight Loss-2" }));
-        combxDietChart.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combxDietChartActionPerformed(evt);
-            }
-        });
-        kGradientPanel1.add(combxDietChart, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 150, 30));
-
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         jLabel3.setText("Message:");
-        kGradientPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 70, 40));
+        kGradientPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 90, 40));
 
         txtmessage.setColumns(20);
         txtmessage.setRows(5);
         jScrollPane2.setViewportView(txtmessage);
 
-        kGradientPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, -1, -1));
+        kGradientPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, -1, -1));
 
         btnProcess.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         btnProcess.setText("Accept & Process Request");
@@ -212,7 +202,7 @@ public class NutritionistWorkAreaPanel extends javax.swing.JPanel {
                 btnProcessActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 179, 45));
+        kGradientPanel1.add(btnProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 210, 45));
 
         jLabel16.setBackground(new java.awt.Color(0, 0, 0));
         jLabel16.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -265,7 +255,7 @@ public class NutritionistWorkAreaPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -330,10 +320,44 @@ public class NutritionistWorkAreaPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_radioFemaleActionPerformed
 
-    private void combxDietChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combxDietChartActionPerformed
+    private void sendEmail(String email) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_combxDietChartActionPerformed
+        String toEmail = email;
+        String fromEmail = "goFit776@gmail.com";
+        String fromEmailPassword = "ptcacpbbyrcwwssv";
+        String subject = "GoFit Nutrtionist Posted";
+        
 
+        Properties p = new Properties();
+
+        p.put("mail.smtp.host", "smtp.gmail.com");
+        p.put("mail.smtp.socketFactory.port", "465");
+        p.put("mail.smtp.socketFactory.class",
+                "javax.net.ssl.SSLSocketFactory");
+        p.put("mail.smtp.auth", "true");
+        p.put("mail.smtp.port", "465");
+        p.put("mail.smtp.ssl.protocols", "TLSv1.2");
+
+        Session session = Session.getInstance(p, new javax.mail.Authenticator() {
+            @Override
+            protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
+                return new javax.mail.PasswordAuthentication(fromEmail, fromEmailPassword);
+            }
+        });
+        //Start our mail message
+        MimeMessage msg = new MimeMessage(session);
+        try {
+            msg.setFrom(new InternetAddress(fromEmail));
+            msg.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
+            msg.setSubject(subject);
+            msg.setText("Please login to your application as the status is changed. Nutritionist has posted comments");
+            Transport.send(msg);
+            System.out.println("Sent message");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }         
+    
     private void btnProcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblCustomerList.getSelectedRow();
@@ -343,12 +367,10 @@ public class NutritionistWorkAreaPanel extends javax.swing.JPanel {
                 NutritionistWorkRequest request = (NutritionistWorkRequest) tblCustomerList.getValueAt(selectedRow, 2);
                 if(!"Result Posted".equals(request.getWorkStatus())){
                     String email = request.getSender().getUsername();
-//                    sendEmail(email, (String) combxDietChart.getSelectedItem());
                     request.setDietResult(txtmessage.getText());
                     request.setWorkStatus("Result Posted");
-
                     populateCustomer();
-
+                    sendEmail(email);
                     JOptionPane.showMessageDialog(null,"Email has been sent to Customer!","Success",JOptionPane.INFORMATION_MESSAGE);
                     txtmessage.setText("");
                 }else{
@@ -379,10 +401,8 @@ public class NutritionistWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JCheckBox chkbxHypertension;
     private javax.swing.JCheckBox chkbxNone;
     private javax.swing.JCheckBox chkbxPCOS;
-    private javax.swing.JComboBox<String> combxDietChart;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
