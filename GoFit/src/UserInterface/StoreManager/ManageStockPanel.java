@@ -245,6 +245,7 @@ public class ManageStockPanel extends javax.swing.JPanel {
 
     private void delBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delBtnActionPerformed
         // TODO add your handling code here:
+        try{
         int selectedRow = menuTbl.getSelectedRow();
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row.","Error",JOptionPane.ERROR_MESSAGE);
@@ -256,13 +257,24 @@ public class ManageStockPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Item deleted successfully.","Success",JOptionPane.INFORMATION_MESSAGE);
             populateTable();
         }
+        }
+        catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_delBtnActionPerformed
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
         // TODO add your handling code here:
+        try{
         userContainer.remove(this);
         CardLayout layout = (CardLayout) userContainer.getLayout();
         layout.previous(userContainer);
+        }
+        catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_btnBack1ActionPerformed
 
 
