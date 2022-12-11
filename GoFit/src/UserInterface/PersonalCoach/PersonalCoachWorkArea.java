@@ -47,6 +47,7 @@ public class PersonalCoachWorkArea extends javax.swing.JPanel {
     }
     
      public void populateCustomer(){
+         try{
         DefaultTableModel dtm = (DefaultTableModel) tblCustomerList.getModel();
         dtm.setRowCount(0);
         
@@ -65,6 +66,14 @@ public class PersonalCoachWorkArea extends javax.swing.JPanel {
            }
             }
         }
+        }
+        
+         }
+        catch(Exception e){
+            
+                
+             JOptionPane.showMessageDialog(this, "Please try again");
+        
         }
      }
 
@@ -289,6 +298,8 @@ public class PersonalCoachWorkArea extends javax.swing.JPanel {
 
     private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
         // TODO add your handling code here:
+        
+        try{
         int selectedRow = tblCustomerList.getSelectedRow();
         if(selectedRow >=0){
             Customer customer = (Customer) tblCustomerList.getValueAt(selectedRow, 1);
@@ -310,6 +321,13 @@ public class PersonalCoachWorkArea extends javax.swing.JPanel {
         }else{
             JOptionPane.showMessageDialog(null,"Please Select a row","Error",JOptionPane.ERROR_MESSAGE);
         }
+         }
+        catch(Exception e){
+            
+                
+             JOptionPane.showMessageDialog(this, "Please try again");
+        
+        }
     }//GEN-LAST:event_btnViewDetailsActionPerformed
 
     private void radioMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioMaleActionPerformed
@@ -324,6 +342,8 @@ public class PersonalCoachWorkArea extends javax.swing.JPanel {
 
     private void btnProcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessActionPerformed
         // TODO add your handling code here:
+        
+        try{
         int selectedRow = tblCustomerList.getSelectedRow();
         if(selectedRow >=0){
             Customer cus = (Customer) tblCustomerList.getValueAt(selectedRow, 1);
@@ -348,6 +368,13 @@ public class PersonalCoachWorkArea extends javax.swing.JPanel {
             }
         }else{
             JOptionPane.showMessageDialog(null,"Please Select a row","Error",JOptionPane.ERROR_MESSAGE);
+        }
+         }
+        catch(Exception e){
+            
+                
+             JOptionPane.showMessageDialog(this, "Please try again");
+        
         }
     }//GEN-LAST:event_btnProcessActionPerformed
 

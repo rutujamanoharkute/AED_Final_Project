@@ -10,6 +10,7 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -88,26 +89,51 @@ public class SystemAdminOperations extends javax.swing.JPanel {
 
     private void manageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageNetworkActionPerformed
         // TODO add your handling code here:
+        try{
         ManageNetworkPanel manageNetworkJPanel = new ManageNetworkPanel(userContainer, system);
         userContainer.add("manageNetworkJPanel", manageNetworkJPanel);
         CardLayout layout = (CardLayout) userContainer.getLayout();
         layout.next(userContainer);
+        
+         }
+        catch(Exception e){
+            
+                
+             JOptionPane.showMessageDialog(this, "Please try again");
+        
+        }
     }//GEN-LAST:event_manageNetworkActionPerformed
 
     private void manageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEnterpriseActionPerformed
         // TODO add your handling code here:
+        try{
         ManageEnterprisePanel manageEnterprisePanel = new ManageEnterprisePanel(userContainer, system);
         userContainer.add("manageEnterprisePanel", manageEnterprisePanel);
         CardLayout layout = (CardLayout) userContainer.getLayout();
         layout.next(userContainer);
+         }
+        catch(Exception e){
+            
+                
+             JOptionPane.showMessageDialog(this, "Please try again");
+        
+        }
     }//GEN-LAST:event_manageEnterpriseActionPerformed
 
     private void manageEnterpriseAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEnterpriseAdminActionPerformed
         // TODO add your handling code here:
+        try{
         ManageEnterpriseAdminPanel manageEnterpriseAdminPanel = new ManageEnterpriseAdminPanel(userContainer, system);
         userContainer.add("manageEnterpriseAdminPanel", manageEnterpriseAdminPanel);
         CardLayout layout = (CardLayout) userContainer.getLayout();
         layout.next(userContainer);
+         }
+        catch(Exception e){
+            
+                
+             JOptionPane.showMessageDialog(this, "Please try again");
+        
+        }
     }//GEN-LAST:event_manageEnterpriseAdminActionPerformed
 
 

@@ -49,6 +49,7 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
     }
 
     private void populateTabl() {
+        try{
         DefaultTableModel model = (DefaultTableModel) enterprisejTable.getModel();
 
         model.setRowCount(0);
@@ -66,21 +67,47 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
                 }
             }
         }
+        
+         }
+        catch(Exception e){
+            
+                
+             JOptionPane.showMessageDialog(this, "Please try again");
+        
+        }
     }
 
     private void populateNetwrkComboBox() {
+        try{
         networkComboBox.removeAllItems();
 
         for (Network network : system.getNetworkList()) {
             networkComboBox.addItem(network);
         }
+        
+         }
+        catch(Exception e){
+            
+                
+             JOptionPane.showMessageDialog(this, "Please try again");
+        
+        }
     }
 
     private void populateEnterpComboBox(Network network) {
+        try {
         EnterpriseComboBox.removeAllItems();
 
         for (Enterprise enterpr : network.getEnterpriseDirectory().getEnterpriseList()) {
             EnterpriseComboBox.addItem(enterpr);
+        }
+        
+         }
+        catch(Exception e){
+            
+                
+             JOptionPane.showMessageDialog(this, "Please try again");
+        
         }
 
     }
@@ -181,25 +208,43 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        try{
         userContainer.remove(this);
         Component[] trackComponent = userContainer.getComponents();
         Component eachComponent = trackComponent[trackComponent.length - 1];
         SystemAdminOperations sysAdminOps = (SystemAdminOperations) eachComponent;
         CardLayout cardLayout = (CardLayout) userContainer.getLayout();
         cardLayout.previous(userContainer);
+        
+         }
+        catch(Exception e){
+            
+                
+             JOptionPane.showMessageDialog(this, "Please try again");
+        
+        }
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void networkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkComboBoxActionPerformed
-
+        try{
         Network network = (Network) networkComboBox.getSelectedItem();
         if (network != null) {
             populateEnterpComboBox(network);
+        }
+        
+         }
+        catch(Exception e){
+            
+                
+             JOptionPane.showMessageDialog(this, "Please try again");
+        
         }
 
     }//GEN-LAST:event_networkComboBoxActionPerformed
 
     private void submitjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitjButtonActionPerformed
         // TODO add your handling code here:
+        try{
         if (validateData()) {
             Enterprise enterprise = (Enterprise) EnterpriseComboBox.getSelectedItem();
             if (enterprise.getEmployeeList().getEmployeeList().size() != 0) {
@@ -234,9 +279,18 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
             }
         }
 
+        
+         }
+      catch(Exception e){
+            
+                
+             JOptionPane.showMessageDialog(this, "Please try again");
+        
+        }
     }//GEN-LAST:event_submitjButtonActionPerformed
 
     public boolean validateData() {
+       
 
         String name = namejTextField.getText();
         String password = passwordjTextField.getText();
@@ -286,7 +340,10 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
             return false;
         }
 
-        return true;
+         return true;
+        
+       
+      
     }
 
 

@@ -34,6 +34,7 @@ public class ManageNetworkPanel extends javax.swing.JPanel {
     }
 
     private void populatenetworkTable() {
+        try{
         DefaultTableModel model = (DefaultTableModel) networkTable.getModel();
 
         model.setRowCount(0);
@@ -43,6 +44,14 @@ public class ManageNetworkPanel extends javax.swing.JPanel {
             model.addRow(row);
         }
         namejTextField.setText("");
+        
+         }
+        catch(Exception e){
+            
+                
+             JOptionPane.showMessageDialog(this, "Please try again");
+        
+        }
     }
 
     /**
@@ -129,12 +138,20 @@ public class ManageNetworkPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        try{
         userContainer.remove(this);
         Component[] trackComponent = userContainer.getComponents();
         Component eachComponent = trackComponent[trackComponent.length - 1];
         SystemAdminOperations sysAdminOps = (SystemAdminOperations) eachComponent;
         CardLayout cardLayout = (CardLayout) userContainer.getLayout();
         cardLayout.previous(userContainer);
+         }
+        catch(Exception e){
+            
+                
+             JOptionPane.showMessageDialog(this, "Please try again");
+        
+        }
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void namejTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namejTextFieldActionPerformed
@@ -177,6 +194,7 @@ public class ManageNetworkPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_deljButton1ActionPerformed
 
     public boolean validateData() {
+        
 
         String networkName = namejTextField.getText();
 
