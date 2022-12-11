@@ -178,15 +178,23 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        try
+        {
         userContainer.remove(this);
         CardLayout layout = (CardLayout) userContainer.getLayout();
         layout.previous(userContainer);
-
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
 
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnCreateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEmployeeActionPerformed
         // TODO add your handling code here:
+        try
+        {
         if (validateData()) {
             String email = txtEmail.getText();
             String password = txtPassword.getText();
@@ -229,26 +237,47 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
             }
 
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
 
 
     }//GEN-LAST:event_btnCreateEmployeeActionPerformed
 
     private void comboOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOrganizationActionPerformed
         // TODO add your handling code here:
+        try
+        {
         Organization organization = (Organization) comboOrganization.getSelectedItem();
         if (organization != null) {
             comboRolePopulate(organization);
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_comboOrganizationActionPerformed
 
     private void organizationJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationJComboBoxActionPerformed
+        try
+        {
         org = (Organization) organizationJComboBox.getSelectedItem();
         if (org != null) {
             populateTable(org);
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_organizationJComboBoxActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        try
+        {
         int row = employeeJTable.getSelectedRow();
 
         if (row < 0) {
@@ -261,7 +290,11 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
         org.getUserAccountList().deleteUserAccount(userAccount);
         JOptionPane.showMessageDialog(null, "Employee has been deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
         populateTable(org);
-        // TODO add your handling code here:
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
 
@@ -287,14 +320,23 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateComboBoxOrganization() {
+        try
+        {
         comboOrganization.removeAllItems();
 
         for (Organization organization : organizationDirectory.getOrganizationList()) {
             comboOrganization.addItem(organization);
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }
 
     private void comboRolePopulate(Organization organization) {
+        try
+        {
         comboRole.removeAllItems();
         for (Role r : organization.getSupportedRole()) {
 
@@ -302,10 +344,16 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
             System.out.println(role);
             comboRole.addItem(r);
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }
 
     private void populateTable(Organization organization) {
-
+        try
+        {
         DefaultTableModel model = (DefaultTableModel) employeeJTable.getModel();
 
         model.setRowCount(0);
@@ -319,18 +367,31 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
             model.addRow(row);
 
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
 
     }
 
     private void populateOrganizationJComboBox() {
+        try
+        {
         organizationJComboBox.removeAllItems();
 
         for (Organization organization : organizationDirectory.getOrganizationList()) {
             organizationJComboBox.addItem(organization);
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }
 
     private boolean validateData() {
+       
         String employeeName = txtName.getText();
         String password = txtPassword.getText();
 

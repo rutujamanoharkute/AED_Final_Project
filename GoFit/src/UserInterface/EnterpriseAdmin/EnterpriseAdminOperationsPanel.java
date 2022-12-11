@@ -10,6 +10,7 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -86,27 +87,48 @@ public class EnterpriseAdminOperationsPanel extends javax.swing.JPanel {
 
     private void btnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageOrganizationActionPerformed
         // TODO add your handling code here:
+        try
+        {
         ManageOrganizationPanel manageOrganizationJPanel = new ManageOrganizationPanel(userContainer, enterprise);
         userContainer.add("manageOrganizationJPanel", manageOrganizationJPanel);
         CardLayout cardlayout = (CardLayout) userContainer.getLayout();
         cardlayout.next(userContainer);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_btnManageOrganizationActionPerformed
 
     private void btnMngEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMngEmployeeActionPerformed
         // TODO add your handling code here:
+        try
+        {
         ManageEmployeePanel manageEmployeePanel = new ManageEmployeePanel(userContainer, enterprise.getOrganizationDirectory(),system);
         userContainer.add("manageEmployeePanel", manageEmployeePanel);
         CardLayout cardlayout = (CardLayout) userContainer.getLayout();
         cardlayout.next(userContainer);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
         
     }//GEN-LAST:event_btnMngEmployeeActionPerformed
 
     private void btnManageRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequestsActionPerformed
         // TODO add your handling code here:
+        try
+        {
          ManageRequestsPanel manageRequestsPanel = new ManageRequestsPanel(userContainer, enterprise,  account,  organization,  system);
         userContainer.add("manageEmployeePanel", manageRequestsPanel);
         CardLayout cardlayout = (CardLayout) userContainer.getLayout();
         cardlayout.next(userContainer);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
         
     }//GEN-LAST:event_btnManageRequestsActionPerformed
 

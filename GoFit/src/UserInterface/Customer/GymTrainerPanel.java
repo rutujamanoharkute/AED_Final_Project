@@ -32,44 +32,49 @@ public class GymTrainerPanel extends javax.swing.JPanel {
     private Network network;
     private UserAccount userAccount;
     Enterprise e;
+
     public GymTrainerPanel(JPanel userProcessContainer, Ecosystem system, Network network, UserAccount userAccount) {
         initComponents();
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.system =system;
+        this.system = system;
         this.network = network;
         this.userAccount = userAccount;
-      
+
         populateGymnStatusTable();
     }
-    
-      private void populateGymnStatusTable() {
-         DefaultTableModel dtm = (DefaultTableModel) fitnessTbl.getModel();
-        dtm.setRowCount(0);
-        Organization org = null;
-        for(Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()){
-            if(enter instanceof EnterpriseGymTrainer){
-                e = enter;
+
+    private void populateGymnStatusTable() {
+        try {
+            DefaultTableModel dtm = (DefaultTableModel) fitnessTbl.getModel();
+            dtm.setRowCount(0);
+            Organization org = null;
+            for (Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()) {
+                if (enter instanceof EnterpriseGymTrainer) {
+                    e = enter;
+                }
             }
-        }
-        for (Organization organization : e.getOrganizationDirectory().getOrganizationList()){
-            if (organization instanceof GymTrainerOrganization){
-                org = organization;
-                break;
+            for (Organization organization : e.getOrganizationDirectory().getOrganizationList()) {
+                if (organization instanceof GymTrainerOrganization) {
+                    org = organization;
+                    break;
+                }
             }
-        }
-        if (org!=null){
-            for(WorkRequest request: org.getWorkQueue().getWorkRequestList()) {
-            if(request.getSender().equals(userAccount)){
-            Object row[] = new Object[5];
-            row[0] = request.getRequestID();
-            row[1] = request.getWorkMessage();
-            row[2] = request.getReceiver();
-            row[3] = ((GymTrainerWorkRequest)request).getGymTrainerResult();
-            row[4] = request.getWorkStatus();
-            dtm.addRow(row);
+            if (org != null) {
+                for (WorkRequest request : org.getWorkQueue().getWorkRequestList()) {
+                    if (request.getSender().equals(userAccount)) {
+                        Object row[] = new Object[5];
+                        row[0] = request.getRequestID();
+                        row[1] = request.getWorkMessage();
+                        row[2] = request.getReceiver();
+                        row[3] = ((GymTrainerWorkRequest) request).getGymTrainerResult();
+                        row[4] = request.getWorkStatus();
+                        dtm.addRow(row);
+                    }
+                }
             }
-    }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please try again");
         }
     }
 
@@ -87,7 +92,7 @@ public class GymTrainerPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         msgTxt = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnRequestWorkout = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         fitnessTbl = new javax.swing.JTable();
         backBtn = new javax.swing.JButton();
@@ -105,12 +110,12 @@ public class GymTrainerPanel extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel5.setText("Enter Your Message:");
 
-        jButton1.setBackground(new java.awt.Color(255, 102, 0));
-        jButton1.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        jButton1.setText("Request Workouts");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRequestWorkout.setBackground(new java.awt.Color(255, 102, 0));
+        btnRequestWorkout.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        btnRequestWorkout.setText("Request Workouts");
+        btnRequestWorkout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRequestWorkoutActionPerformed(evt);
             }
         });
 
@@ -167,7 +172,7 @@ public class GymTrainerPanel extends javax.swing.JPanel {
                 .addContainerGap(99, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRequestWorkout, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(239, 239, 239))
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -185,7 +190,7 @@ public class GymTrainerPanel extends javax.swing.JPanel {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRequestWorkout, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
@@ -203,78 +208,86 @@ public class GymTrainerPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(userAccount.getWorkQueue().getWorkRequestList().size()== 0){
-            GymTrainerWorkRequest req = new GymTrainerWorkRequest();
-            req.setSender(userAccount);
-            req.setWorkMessage(msgTxt.getText());
-            req.setWorkStatus("Request sent to Admin");
-            Organization org = null;
-
-            for(Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()){
-                if(enter instanceof EnterpriseGymTrainer){
-                    e = enter;
-                }
-            }
-            for (Organization organization : e.getOrganizationDirectory().getOrganizationList()){
-                if (organization instanceof GymTrainerOrganization){
-                    org = organization;
-                    break;
-                }
-            }
-            if (org!=null){
-                org.getWorkQueue().getWorkRequestList().add(req);
-                userAccount.getWorkQueue().getWorkRequestList().add(req);
-            }
-            JOptionPane.showMessageDialog(null,"Request has been sent. You will receive an email once it is processed!!","Success",JOptionPane.INFORMATION_MESSAGE);
-            populateGymnStatusTable();
-        } else{
-            int x = userAccount.getWorkQueue().getWorkRequestList().size()-1;
-            WorkRequest r = userAccount.getWorkQueue().getWorkRequestList().get(x);
-            if(r.getWorkStatus().toLowerCase().equals("result posted")){
+    private void btnRequestWorkoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestWorkoutActionPerformed
+        try {
+            if (userAccount.getWorkQueue().getWorkRequestList().size() == 0) {
                 GymTrainerWorkRequest req = new GymTrainerWorkRequest();
                 req.setSender(userAccount);
                 req.setWorkMessage(msgTxt.getText());
                 req.setWorkStatus("Request sent to Admin");
                 Organization org = null;
 
-                for(Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()){
-                    if(enter instanceof EnterpriseGymTrainer){
+                for (Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()) {
+                    if (enter instanceof EnterpriseGymTrainer) {
                         e = enter;
                     }
                 }
-                for (Organization organization : e.getOrganizationDirectory().getOrganizationList()){
-                    if (organization instanceof GymTrainerOrganization){
+                for (Organization organization : e.getOrganizationDirectory().getOrganizationList()) {
+                    if (organization instanceof GymTrainerOrganization) {
                         org = organization;
                         break;
                     }
                 }
-                if (org!=null){
+                if (org != null) {
                     org.getWorkQueue().getWorkRequestList().add(req);
                     userAccount.getWorkQueue().getWorkRequestList().add(req);
                 }
-                JOptionPane.showMessageDialog(null,"Request has been sent. You will receive an email once it is processed!!","Success",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Request has been sent. You will receive an email once it is processed!!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 populateGymnStatusTable();
-            }else {
-                JOptionPane.showMessageDialog(null,"Please wait until the previous request has been processed !","Alert",JOptionPane.WARNING_MESSAGE);
+            } else {
+                int x = userAccount.getWorkQueue().getWorkRequestList().size() - 1;
+                WorkRequest r = userAccount.getWorkQueue().getWorkRequestList().get(x);
+                if (r.getWorkStatus().toLowerCase().equals("result posted")) {
+                    GymTrainerWorkRequest req = new GymTrainerWorkRequest();
+                    req.setSender(userAccount);
+                    req.setWorkMessage(msgTxt.getText());
+                    req.setWorkStatus("Request sent to Admin");
+                    Organization org = null;
+
+                    for (Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()) {
+                        if (enter instanceof EnterpriseGymTrainer) {
+                            e = enter;
+                        }
+                    }
+                    for (Organization organization : e.getOrganizationDirectory().getOrganizationList()) {
+                        if (organization instanceof GymTrainerOrganization) {
+                            org = organization;
+                            break;
+                        }
+                    }
+                    if (org != null) {
+                        org.getWorkQueue().getWorkRequestList().add(req);
+                        userAccount.getWorkQueue().getWorkRequestList().add(req);
+                    }
+                    JOptionPane.showMessageDialog(null, "Request has been sent. You will receive an email once it is processed!!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    populateGymnStatusTable();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please wait until the previous request has been processed !", "Alert", JOptionPane.WARNING_MESSAGE);
+                }
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please try again");
         }
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnRequestWorkoutActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        try {
+            userProcessContainer.remove(this);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.previous(userProcessContainer);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_backBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
+    private javax.swing.JButton btnRequestWorkout;
     private javax.swing.JTable fitnessTbl;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;

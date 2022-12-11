@@ -8,6 +8,7 @@ import Business.Ecosystem;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -131,33 +132,61 @@ public class DoctorAppointmentPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
+        try
+        {
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_backJButtonActionPerformed
 
     private void btnCardiologistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCardiologistActionPerformed
         // TODO add your handling code here:
+        try
+        {
         CardiologistPanel panel = new CardiologistPanel(userProcessContainer, system, network, userAccount);
         rightJPanel.add("ManageCustomersJPanel", panel);
         CardLayout layout = (CardLayout) rightJPanel.getLayout();
         layout.next(rightJPanel);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_btnCardiologistActionPerformed
 
     private void btnPhysiotherapistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhysiotherapistActionPerformed
         // TODO add your handling code here:
+        try
+        {
         PhysiotherapistPanel panel = new PhysiotherapistPanel(userProcessContainer, system, network, userAccount);
         rightJPanel.add("ManageCustomersJPanel", panel);
         CardLayout layout = (CardLayout) rightJPanel.getLayout();
         layout.next(rightJPanel);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_btnPhysiotherapistActionPerformed
 
     private void btnPsychiatristActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPsychiatristActionPerformed
         // TODO add your handling code here:
+        try
+        {
         PsychiatristPanel panel = new PsychiatristPanel(userProcessContainer, system, network, userAccount);
         rightJPanel.add("ManageCustomersJPanel", panel);
         CardLayout layout = (CardLayout) rightJPanel.getLayout();
         layout.next(rightJPanel);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_btnPsychiatristActionPerformed
 
 

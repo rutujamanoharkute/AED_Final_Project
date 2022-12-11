@@ -43,6 +43,8 @@ public class PsychiatristPanel extends javax.swing.JPanel {
   
     
       private void populatePsychStatusTable() {
+          try
+          {
          DefaultTableModel dtm = (DefaultTableModel) psychTbl.getModel();
         dtm.setRowCount(0);
         Organization org = null;
@@ -69,6 +71,11 @@ public class PsychiatristPanel extends javax.swing.JPanel {
             dtm.addRow(row);
             }
     }
+        }
+          }
+           catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
         }
     }
     /**
@@ -180,6 +187,8 @@ public class PsychiatristPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBookAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAppointmentActionPerformed
+        try
+        {
         if(userAccount.getWorkQueue().getWorkRequestList().size()== 0){
             PsychiatristWorkRequest req = new PsychiatristWorkRequest();
             req.setSender(userAccount);
@@ -236,14 +245,26 @@ public class PsychiatristPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null,"Please wait until the previous request has been processed !","Alert",JOptionPane.WARNING_MESSAGE);
             }
         }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBookAppointmentActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
+        try
+        {
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_backBtnActionPerformed
 
 

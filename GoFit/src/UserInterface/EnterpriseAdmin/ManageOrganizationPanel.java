@@ -79,11 +79,6 @@ public class ManageOrganizationPanel extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, 70));
 
         comboOrganizationType.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        comboOrganizationType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboOrganizationTypeActionPerformed(evt);
-            }
-        });
         add(comboOrganizationType, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 230, 40));
 
         btncreateOrganization.setText("CREATE ORGANIZATION");
@@ -95,27 +90,29 @@ public class ManageOrganizationPanel extends javax.swing.JPanel {
         add(btncreateOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 270, 50));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void comboOrganizationTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOrganizationTypeActionPerformed
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_comboOrganizationTypeActionPerformed
-
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        try
+        {
         userContainer.remove(this);
         Component[] trackComponent = userContainer.getComponents();
         Component eachComponent = trackComponent[trackComponent.length - 1];
         EnterpriseAdminOperationsPanel enterpriseAdminOps = (EnterpriseAdminOperationsPanel) eachComponent;
         CardLayout cardLayout = (CardLayout) userContainer.getLayout();
         cardLayout.previous(userContainer);
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
 
 
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btncreateOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncreateOrganizationActionPerformed
         // TODO add your handling code here:
-
+        try
+        {
         Organization.Type orgtype = (Organization.Type) comboOrganizationType.getSelectedItem();
         String org = String.valueOf(orgtype) + " Organization";
         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
@@ -126,6 +123,11 @@ public class ManageOrganizationPanel extends javax.swing.JPanel {
         }
         enterprise.getOrganizationDirectory().addOrganization(orgtype);
         populateOrganizationTable();
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
     }//GEN-LAST:event_btncreateOrganizationActionPerformed
 
 
@@ -139,6 +141,8 @@ public class ManageOrganizationPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateOrganizationTable() {
+        try
+        {
         DefaultTableModel defaultmodel = (DefaultTableModel) tblOrganization.getModel();
         defaultmodel.setRowCount(0);
         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
@@ -147,6 +151,11 @@ public class ManageOrganizationPanel extends javax.swing.JPanel {
             row[1] = organization.getName();
 
             defaultmodel.addRow(row);
+        }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
         }
     }
 

@@ -11,6 +11,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -90,6 +91,8 @@ public class CustomerGraph extends javax.swing.JPanel {
 
     private void btnviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewActionPerformed
         // TODO add your handling code here:
+        try
+        {
         int bmi = calculateBMI();
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         dataset.setValue(12,"", "LowestBMI");
@@ -104,6 +107,11 @@ public class CustomerGraph extends javax.swing.JPanel {
         GraphPanel.removeAll();
         GraphPanel.add(chartPanel);
         GraphPanel.validate();
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
         
         
     }//GEN-LAST:event_btnviewActionPerformed

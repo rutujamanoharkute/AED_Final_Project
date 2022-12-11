@@ -49,6 +49,8 @@ public class CardiologistWorkAreaJPanel extends javax.swing.JPanel {
     }
     
     public void populateCustom(){
+        try
+        {
         DefaultTableModel dtm = (DefaultTableModel) CustomerListTbl.getModel();
         dtm.setRowCount(0);
         
@@ -67,6 +69,11 @@ public class CardiologistWorkAreaJPanel extends javax.swing.JPanel {
            }
             }
         }
+        }
+        }
+        catch(Exception e)
+        {
+            System.out.println("Something went wrong. Please try again");
         }
     }
 
@@ -359,6 +366,8 @@ public class CardiologistWorkAreaJPanel extends javax.swing.JPanel {
 
     private void viewDetButnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetButnActionPerformed
         // TODO add your handling code here:
+        try
+        {
         int selectedRow = CustomerListTbl.getSelectedRow();
         if(selectedRow >=0){
             Customer customer = (Customer) CustomerListTbl.getValueAt(selectedRow, 1);
@@ -380,6 +389,11 @@ public class CardiologistWorkAreaJPanel extends javax.swing.JPanel {
         }else{
             JOptionPane.showMessageDialog(null,"Please Select a row","Error",JOptionPane.ERROR_MESSAGE);
         }
+        }
+          catch(Exception e)
+        {
+            System.out.println("Something went wrong. Please try again");
+        }
     }//GEN-LAST:event_viewDetButnActionPerformed
 
     private void MaleradioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaleradioActionPerformed
@@ -397,6 +411,8 @@ public class CardiologistWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_hyperCheckboxActionPerformed
 
     private void ProcessReqjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcessReqjButtonActionPerformed
+        try
+        {
         int selectedRow = CustomerListTbl.getSelectedRow();
         if(selectedRow >=0){
             CardiologistWorkRequest request = (CardiologistWorkRequest) CustomerListTbl.getValueAt(selectedRow, 2);
@@ -414,6 +430,11 @@ public class CardiologistWorkAreaJPanel extends javax.swing.JPanel {
 
         }else{
             JOptionPane.showMessageDialog(null,"Please Select a row","Error",JOptionPane.ERROR_MESSAGE);
+        }
+        }
+          catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
         }
 
         // TODO add your handling code here:

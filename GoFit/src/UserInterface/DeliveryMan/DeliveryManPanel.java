@@ -24,21 +24,20 @@ public class DeliveryManPanel extends javax.swing.JPanel {
     /**
      * Creates new form DeliveryManPanel
      */
-    
-        private JPanel userProcessContainer;
+    private JPanel userProcessContainer;
     private UserAccount userAccount;
     private Ecosystem system;
     private Ecosystem business;
     private Enterprise enterprise;
-    
+
     public DeliveryManPanel(JPanel userProcessContainer, Enterprise enterprise, Organization organization, UserAccount account, Ecosystem business, Network network) {
         initComponents();
-        
+
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.business = business;
         this.enterprise = enterprise;
-        
+
         populateTable();
     }
 
@@ -128,21 +127,28 @@ public class DeliveryManPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
-
+        
+        try
+        {
         int selectedRow = delManTbl.getSelectedRow();
 
-        if (selectedRow < 0){
-            JOptionPane.showMessageDialog(null, "Please select a row.","Error",JOptionPane.ERROR_MESSAGE);
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         StoreOutletWorkRequest request = (StoreOutletWorkRequest) delManTbl.getValueAt(selectedRow, 2);
-        if(request.getWorkStatus()== "Delivered"){
-            JOptionPane.showMessageDialog(null, "The order has been already Delivered.","Error",JOptionPane.ERROR_MESSAGE);
+        if (request.getWorkStatus() == "Delivered") {
+            JOptionPane.showMessageDialog(null, "The order has been already Delivered.", "Error", JOptionPane.ERROR_MESSAGE);
             populateTable();
-        }else{
+        } else {
             request.setWorkStatus("Delivered");
-            JOptionPane.showMessageDialog(null, "The order has been delivered successfully.","Success",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "The order has been delivered successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
             populateTable();
+        }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
         }
 
     }//GEN-LAST:event_processJButtonActionPerformed
@@ -160,19 +166,19 @@ public class DeliveryManPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
-       DefaultTableModel dtm = (DefaultTableModel) delManTbl.getModel();
+        DefaultTableModel dtm = (DefaultTableModel) delManTbl.getModel();
         dtm.setRowCount(0);
-        for(Organization o : enterprise.getOrganizationDirectory().getOrganizationList()){
-            for(WorkRequest request: o.getWorkQueue().getWorkRequestList() ) {
-            if(request.getReceiver() != null && request.getReceiver().getEmployee().getEmployeeName().equals(userAccount.getEmployee().getEmployeeName())){
-            Object row[] = new Object[4];
-            row[0] = request.getRequestID();
-            row[1] = request.getSender().getCustomer().getName();
-            row[2] = request;
-            row[3] = request.getWorkStatus();
-            dtm.addRow(row);
-        }
-    }
+        for (Organization o : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            for (WorkRequest request : o.getWorkQueue().getWorkRequestList()) {
+                if (request.getReceiver() != null && request.getReceiver().getEmployee().getEmployeeName().equals(userAccount.getEmployee().getEmployeeName())) {
+                    Object row[] = new Object[4];
+                    row[0] = request.getRequestID();
+                    row[1] = request.getSender().getCustomer().getName();
+                    row[2] = request;
+                    row[3] = request.getWorkStatus();
+                    dtm.addRow(row);
+                }
+            }
         }
     }
 }

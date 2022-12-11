@@ -33,30 +33,29 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
     /**
      * Creates new form CustomerCreateNewJPanel
      */
-    
-    
-     JPanel userProcessContainer;
-     Ecosystem system; 
-     Organization organization;
-     private Customer c;
-     private boolean ageValid;
-     private boolean emailValid;
-     private boolean zipValid;
-     private boolean heightValid;
-     private boolean weightValid;
-     private boolean cityValid;
+    JPanel userProcessContainer;
+    Ecosystem system;
+    Organization organization;
+    private Customer c;
+    private boolean ageValid;
+    private boolean emailValid;
+    private boolean zipValid;
+    private boolean heightValid;
+    private boolean weightValid;
+    private boolean cityValid;
+
     public CreateNewCustomerPanel(JPanel userProcessContainer, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.system= system;
+        this.system = system;
         this.organization = organization;
         clearLabels();
         populateCombxNetwork();
-       
+
     }
-    
-    private void clearLabels(){
-     // Labels initialzed to false
+
+    private void clearLabels() {
+        // Labels initialzed to false
         lblAgeTick.setVisible(false);
         invalidAgeLbl.setVisible(false);
         lblConfirmPasswordTick.setVisible(false);
@@ -79,11 +78,9 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
         lblPasswordValidation.setVisible(false);
         lblHeightValidation.setVisible(false);
         lblWeightTick.setVisible(false);
-    
+
     }
 
-    
-    
     private void populateCombxNetwork() {
         combxNetwork.removeAllItems();
 
@@ -92,85 +89,83 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
         }
 
     }
-    
-   
-    private boolean checkNamePattern(String val1){
-        Pattern p=Pattern.compile("^[a-zA-Z]+$");
-        Matcher m=p.matcher(val1);
-        boolean b=m.matches();
+
+    private boolean checkNamePattern(String val1) {
+        Pattern p = Pattern.compile("^[a-zA-Z]+$");
+        Matcher m = p.matcher(val1);
+        boolean b = m.matches();
         return b;
     }
-    
-    
-    private boolean checkNumberPattern(String val5){
-        Pattern p=Pattern.compile("^[0-9]$");
-        Matcher m=p.matcher(val5);
-        boolean b=m.matches();
+
+    private boolean checkNumberPattern(String val5) {
+        Pattern p = Pattern.compile("^[0-9]$");
+        Matcher m = p.matcher(val5);
+        boolean b = m.matches();
         return b;
     }
-    private boolean checkAddressPattern(String val2){
-        Pattern p=Pattern.compile("^[a-z A-Z 0-9#/-]+$");
-        Matcher m=p.matcher(val2);
-        boolean b=m.matches();
+
+    private boolean checkAddressPattern(String val2) {
+        Pattern p = Pattern.compile("^[a-z A-Z 0-9#/-]+$");
+        Matcher m = p.matcher(val2);
+        boolean b = m.matches();
         return b;
     }
-    
-      private boolean  checkPasswordPattern(String val4){
+
+    private boolean checkPasswordPattern(String val4) {
         Pattern p1;
         p1 = Pattern.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$");
-        Matcher m1=p1.matcher(String.valueOf(val4));
-        boolean b1=m1.matches();
+        Matcher m1 = p1.matcher(String.valueOf(val4));
+        boolean b1 = m1.matches();
         return b1;
     }
-    private boolean  checkCityPattern(String val3){
-        Pattern p=Pattern.compile("^[a-zA-Z]+$");
-        Matcher m=p.matcher(val3);
-        boolean b=m.matches();
+
+    private boolean checkCityPattern(String val3) {
+        Pattern p = Pattern.compile("^[a-zA-Z]+$");
+        Matcher m = p.matcher(val3);
+        boolean b = m.matches();
         return b;
     }
-     private boolean  checkUserNamePattern(String val){
-        Pattern p=Pattern.compile("^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
-        Matcher m=p.matcher(val);
-        boolean b=m.matches();
+
+    private boolean checkUserNamePattern(String val) {
+        Pattern p = Pattern.compile("^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+        Matcher m = p.matcher(val);
+        boolean b = m.matches();
         return b;
     }
-    
-  
-    
-    
-    private void clearValues(){
-                txtName.setText("");
-                txtEmail.setText("");
-                txtPassword.setText("");
-                txtConfirmPassword.setText("");
-                txtAge.setText("");
-                txtAddress.setText("");
-                txtCity.setText("");
-                try{
-                combxNetwork.setSelectedIndex(0);
-                }catch (Exception e){
-                    
-                }
-                txtZip.setText("");
-                txtHeight.setText("");
-                txtWeight.setText("");
-                chkbxDiabetes.setSelected(false);
-                chkbxCholestrol.setSelected(false);
-                chkbxHypertension.setSelected(false);
-                chkbxPCOS.setSelected(false);
-                chkbxThyroid.setSelected(false);
-                chkbxNone.setSelected(false);
-                lblNameTick.setVisible(false);
-                lblEmailTick.setVisible(false);
-                lblPasswordTick.setVisible(false);
-                lblConfirmPasswordTick.setVisible(false);
-                lblAgeTick.setVisible(false);
-                lblAddressTick.setVisible(false);
-                lblCityTick.setVisible(false);
-                lblZipCodeTick.setVisible(false);
-                lblHeightTick.setVisible(false);
-                lblWeightTick.setVisible(false);
+
+    private void clearValues() {
+        txtName.setText("");
+        txtEmail.setText("");
+        txtPassword.setText("");
+        txtConfirmPassword.setText("");
+        txtAge.setText("");
+        txtAddress.setText("");
+        txtCity.setText("");
+        try {
+            combxNetwork.setSelectedIndex(0);
+        } catch (Exception e) {
+
         }
+        txtZip.setText("");
+        txtHeight.setText("");
+        txtWeight.setText("");
+        chkbxDiabetes.setSelected(false);
+        chkbxCholestrol.setSelected(false);
+        chkbxHypertension.setSelected(false);
+        chkbxPCOS.setSelected(false);
+        chkbxThyroid.setSelected(false);
+        chkbxNone.setSelected(false);
+        lblNameTick.setVisible(false);
+        lblEmailTick.setVisible(false);
+        lblPasswordTick.setVisible(false);
+        lblConfirmPasswordTick.setVisible(false);
+        lblAgeTick.setVisible(false);
+        lblAddressTick.setVisible(false);
+        lblCityTick.setVisible(false);
+        lblZipCodeTick.setVisible(false);
+        lblHeightTick.setVisible(false);
+        lblWeightTick.setVisible(false);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -654,28 +649,35 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
 
     private void txtPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyReleased
         // TODO add your handling code here:
-        if(! checkPasswordPattern(txtPassword.getText()) && !(txtPassword.getText().isEmpty())){
+        try
+        {
+        if (!checkPasswordPattern(txtPassword.getText()) && !(txtPassword.getText().isEmpty())) {
             lblPasswordTick.setVisible(false);
             lblPasswordValidation.setVisible(true);
 
-        }else if(txtPassword.getText().isEmpty()){
+        } else if (txtPassword.getText().isEmpty()) {
             lblPasswordValidation.setVisible(false);
             lblPasswordTick.setVisible(false);
-        }else{
+        } else {
             lblPasswordValidation.setVisible(false);
             lblPasswordTick.setVisible(true);
+        }
+        }
+          catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Please try again");
         }
     }//GEN-LAST:event_txtPasswordKeyReleased
 
     private void txtAddressKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyReleased
         // TODO add your handling code here:
-        if(!checkAddressPattern(txtAddress.getText()) && !(txtAddress.getText().isEmpty())){
+        if (!checkAddressPattern(txtAddress.getText()) && !(txtAddress.getText().isEmpty())) {
             lblAddressTick.setVisible(false);
             lblAddressValidation.setVisible(true);
-        }else if(txtAddress.getText().isEmpty()){
+        } else if (txtAddress.getText().isEmpty()) {
             lblAddressValidation.setVisible(false);
             lblAddressTick.setVisible(false);
-        }else{
+        } else {
             lblAddressValidation.setVisible(false);
             lblAddressTick.setVisible(true);
         }
@@ -684,18 +686,18 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
     private void txtAgeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyReleased
         // TODO add your handling code here:
 
-        int age=0;
-        try{
+        int age = 0;
+        try {
             age = Integer.parseInt(txtAge.getText());
-        }catch(NumberFormatException e){
-            if(!txtAge.getText().isEmpty()){
+        } catch (NumberFormatException e) {
+            if (!txtAge.getText().isEmpty()) {
                 invalidAgeLbl.setVisible(true);
                 ageValid = false;
 
                 lblAgeBandValidation.setVisible(false);
                 lblAgeTick.setVisible(false);
                 return;
-            }else {
+            } else {
                 invalidAgeLbl.setVisible(false);
                 ageValid = false;
                 lblAgeBandValidation.setVisible(false);
@@ -703,13 +705,13 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
                 return;
             }
         }
-        if(age < 15 || age > 85){
+        if (age < 15 || age > 85) {
             lblAgeBandValidation.setVisible(true);
             ageValid = false;
 
             invalidAgeLbl.setVisible(false);
             lblAgeTick.setVisible(false);
-        }else{
+        } else {
             invalidAgeLbl.setVisible(false);
             lblAgeBandValidation.setVisible(false);
             ageValid = true;
@@ -719,16 +721,16 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
 
     private void txtCityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCityKeyReleased
         // TODO add your handling code here:
-        if(! checkCityPattern(txtCity.getText()) && !(txtCity.getText().isEmpty())){
+        if (!checkCityPattern(txtCity.getText()) && !(txtCity.getText().isEmpty())) {
             lblCityTick.setVisible(false);
             lblCityValidation.setVisible(true);
 
             cityValid = false;
-        }else if(txtCity.getText().isEmpty()){
+        } else if (txtCity.getText().isEmpty()) {
             lblCityTick.setVisible(false);
             lblCityValidation.setVisible(false);
             cityValid = false;
-        }else{
+        } else {
             cityValid = true;
             lblCityValidation.setVisible(false);
             lblCityTick.setVisible(true);
@@ -737,10 +739,10 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
 
     private void txtZipKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtZipKeyReleased
         // TODO add your handling code here:
-        int zip=0;
-        try{
+        int zip = 0;
+        try {
             zip = Integer.parseInt(txtZip.getText());
-            if(zip == 0){
+            if (zip == 0) {
                 zipLbl.setVisible(false);
                 lblZipCodeTick.setVisible(false);
                 zipValid = false;
@@ -749,13 +751,13 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
             lblZipCodeTick.setVisible(true);
             zipLbl.setVisible(false);
             return;
-        }catch(NumberFormatException e){
-            if(!txtZip.getText().isEmpty()){
+        } catch (NumberFormatException e) {
+            if (!txtZip.getText().isEmpty()) {
                 zipValid = false;
                 lblZipCodeTick.setVisible(false);
                 zipLbl.setVisible(true);
                 return;
-            }else {
+            } else {
                 zipValid = false;
                 zipLbl.setVisible(false);
                 lblZipCodeTick.setVisible(false);
@@ -766,31 +768,31 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
 
     private void txtWeightKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtWeightKeyReleased
         // TODO add your handling code here:
-        int weight=0;
-        if(txtWeight.getText().isEmpty()){
+        int weight = 0;
+        if (txtWeight.getText().isEmpty()) {
             //        weightSuccessLbl.setVisible(false);
             //             weightLbl.setVisible(false);
         }
-        try{
+        try {
             weight = Integer.parseInt(txtWeight.getText());
-        }catch(NumberFormatException e){
-            if(!txtWeight.getText().isEmpty()){
+        } catch (NumberFormatException e) {
+            if (!txtWeight.getText().isEmpty()) {
                 weightValid = false;
                 lblWeightTick.setVisible(false);
                 lblWeightValidation.setVisible(true);
                 return;
-            }else {
+            } else {
                 weightValid = false;
                 lblWeightValidation.setVisible(false);
                 lblWeightTick.setVisible(false);
                 return;
             }
         }
-        if(weight > 200){
+        if (weight > 200) {
             weightValid = false;
             lblWeightValidation.setVisible(true);
             lblWeightTick.setVisible(false);
-        }else{
+        } else {
             weightValid = true;
             lblWeightValidation.setVisible(false);
             lblWeightTick.setVisible(true);
@@ -800,13 +802,13 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
     private void txtConfirmPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConfirmPasswordKeyReleased
         // TODO add your handling code here:
 
-        if(txtConfirmPassword.getText().equals(txtPassword.getText()) && !txtConfirmPassword.getText().isEmpty()){
+        if (txtConfirmPassword.getText().equals(txtPassword.getText()) && !txtConfirmPassword.getText().isEmpty()) {
             lblConfirmPasswordTick.setVisible(true);
             lblConfirmPasswordValidation.setVisible(false);
-        }else if(txtConfirmPassword.getText().isEmpty()){
+        } else if (txtConfirmPassword.getText().isEmpty()) {
             lblConfirmPasswordValidation.setVisible(false);
             lblConfirmPasswordTick.setVisible(false);
-        }else{
+        } else {
             lblConfirmPasswordValidation.setVisible(true);
             lblConfirmPasswordTick.setVisible(false);
         }
@@ -814,31 +816,31 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
 
     private void txtHeightKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHeightKeyReleased
         // TODO add your handling code here:
-        int height=0;
-        if(txtHeight.getText().isEmpty()){
+        int height = 0;
+        if (txtHeight.getText().isEmpty()) {
             lblHeightTick.setVisible(false);
             lblHeightValidation.setVisible(false);
         }
-        try{
+        try {
             height = Integer.parseInt(txtHeight.getText());
-        }catch(NumberFormatException e){
-            if(!txtHeight.getText().isEmpty()){
+        } catch (NumberFormatException e) {
+            if (!txtHeight.getText().isEmpty()) {
                 heightValid = false;
                 lblHeightTick.setVisible(false);
                 lblHeightValidation.setVisible(true);
                 return;
-            }else {
+            } else {
                 heightValid = false;
                 lblHeightValidation.setVisible(false);
                 lblHeightTick.setVisible(false);
                 return;
             }
         }
-        if(txtHeight.getText().length() > 3 || txtHeight.getText().length() < 3){
+        if (txtHeight.getText().length() > 3 || txtHeight.getText().length() < 3) {
             heightValid = false;
             lblHeightValidation.setVisible(true);
             lblHeightTick.setVisible(false);
-        }else{
+        } else {
             heightValid = true;
             lblHeightValidation.setVisible(false);
             lblHeightTick.setVisible(true);
@@ -851,14 +853,14 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
 
     private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
         // TODO add your handling code here:
-        if (!checkNamePattern(txtName.getText()) && !(txtName.getText().isEmpty())){
+        if (!checkNamePattern(txtName.getText()) && !(txtName.getText().isEmpty())) {
             lblNameValidation.setVisible(true);
             lblNameTick.setVisible(false);
 
-        }else if(txtName.getText().isEmpty()){
+        } else if (txtName.getText().isEmpty()) {
             lblNameValidation.setVisible(false);
             lblNameTick.setVisible(false);
-        }else{
+        } else {
             lblNameValidation.setVisible(false);
             lblNameTick.setVisible(true);
         }
@@ -923,25 +925,25 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
 
     private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
         // TODO add your handling code here:
-        if (!checkUserNamePattern(txtEmail.getText()) && !(txtEmail.getText().isEmpty()) && system.getCustomerDirectory().checkUsernameIsUnique(txtEmail.getText())){
+        if (!checkUserNamePattern(txtEmail.getText()) && !(txtEmail.getText().isEmpty()) && system.getCustomerDirectory().checkUsernameIsUnique(txtEmail.getText())) {
             lblEmailValidation.setVisible(true);
             lblEmailAlreadyValidation.setVisible(false);
             lblEmailTick.setVisible(false);
-            emailValid =false;
-        }else if(txtEmail.getText().isEmpty()){
+            emailValid = false;
+        } else if (txtEmail.getText().isEmpty()) {
             lblEmailValidation.setVisible(false);
             lblEmailAlreadyValidation.setVisible(false);
-            emailValid =false;
+            emailValid = false;
             lblEmailTick.setVisible(false);
-        }else if(!system.getCustomerDirectory().checkUsernameIsUnique(txtEmail.getText())){
+        } else if (!system.getCustomerDirectory().checkUsernameIsUnique(txtEmail.getText())) {
             lblEmailAlreadyValidation.setVisible(true);
             lblEmailTick.setVisible(false);
-            emailValid =false;
-        }else{
+            emailValid = false;
+        } else {
             lblEmailValidation.setVisible(false);
             lblEmailAlreadyValidation.setVisible(false);
             lblEmailTick.setVisible(true);
-            emailValid =true;
+            emailValid = true;
         }
     }//GEN-LAST:event_txtEmailKeyReleased
 
@@ -952,23 +954,23 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
         Network network = (Network) combxNetwork.getSelectedItem();
-        if(!chkbxNone.isSelected() && !chkbxDiabetes.isSelected() && !chkbxCholestrol.isSelected() && !chkbxHypertension.isSelected() && !chkbxPCOS.isSelected() && !chkbxThyroid.isSelected()){
-            JOptionPane.showMessageDialog(null,"Please Fill the Health Issues! If you don't have any kindly Select None!","Error",JOptionPane.ERROR_MESSAGE);
+        if (!chkbxNone.isSelected() && !chkbxDiabetes.isSelected() && !chkbxCholestrol.isSelected() && !chkbxHypertension.isSelected() && !chkbxPCOS.isSelected() && !chkbxThyroid.isSelected()) {
+            JOptionPane.showMessageDialog(null, "Please Fill the Health Issues! If you don't have any kindly Select None!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
-        }else if(txtName.getText().isEmpty() || txtAge.getText().isEmpty() || txtWeight.getText().isEmpty() || txtHeight.getText().isEmpty() || txtEmail.getText().isEmpty() || txtAddress.getText().isEmpty() || txtCity.getText().isEmpty() ||  txtZip.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Field(s) cannot be Empty!","Error",JOptionPane.ERROR_MESSAGE);
+        } else if (txtName.getText().isEmpty() || txtAge.getText().isEmpty() || txtWeight.getText().isEmpty() || txtHeight.getText().isEmpty() || txtEmail.getText().isEmpty() || txtAddress.getText().isEmpty() || txtCity.getText().isEmpty() || txtZip.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Field(s) cannot be Empty!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
 
-        }else if(ageValid && zipValid && heightValid && weightValid && emailValid){
+        } else if (ageValid && zipValid && heightValid && weightValid && emailValid) {
             String name = txtName.getText();
             String password = txtPassword.getText();
             String email = txtEmail.getText();
             String add = txtAddress.getText();
             String city = txtCity.getText();
             String gender = " ";
-            if(radioMale.isSelected()){
+            if (radioMale.isSelected()) {
                 gender = "Male";
-            }else{
+            } else {
                 gender = "Female";
             }
 
@@ -990,10 +992,10 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
             c.setIs_thyroid(chkbxThyroid.isSelected());
             c.setNetwork(network);
             system.getCustomerDirectory().createCustomer(c);
-            system.getUserAccountList().createCustomerAccount(email, password,c, new CustomerRole());
-            JOptionPane.showMessageDialog(null, "Customer added successfully","Success",JOptionPane.INFORMATION_MESSAGE);
+            system.getUserAccountList().createCustomerAccount(email, password, c, new CustomerRole());
+            JOptionPane.showMessageDialog(null, "Customer added successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
             sendEmail();
-                Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
             com.twilio.rest.api.v2010.account.Message message = com.twilio.rest.api.v2010.account.Message.creator(
                     new com.twilio.type.PhoneNumber("+19145317012"),
                     new com.twilio.type.PhoneNumber("+13867031167"),
@@ -1003,21 +1005,20 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
             System.out.println(message.getSid());
             clearValues();
 
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Please enter all the required fields correctly!","Error",JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please enter all the required fields correctly!", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
-    private void sendEmail() {                                             
+    private void sendEmail() {
         // TODO add your handling code here:
         String toEmail = txtEmail.getText();
         String fromEmail = "goFit776@gmail.com";
         String fromEmailPassword = "ptcacpbbyrcwwssv";
         String subject = "GoFit Account Registration";
-        
+
         Properties p = new Properties();
-       p.put("mail.smtp.host", "smtp.gmail.com");
+        p.put("mail.smtp.host", "smtp.gmail.com");
         p.put("mail.smtp.socketFactory.port", "465");
         p.put("mail.smtp.socketFactory.class",
                 "javax.net.ssl.SSLSocketFactory");
@@ -1043,12 +1044,9 @@ public class CreateNewCustomerPanel extends javax.swing.JPanel {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-    }                          
-    
-    
-    
-    
-    
+    }
+
+
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
         clearValues();

@@ -27,13 +27,13 @@ public class PersonalCoachPanel extends javax.swing.JPanel {
     /**
      * Creates new form PersonalCoachPanel
      */
-    
     private Customer customer;
     private JPanel userProcessContainer;
     private UserAccount userAccount;
     private Ecosystem system;
     Enterprise e;
     private Network network;
+
     public PersonalCoachPanel(JPanel userProcessContainer, Ecosystem system, Network network, UserAccount userAccount) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -44,36 +44,43 @@ public class PersonalCoachPanel extends javax.swing.JPanel {
         populatePersonalCoachStatusTable();
     }
 
-    
-      private void populatePersonalCoachStatusTable() {
+    private void populatePersonalCoachStatusTable() {
+        try
+        {
         DefaultTableModel dtm = (DefaultTableModel) tblDietStatus.getModel();
         dtm.setRowCount(0);
         Organization org = null;
-        for(Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()){
-            if(enter instanceof DietRegimeEnterprise){
+        for (Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (enter instanceof DietRegimeEnterprise) {
                 e = enter;
             }
         }
-        for (Organization organization : e.getOrganizationDirectory().getOrganizationList()){
-            if (organization instanceof PersonalCoachOrganization){
+        for (Organization organization : e.getOrganizationDirectory().getOrganizationList()) {
+            if (organization instanceof PersonalCoachOrganization) {
                 org = organization;
                 break;
             }
         }
-        if (org!=null){
-            for(WorkRequest request: org.getWorkQueue().getWorkRequestList()) {
-            if(request.getSender().equals(userAccount)){
-            Object row[] = new Object[5];
-            row[0] = request.getRequestID();
-            row[1] = request.getWorkMessage();
-            row[2] = request.getReceiver();
-            row[3] = ((PersonalCoachWorkRequest)request).getPersonalCoachResult();
-            row[4] = request.getWorkStatus();
-            dtm.addRow(row);
+        if (org != null) {
+            for (WorkRequest request : org.getWorkQueue().getWorkRequestList()) {
+                if (request.getSender().equals(userAccount)) {
+                    Object row[] = new Object[5];
+                    row[0] = request.getRequestID();
+                    row[1] = request.getWorkMessage();
+                    row[2] = request.getReceiver();
+                    row[3] = ((PersonalCoachWorkRequest) request).getPersonalCoachResult();
+                    row[4] = request.getWorkStatus();
+                    dtm.addRow(row);
+                }
             }
-    }
+        }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -167,8 +174,10 @@ public class PersonalCoachPanel extends javax.swing.JPanel {
 
     private void btnRequestToPersonalCoachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestToPersonalCoachActionPerformed
         // TODO add your handling code here:
-        if(userAccount.getWorkQueue().getWorkRequestList().size()== 0){
-           
+        try
+        {
+        if (userAccount.getWorkQueue().getWorkRequestList().size() == 0) {
+
             PersonalCoachWorkRequest request = new PersonalCoachWorkRequest();
             request.setWorkMessage("Need Personal Coach");
             request.setSender(userAccount);
@@ -176,29 +185,28 @@ public class PersonalCoachPanel extends javax.swing.JPanel {
             System.out.print("Request sent to Admin");
             Organization org = null;
 
-            for(Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()){
-                if(enter instanceof DietRegimeEnterprise){
+            for (Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()) {
+                if (enter instanceof DietRegimeEnterprise) {
                     e = enter;
                 }
             }
-            for (Organization organization : e.getOrganizationDirectory().getOrganizationList()){
-                if (organization instanceof PersonalCoachOrganization){
+            for (Organization organization : e.getOrganizationDirectory().getOrganizationList()) {
+                if (organization instanceof PersonalCoachOrganization) {
                     org = organization;
                     break;
                 }
             }
-            if (org!=null){
+            if (org != null) {
                 org.getWorkQueue().getWorkRequestList().add(request);
                 userAccount.getWorkQueue().getWorkRequestList().add(request);
             }
-            JOptionPane.showMessageDialog(null,"Request has been sent. You will receive an email once it is processed!!","Success",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Request has been sent. You will receive an email once it is processed!!", "Success", JOptionPane.INFORMATION_MESSAGE);
             populatePersonalCoachStatusTable();
-        }
-        else{
-            int x = userAccount.getWorkQueue().getWorkRequestList().size()-1;
+        } else {
+            int x = userAccount.getWorkQueue().getWorkRequestList().size() - 1;
             WorkRequest r = userAccount.getWorkQueue().getWorkRequestList().get(x);
-            if(r.getWorkStatus().toLowerCase().equals("result posted")){
-               
+            if (r.getWorkStatus().toLowerCase().equals("result posted")) {
+
                 PersonalCoachWorkRequest request = new PersonalCoachWorkRequest();
                 request.setWorkMessage("Need Personal Coach");
                 request.setSender(userAccount);
@@ -206,27 +214,32 @@ public class PersonalCoachPanel extends javax.swing.JPanel {
                 System.out.print("Request sent to Admin");
                 Organization org = null;
 
-                for(Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()){
-                    if(enter instanceof DietRegimeEnterprise){
+                for (Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()) {
+                    if (enter instanceof DietRegimeEnterprise) {
                         e = enter;
                     }
                 }
-                for (Organization organization : e.getOrganizationDirectory().getOrganizationList()){
-                    if (organization instanceof PersonalCoachOrganization){
+                for (Organization organization : e.getOrganizationDirectory().getOrganizationList()) {
+                    if (organization instanceof PersonalCoachOrganization) {
                         org = organization;
                         break;
                     }
                 }
-                if (org!=null){
+                if (org != null) {
                     org.getWorkQueue().getWorkRequestList().add(request);
                     userAccount.getWorkQueue().getWorkRequestList().add(request);
                 }
-                JOptionPane.showMessageDialog(null,"Request has been sent. You will receive an email once it is processed!!","Success",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Request has been sent. You will receive an email once it is processed!!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 populatePersonalCoachStatusTable();
 
-            }else {
-                JOptionPane.showMessageDialog(null,"Please wait until the previous request has been processed !","Alert",JOptionPane.WARNING_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please wait until the previous request has been processed !", "Alert", JOptionPane.WARNING_MESSAGE);
             }
+        }
+        }
+         catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
         }
     }//GEN-LAST:event_btnRequestToPersonalCoachActionPerformed
 
