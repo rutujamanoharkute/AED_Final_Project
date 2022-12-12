@@ -132,6 +132,8 @@ public class CustomerOrderPanel extends javax.swing.JPanel {
         delCartBtn = new javax.swing.JButton();
         placeOrderBtn = new javax.swing.JButton();
 
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(51, 153, 0));
         kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N

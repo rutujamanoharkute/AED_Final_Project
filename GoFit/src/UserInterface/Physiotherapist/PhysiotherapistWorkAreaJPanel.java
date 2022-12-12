@@ -88,6 +88,7 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         welLbl = new javax.swing.JLabel();
+        kGradientPanel2 = new keeptoo.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         CustomerListTbl = new javax.swing.JTable();
         nameTxtField = new javax.swing.JTextField();
@@ -112,8 +113,10 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
         msgLb = new javax.swing.JLabel();
         docMsgTxt = new javax.swing.JTextField();
         ProcessReqjButton = new javax.swing.JButton();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -126,6 +129,24 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
         welLbl.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         welLbl.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel3.add(welLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, -50, 320, 160));
+
+        kGradientPanel2.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel2.setkStartColor(new java.awt.Color(0, 153, 0));
+
+        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
+        kGradientPanel2.setLayout(kGradientPanel2Layout);
+        kGradientPanel2Layout.setHorizontalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 790, Short.MAX_VALUE)
+        );
+        kGradientPanel2Layout.setVerticalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(kGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 790, -1));
+
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 60));
 
         CustomerListTbl.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         CustomerListTbl.setModel(new javax.swing.table.DefaultTableModel(
@@ -149,26 +170,34 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(CustomerListTbl);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 66, 675, 91));
+
         nameTxtField.setEditable(false);
         nameTxtField.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        add(nameTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 223, 150, 30));
 
         ageTxtField.setEditable(false);
+        add(ageTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 263, 150, 30));
 
         nameLb.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         nameLb.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nameLb.setText("Name:");
+        add(nameLb, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 223, 107, 30));
 
         ageLb.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         ageLb.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         ageLb.setText("Age:");
+        add(ageLb, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 263, 90, 30));
 
         genderLb.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         genderLb.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         genderLb.setText("Gender:");
+        add(genderLb, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 303, 107, 20));
 
         heightLb.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         heightLb.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         heightLb.setText("Height(in cms):");
+        add(heightLb, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 343, -1, 30));
 
         Maleradio.setBackground(new java.awt.Color(255, 255, 255));
         Maleradio.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
@@ -179,6 +208,7 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
                 MaleradioActionPerformed(evt);
             }
         });
+        add(Maleradio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 303, 68, -1));
 
         Femaleradio.setBackground(new java.awt.Color(255, 255, 255));
         Femaleradio.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
@@ -189,10 +219,12 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
                 FemaleradioActionPerformed(evt);
             }
         });
+        add(Femaleradio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 303, 72, -1));
 
         noneCheckbox.setBackground(new java.awt.Color(255, 255, 255));
         noneCheckbox.setText("None");
         noneCheckbox.setEnabled(false);
+        add(noneCheckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 253, 90, -1));
 
         viewDetButn.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         viewDetButn.setText("View Details");
@@ -201,27 +233,33 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
                 viewDetButnActionPerformed(evt);
             }
         });
+        add(viewDetButn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 163, 138, 45));
 
         jLabel16.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(80, 80, 82));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Health Issues");
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 223, 310, -1));
 
         diabCheckbox.setBackground(new java.awt.Color(255, 255, 255));
         diabCheckbox.setText("Diabetes");
         diabCheckbox.setEnabled(false);
+        add(diabCheckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 253, 90, -1));
 
         cholestrolCheckbox.setBackground(new java.awt.Color(255, 255, 255));
         cholestrolCheckbox.setText("Cholestrol");
         cholestrolCheckbox.setEnabled(false);
+        add(cholestrolCheckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 253, 90, -1));
 
         thyroidCheckbox.setBackground(new java.awt.Color(255, 255, 255));
         thyroidCheckbox.setText("Thyroid");
         thyroidCheckbox.setEnabled(false);
+        add(thyroidCheckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(616, 293, 90, -1));
 
         pcosCheckbox.setBackground(new java.awt.Color(255, 255, 255));
         pcosCheckbox.setText("PCOS");
         pcosCheckbox.setEnabled(false);
+        add(pcosCheckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 293, 90, -1));
 
         hyperCheckbox.setBackground(new java.awt.Color(255, 255, 255));
         hyperCheckbox.setText("Hypertension");
@@ -231,20 +269,26 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
                 hyperCheckboxActionPerformed(evt);
             }
         });
+        add(hyperCheckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 293, -1, -1));
 
         heightTxtField.setEditable(false);
+        add(heightTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 343, 150, 30));
 
         weightTxtField.setEditable(false);
+        add(weightTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 383, 150, 30));
 
         weightLb.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         weightLb.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         weightLb.setText("Weight (in Kgs):");
+        add(weightLb, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 383, -1, 30));
 
         msgLb.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         msgLb.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         msgLb.setText("Message:");
+        add(msgLb, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 447, 110, 50));
 
         docMsgTxt.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        add(docMsgTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 433, 296, 80));
 
         ProcessReqjButton.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         ProcessReqjButton.setText("Process Request");
@@ -253,121 +297,23 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
                 ProcessReqjButtonActionPerformed(evt);
             }
         });
+        add(ProcessReqjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 553, -1, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addComponent(viewDetButn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(nameLb, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(nameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(ageLb, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(ageTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(noneCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(diabCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(cholestrolCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(genderLb, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(Maleradio, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(Femaleradio, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
-                        .addComponent(hyperCheckbox)
-                        .addGap(16, 16, 16)
-                        .addComponent(pcosCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(thyroidCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(heightLb, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(heightTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(weightLb)
-                        .addGap(34, 34, 34)
-                        .addComponent(weightTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(msgLb, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(docMsgTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(290, 290, 290)
-                        .addComponent(ProcessReqjButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
+
+        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
+        kGradientPanel1.setLayout(kGradientPanel1Layout);
+        kGradientPanel1Layout.setHorizontalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 790, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(viewDetButn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameLb, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(noneCheckbox)
-                    .addComponent(diabCheckbox)
-                    .addComponent(cholestrolCheckbox)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ageLb, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ageTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(hyperCheckbox)
-                    .addComponent(pcosCheckbox)
-                    .addComponent(thyroidCheckbox)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(genderLb, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Maleradio)
-                            .addComponent(Femaleradio))))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(heightLb, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(heightTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(weightLb, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(weightTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(msgLb, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(docMsgTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(ProcessReqjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        kGradientPanel1Layout.setVerticalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 630, Short.MAX_VALUE)
         );
+
+        add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 630));
     }// </editor-fold>//GEN-END:initComponents
 
     private void MaleradioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaleradioActionPerformed
@@ -466,6 +412,8 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private keeptoo.KGradientPanel kGradientPanel1;
+    private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JLabel msgLb;
     private javax.swing.JLabel nameLb;
     private javax.swing.JTextField nameTxtField;

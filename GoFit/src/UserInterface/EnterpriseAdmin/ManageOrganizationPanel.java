@@ -42,15 +42,21 @@ public class ManageOrganizationPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         btnBack = new javax.swing.JButton();
+        comboOrganizationType = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+        btncreateOrganization = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblOrganization = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        comboOrganizationType = new javax.swing.JComboBox();
-        btncreateOrganization = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        kGradientPanel1.setForeground(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setText("BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +64,21 @@ public class ManageOrganizationPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, 50));
+        kGradientPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, 50));
+
+        comboOrganizationType.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        kGradientPanel1.add(comboOrganizationType, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 230, 40));
+
+        jLabel1.setText("Organization Type");
+        kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, -1, 70));
+
+        btncreateOrganization.setText("CREATE ORGANIZATION");
+        btncreateOrganization.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncreateOrganizationActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(btncreateOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 270, 50));
 
         tblOrganization.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -73,21 +93,9 @@ public class ManageOrganizationPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblOrganization);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 490, 230));
+        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 490, 230));
 
-        jLabel1.setText("Organization Type");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, 70));
-
-        comboOrganizationType.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        add(comboOrganizationType, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 230, 40));
-
-        btncreateOrganization.setText("CREATE ORGANIZATION");
-        btncreateOrganization.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncreateOrganizationActionPerformed(evt);
-            }
-        });
-        add(btncreateOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 270, 50));
+        add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 810, 610));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -137,6 +145,7 @@ public class ManageOrganizationPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox comboOrganizationType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTable tblOrganization;
     // End of variables declaration//GEN-END:variables
 

@@ -153,6 +153,9 @@ public class CustomerOperationsPanel extends javax.swing.JPanel {
         btnback = new javax.swing.JButton();
         btnRequestToPersonalCoach = new javax.swing.JButton();
 
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(51, 153, 0));
+
         tblDietStatus.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         tblDietStatus.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

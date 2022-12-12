@@ -228,7 +228,7 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
         btnGraph = new javax.swing.JButton();
 
         kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
-        kGradientPanel1.setkStartColor(new java.awt.Color(51, 51, 255));
+        kGradientPanel1.setkStartColor(new java.awt.Color(51, 153, 0));
         kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblCustomerRegistration.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N

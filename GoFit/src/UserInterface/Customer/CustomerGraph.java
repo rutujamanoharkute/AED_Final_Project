@@ -10,6 +10,7 @@ import Business.Ecosystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -70,9 +71,12 @@ public class CustomerGraph extends javax.swing.JPanel {
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnview = new javax.swing.JButton();
         GraphPanel = new javax.swing.JPanel();
+        backBtn = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(51, 153, 0));
         kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnview.setText("View");
@@ -81,12 +85,21 @@ public class CustomerGraph extends javax.swing.JPanel {
                 btnviewActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnview, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 389, -1, -1));
+        kGradientPanel1.add(btnview, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, -1, -1));
 
         GraphPanel.setLayout(new java.awt.BorderLayout());
-        kGradientPanel1.add(GraphPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 520, 310));
+        kGradientPanel1.add(GraphPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 520, 310));
 
-        add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 610, 430));
+        backBtn.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        backBtn.setText(" Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
+
+        add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 0, 810, 600));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewActionPerformed
@@ -116,9 +129,21 @@ public class CustomerGraph extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnviewActionPerformed
 
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        try {
+            userProcessContainer.remove(this);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.previous(userProcessContainer);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please try again");
+        }
+    }//GEN-LAST:event_backBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel GraphPanel;
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton btnview;
     private keeptoo.KGradientPanel kGradientPanel1;
     // End of variables declaration//GEN-END:variables

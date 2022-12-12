@@ -97,8 +97,9 @@ public class PhysiotherapistPanel extends javax.swing.JPanel {
         btnBookAppointment = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         physioTbl = new javax.swing.JTable();
-        backBtn = new javax.swing.JButton();
 
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
         kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setBackground(new java.awt.Color(80, 80, 82));
@@ -106,18 +107,18 @@ public class PhysiotherapistPanel extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(80, 80, 82));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("PHYSIOTHERAPIST");
-        kGradientPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 370, 30));
+        kGradientPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 370, 30));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel5.setText("Enter Your Message:");
-        kGradientPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 170, 40));
+        kGradientPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 170, 40));
 
         msgTxt.setColumns(20);
         msgTxt.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         msgTxt.setRows(5);
         jScrollPane1.setViewportView(msgTxt);
 
-        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 240, 70));
+        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 240, 70));
 
         btnBookAppointment.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         btnBookAppointment.setText("Book Appointment");
@@ -126,7 +127,7 @@ public class PhysiotherapistPanel extends javax.swing.JPanel {
                 btnBookAppointmentActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnBookAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 150, 30));
+        kGradientPanel1.add(btnBookAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 150, 30));
 
         physioTbl.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         physioTbl.setModel(new javax.swing.table.DefaultTableModel(
@@ -150,26 +151,17 @@ public class PhysiotherapistPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(physioTbl);
 
-        kGradientPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 480, 80));
-
-        backBtn.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        backBtn.setText(" Back");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
-        kGradientPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 100, 30));
+        kGradientPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 480, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 801, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -240,23 +232,8 @@ public class PhysiotherapistPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBookAppointmentActionPerformed
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
-        try
-        {
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-        }
-         catch(Exception e)
-        {
-             JOptionPane.showMessageDialog(this, "Please try again");
-        }
-    }//GEN-LAST:event_backBtnActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backBtn;
     private javax.swing.JButton btnBookAppointment;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

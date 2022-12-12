@@ -55,6 +55,7 @@ public class SystemAdminOperations extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         manageNetwork = new javax.swing.JButton();
         manageEnterprise = new javax.swing.JButton();
         manageEnterpriseAdmin = new javax.swing.JButton();
@@ -62,13 +63,17 @@ public class SystemAdminOperations extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         manageNetwork.setText("MANAGE NETWORK");
         manageNetwork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageNetworkActionPerformed(evt);
             }
         });
-        add(manageNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 300, 58));
+        kGradientPanel1.add(manageNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 300, 58));
 
         manageEnterprise.setText("MANAGE ENTERPRISE");
         manageEnterprise.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +81,7 @@ public class SystemAdminOperations extends javax.swing.JPanel {
                 manageEnterpriseActionPerformed(evt);
             }
         });
-        add(manageEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 300, 62));
+        kGradientPanel1.add(manageEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 300, 62));
 
         manageEnterpriseAdmin.setText("MANAGE ENTERPRISE ADMIN");
         manageEnterpriseAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +89,9 @@ public class SystemAdminOperations extends javax.swing.JPanel {
                 manageEnterpriseAdminActionPerformed(evt);
             }
         });
-        add(manageEnterpriseAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 300, 68));
+        kGradientPanel1.add(manageEnterpriseAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 300, 68));
+
+        add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 530));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageNetworkActionPerformed
@@ -138,6 +145,7 @@ public class SystemAdminOperations extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JButton manageEnterprise;
     private javax.swing.JButton manageEnterpriseAdmin;
     private javax.swing.JButton manageNetwork;

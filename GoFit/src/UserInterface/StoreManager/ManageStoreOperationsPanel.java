@@ -49,20 +49,16 @@ public class ManageStoreOperationsPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        manageInventoryBtn = new javax.swing.JButton();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         manageOrdersBtn = new javax.swing.JButton();
+        manageInventoryBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setText("MANAGE STORE OPERATIONS");
-
-        manageInventoryBtn.setText("Manage Stock");
-        manageInventoryBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageInventoryBtnActionPerformed(evt);
-            }
-        });
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         manageOrdersBtn.setText("Manage Orders");
         manageOrdersBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -70,33 +66,30 @@ public class ManageStoreOperationsPanel extends javax.swing.JPanel {
                 manageOrdersBtnActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(manageOrdersBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 230, 50));
+
+        manageInventoryBtn.setText("Manage Stock");
+        manageInventoryBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageInventoryBtnActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(manageInventoryBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 226, 50));
+
+        jLabel1.setText("MANAGE STORE OPERATIONS");
+        kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, -1, 49));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(285, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(manageInventoryBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                            .addComponent(manageOrdersBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(282, 282, 282))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(262, 262, 262))))
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 801, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(manageInventoryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(manageOrdersBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(375, Short.MAX_VALUE))
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -132,6 +125,7 @@ public class ManageStoreOperationsPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JButton manageInventoryBtn;
     private javax.swing.JButton manageOrdersBtn;
     // End of variables declaration//GEN-END:variables

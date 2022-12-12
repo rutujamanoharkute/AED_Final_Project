@@ -99,8 +99,12 @@ public class CardiologistPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         cardioTbl = new javax.swing.JTable();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(102, 153, 0));
         kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setBackground(new java.awt.Color(80, 80, 82));
@@ -108,18 +112,18 @@ public class CardiologistPanel extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(80, 80, 82));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("CARDIOLOGIST");
-        kGradientPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 370, 30));
+        kGradientPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 370, 30));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel5.setText("Enter Your Message:");
-        kGradientPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 170, 40));
+        kGradientPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 170, 40));
 
         msgTxt.setColumns(20);
         msgTxt.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         msgTxt.setRows(5);
         jScrollPane1.setViewportView(msgTxt);
 
-        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 240, 70));
+        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 240, 70));
 
         btnBookAppointment.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         btnBookAppointment.setText("Book Appointment");
@@ -128,7 +132,7 @@ public class CardiologistPanel extends javax.swing.JPanel {
                 btnBookAppointmentActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnBookAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 150, 30));
+        kGradientPanel1.add(btnBookAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 150, 30));
 
         cardioTbl.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         cardioTbl.setModel(new javax.swing.table.DefaultTableModel(
@@ -152,15 +156,15 @@ public class CardiologistPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(cardioTbl);
 
-        kGradientPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 480, 80));
-
-        jPanel2.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 647, 466));
+        kGradientPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 480, 80));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 647, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 870, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -168,7 +172,10 @@ public class CardiologistPanel extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(74, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -176,26 +183,7 @@ public class CardiologistPanel extends javax.swing.JPanel {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 647, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBookAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAppointmentActionPerformed

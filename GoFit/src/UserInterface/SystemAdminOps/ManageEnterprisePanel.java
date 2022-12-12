@@ -61,6 +61,7 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
         btnCreateEnterprise = new javax.swing.JButton();
         comboNetwork = new javax.swing.JComboBox();
         comboEnterpriseType = new javax.swing.JComboBox();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -112,6 +113,10 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
 
         comboEnterpriseType.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         add(comboEnterpriseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 211, 35));
+
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
+        add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 660));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -126,35 +131,31 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
 
     private void btnCreateEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEnterpriseActionPerformed
         // TODO add your handling code here:
-        try
-        {
-        
-        if (validateData())
-        {
-        Network network = (Network) comboNetwork.getSelectedItem();
-        Enterprise.EnterpriseType enterprisetype = (Enterprise.EnterpriseType) comboEnterpriseType.getSelectedItem();
-        if (network == null || enterprisetype == null) {
-            JOptionPane.showMessageDialog(null, "Invalid Input!");
-            return;
-        }
-        if (txtEnterpriseName.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please enter valid input in all fields", "Warining", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        String name = txtEnterpriseName.getText();
-        Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, enterprisetype);
+        try {
 
-        JOptionPane.showMessageDialog(this, "Enterprise has been added Successfully");
+            if (validateData()) {
+                Network network = (Network) comboNetwork.getSelectedItem();
+                Enterprise.EnterpriseType enterprisetype = (Enterprise.EnterpriseType) comboEnterpriseType.getSelectedItem();
+                if (network == null || enterprisetype == null) {
+                    JOptionPane.showMessageDialog(null, "Invalid Input!");
+                    return;
+                }
+                if (txtEnterpriseName.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Please enter valid input in all fields", "Warining", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                String name = txtEnterpriseName.getText();
+                Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, enterprisetype);
 
-        populateTableEnterprise();
-        txtEnterpriseName.setText("");
-        }
-        }
-        catch(Exception e)
-        {
+                JOptionPane.showMessageDialog(this, "Enterprise has been added Successfully");
+
+                populateTableEnterprise();
+                txtEnterpriseName.setText("");
+            }
+        } catch (Exception e) {
             System.out.println("Please try again");
         }
-        
+
 
     }//GEN-LAST:event_btnCreateEnterpriseActionPerformed
 
@@ -165,6 +166,7 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
     private javax.swing.JComboBox comboEnterpriseType;
     private javax.swing.JComboBox comboNetwork;
     private javax.swing.JScrollPane jScrollPane1;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblEnterpriseName;
     private javax.swing.JLabel lblEnterpriseType;
     private javax.swing.JLabel lblNetwork;
@@ -200,7 +202,7 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
             }
         }
     }
-    
+
     public boolean validateData() {
 
         String enterpriseName = txtEnterpriseName.getText();
@@ -230,6 +232,5 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
 
         return true;
     }
-    
-    
+
 }

@@ -97,6 +97,9 @@ public class GymTrainerPanel extends javax.swing.JPanel {
         fitnessTbl = new javax.swing.JTable();
         backBtn = new javax.swing.JButton();
 
+        kGradientPanel1.setkEndColor(new java.awt.Color(255, 255, 255));
+        kGradientPanel1.setkStartColor(new java.awt.Color(51, 153, 0));
+
         jLabel6.setBackground(new java.awt.Color(80, 80, 82));
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(80, 80, 82));

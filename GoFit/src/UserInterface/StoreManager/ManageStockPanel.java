@@ -51,22 +51,25 @@ public class ManageStockPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         menuTbl = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
-        itemNameTxt = new javax.swing.JTextField();
-        priceTxt = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        addBtn = new javax.swing.JButton();
         delBtn = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         typeComboBox = new javax.swing.JComboBox<>();
-        btnBack1 = new javax.swing.JButton();
+        itemNameTxt = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        priceTxt = new javax.swing.JTextField();
+        addBtn = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setText("MANAGE INVENTORY");
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         menuTbl.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
         menuTbl.setModel(new javax.swing.table.DefaultTableModel(
@@ -87,15 +90,31 @@ public class ManageStockPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(menuTbl);
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Item Name");
+        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, 91));
+
+        delBtn.setText("Delete");
+        delBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delBtnActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(delBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 130, 40));
+
+        jLabel5.setText("Item Type");
+        kGradientPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 100, 30));
+
+        typeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Equipments", "Supplements" }));
+        kGradientPanel1.add(typeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 150, 30));
 
         itemNameTxt.setMinimumSize(new java.awt.Dimension(7, 25));
+        kGradientPanel1.add(itemNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 150, 30));
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setText("Item Name");
+        kGradientPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 100, 30));
 
         priceTxt.setMinimumSize(new java.awt.Dimension(7, 25));
-
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Price");
+        kGradientPanel1.add(priceTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 150, 30));
 
         addBtn.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         addBtn.setText("Add");
@@ -104,91 +123,34 @@ public class ManageStockPanel extends javax.swing.JPanel {
                 addBtnActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 440, 100, 40));
 
-        delBtn.setText("Delete");
-        delBtn.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel4.setText("Price");
+        kGradientPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 130, 30));
+
+        btnBack.setText("BACK");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                delBtnActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
-        jLabel5.setText("Item Type");
-
-        typeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Equipments", "Supplements" }));
-
-        btnBack1.setText("BACK");
-        btnBack1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBack1ActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("MANAGE STOCK");
+        kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(btnBack1)
-                        .addGap(201, 201, 201)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(220, 220, 220)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(priceTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(delBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(typeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(itemNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(355, 355, 355)
-                        .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(244, Short.MAX_VALUE))
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 801, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(btnBack1)))
-                .addGap(58, 58, 58)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(delBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(typeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(priceTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
-                .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(176, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -264,23 +226,23 @@ public class ManageStockPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_delBtnActionPerformed
 
-    private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        try{
+          try{
         userContainer.remove(this);
-        CardLayout layout = (CardLayout) userContainer.getLayout();
+        CardLayout layout = (CardLayout)userContainer.getLayout();
         layout.previous(userContainer);
         }
         catch(Exception e)
         {
              JOptionPane.showMessageDialog(this, "Please try again");
         }
-    }//GEN-LAST:event_btnBack1ActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
-    private javax.swing.JButton btnBack1;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton delBtn;
     private javax.swing.JTextField itemNameTxt;
     private javax.swing.JLabel jLabel1;
@@ -288,6 +250,7 @@ public class ManageStockPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTable menuTbl;
     private javax.swing.JTextField priceTxt;
     private javax.swing.JComboBox<String> typeComboBox;

@@ -96,11 +96,11 @@ public class PsychiatristPanel extends javax.swing.JPanel {
         btnBookAppointment = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         psychTbl = new javax.swing.JTable();
-        backBtn = new javax.swing.JButton();
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(51, 153, 0));
         kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setBackground(new java.awt.Color(80, 80, 82));
@@ -108,18 +108,18 @@ public class PsychiatristPanel extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(80, 80, 82));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("PSYCHIATRIST");
-        kGradientPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 370, 30));
+        kGradientPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 370, 30));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel5.setText("Enter Your Message:");
-        kGradientPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 170, 40));
+        kGradientPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 170, 40));
 
         msgTxt.setColumns(20);
         msgTxt.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         msgTxt.setRows(5);
         jScrollPane1.setViewportView(msgTxt);
 
-        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 240, 70));
+        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 240, 70));
 
         btnBookAppointment.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         btnBookAppointment.setText("Book Appointment");
@@ -128,7 +128,7 @@ public class PsychiatristPanel extends javax.swing.JPanel {
                 btnBookAppointmentActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnBookAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 150, 30));
+        kGradientPanel1.add(btnBookAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 150, 30));
 
         psychTbl.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         psychTbl.setModel(new javax.swing.table.DefaultTableModel(
@@ -152,24 +152,15 @@ public class PsychiatristPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(psychTbl);
 
-        kGradientPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 480, 80));
+        kGradientPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 480, 80));
 
-        backBtn.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        backBtn.setText(" Back");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
-        kGradientPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 100, 30));
-
-        jPanel1.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 647, 470));
+        jPanel1.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 800, 620));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 647, Short.MAX_VALUE)
+            .addGap(0, 801, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -177,7 +168,7 @@ public class PsychiatristPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
+            .addGap(0, 622, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -253,23 +244,8 @@ public class PsychiatristPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBookAppointmentActionPerformed
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
-        try
-        {
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-        }
-         catch(Exception e)
-        {
-             JOptionPane.showMessageDialog(this, "Please try again");
-        }
-    }//GEN-LAST:event_backBtnActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backBtn;
     private javax.swing.JButton btnBookAppointment;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

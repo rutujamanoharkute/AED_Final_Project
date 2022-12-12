@@ -48,17 +48,14 @@ public class EnterpriseAdminOperationsPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTitle = new javax.swing.JLabel();
         btnManageOrganization = new javax.swing.JButton();
         btnManageRequests = new javax.swing.JButton();
         btnMngEmployee = new javax.swing.JButton();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
+        lblTitle = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblTitle.setText("WELCOME ENTERPRISE ADMIN");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 372, -1));
 
         btnManageOrganization.setText("MANAGE ORGANIZATION");
         btnManageOrganization.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +63,7 @@ public class EnterpriseAdminOperationsPanel extends javax.swing.JPanel {
                 btnManageOrganizationActionPerformed(evt);
             }
         });
-        add(btnManageOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, 60));
+        add(btnManageOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 250, 60));
 
         btnManageRequests.setText("MANAGE REQUESTS");
         btnManageRequests.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +71,7 @@ public class EnterpriseAdminOperationsPanel extends javax.swing.JPanel {
                 btnManageRequestsActionPerformed(evt);
             }
         });
-        add(btnManageRequests, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 250, 60));
+        add(btnManageRequests, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 250, 60));
 
         btnMngEmployee.setText("MANAGE EMPLOYEE");
         btnMngEmployee.addActionListener(new java.awt.event.ActionListener() {
@@ -82,7 +79,18 @@ public class EnterpriseAdminOperationsPanel extends javax.swing.JPanel {
                 btnMngEmployeeActionPerformed(evt);
             }
         });
-        add(btnMngEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 250, 60));
+        add(btnMngEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 250, 60));
+
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("WELCOME ENTERPRISE ADMIN");
+        kGradientPanel1.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 372, -1));
+
+        add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 610));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageOrganizationActionPerformed
@@ -137,6 +145,7 @@ public class EnterpriseAdminOperationsPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageOrganization;
     private javax.swing.JButton btnManageRequests;
     private javax.swing.JButton btnMngEmployee;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
 }

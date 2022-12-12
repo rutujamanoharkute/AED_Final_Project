@@ -48,20 +48,28 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         comboOrganization = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
         btnSearch = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        lblTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblWorkRequest = new javax.swing.JTable();
-        lblAssignTask = new javax.swing.JLabel();
         comboEmployee = new javax.swing.JComboBox<>();
         assignBtn = new javax.swing.JButton();
-        lblTitle = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
+        lblAssignTask = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        kGradientPanel1.add(comboOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 190, 30));
+
         jLabel1.setText("Organization");
+        kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, 50));
 
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -69,6 +77,19 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
                 btnSearchActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, -1, -1));
+
+        btnBack.setText("BACK");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setText("MANAGE REQUESTS");
+        kGradientPanel1.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, 40));
 
         tblWorkRequest.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         tblWorkRequest.setModel(new javax.swing.table.DefaultTableModel(
@@ -99,8 +120,9 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblWorkRequest);
 
-        lblAssignTask.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblAssignTask.setText("Assign Selected Task to");
+        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 520, 96));
+
+        kGradientPanel1.add(comboEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 190, 40));
 
         assignBtn.setText("Assign");
         assignBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -108,74 +130,25 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
                 assignBtnActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(assignBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 120, 42));
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTitle.setText("MANAGE REQUESTS");
-
-        btnBack.setText("BACK");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
+        lblAssignTask.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblAssignTask.setText("Assign Selected Task to");
+        kGradientPanel1.add(lblAssignTask, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 200, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 782, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(230, 230, 230)
-                            .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(jLabel1)
-                            .addGap(38, 38, 38)
-                            .addComponent(comboOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(40, 40, 40)
-                            .addComponent(btnSearch))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(lblAssignTask, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(40, 40, 40)
-                            .addComponent(comboEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(160, 160, 160)
-                            .addComponent(assignBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(btnBack))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 582, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(30, 30, 30)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(comboOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnSearch))))
-                    .addGap(40, 40, 40)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(44, 44, 44)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblAssignTask, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(comboEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(30, 30, 30)
-                    .addComponent(assignBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(28, 28, 28)
-                    .addComponent(btnBack)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -284,6 +257,7 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox comboOrganization;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblAssignTask;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblWorkRequest;

@@ -50,22 +50,15 @@ public class DeliveryManAssignmentPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        backBtn = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        deliveryManCmbBox = new javax.swing.JComboBox<>();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         appointDelManBtn = new javax.swing.JButton();
+        deliveryManCmbBox = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        backBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        backBtn.setText("< Back");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Deliveryman:");
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         appointDelManBtn.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         appointDelManBtn.setText("Appoint");
@@ -74,40 +67,34 @@ public class DeliveryManAssignmentPanel extends javax.swing.JPanel {
                 appointDelManBtnActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(appointDelManBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 95, 36));
+
+        kGradientPanel1.add(deliveryManCmbBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 150, 30));
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setText("Deliveryman:");
+        kGradientPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 151, -1));
+
+        backBtn.setText("< Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 122, 37));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(225, 225, 225)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72)
-                        .addComponent(deliveryManCmbBox, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(468, 468, 468)
-                        .addComponent(appointDelManBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(518, Short.MAX_VALUE))
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel3))
-                    .addComponent(deliveryManCmbBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(appointDelManBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(417, Short.MAX_VALUE))
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -149,6 +136,7 @@ public class DeliveryManAssignmentPanel extends javax.swing.JPanel {
     private javax.swing.JButton backBtn;
     private javax.swing.JComboBox<String> deliveryManCmbBox;
     private javax.swing.JLabel jLabel3;
+    private keeptoo.KGradientPanel kGradientPanel1;
     // End of variables declaration//GEN-END:variables
 
     private void populateComboBox() {

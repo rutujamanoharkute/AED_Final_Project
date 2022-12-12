@@ -49,65 +49,59 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
     }
 
     private void populateTabl() {
-        try{
-        DefaultTableModel model = (DefaultTableModel) enterprisejTable.getModel();
+        try {
+            DefaultTableModel model = (DefaultTableModel) enterprisejTable.getModel();
 
-        model.setRowCount(0);
-        for (Network network : system.getNetworkList()) {
-            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
-                for (UserAccount userAccount : enterprise.getUserAccountList().getUserAccountList()) {
-                    Object[] row = new Object[5];
-                    row[0] = userAccount.getEmployee().getEmpId();
-                    row[1] = userAccount.getEmployee().getEmployeeName();
-                    row[2] = enterprise.getName();
-                    row[3] = network.getNetworkName();
-                    row[4] = userAccount.getUsername();
+            model.setRowCount(0);
+            for (Network network : system.getNetworkList()) {
+                for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                    for (UserAccount userAccount : enterprise.getUserAccountList().getUserAccountList()) {
+                        Object[] row = new Object[5];
+                        row[0] = userAccount.getEmployee().getEmpId();
+                        row[1] = userAccount.getEmployee().getEmployeeName();
+                        row[2] = enterprise.getName();
+                        row[3] = network.getNetworkName();
+                        row[4] = userAccount.getUsername();
 
-                    model.addRow(row);
+                        model.addRow(row);
+                    }
                 }
             }
-        }
-        
-         }
-        catch(Exception e){
-            
-                
-             JOptionPane.showMessageDialog(this, "Please try again");
-        
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this, "Please try again");
+
         }
     }
 
     private void populateNetwrkComboBox() {
-        try{
-        networkComboBox.removeAllItems();
+        try {
+            networkComboBox.removeAllItems();
 
-        for (Network network : system.getNetworkList()) {
-            networkComboBox.addItem(network);
-        }
-        
-         }
-        catch(Exception e){
-            
-                
-             JOptionPane.showMessageDialog(this, "Please try again");
-        
+            for (Network network : system.getNetworkList()) {
+                networkComboBox.addItem(network);
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this, "Please try again");
+
         }
     }
 
     private void populateEnterpComboBox(Network network) {
         try {
-        EnterpriseComboBox.removeAllItems();
+            EnterpriseComboBox.removeAllItems();
 
-        for (Enterprise enterpr : network.getEnterpriseDirectory().getEnterpriseList()) {
-            EnterpriseComboBox.addItem(enterpr);
-        }
-        
-         }
-        catch(Exception e){
-            
-                
-             JOptionPane.showMessageDialog(this, "Please try again");
-        
+            for (Enterprise enterpr : network.getEnterpriseDirectory().getEnterpriseList()) {
+                EnterpriseComboBox.addItem(enterpr);
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this, "Please try again");
+
         }
 
     }
@@ -124,18 +118,19 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         enterprisejTable = new javax.swing.JTable();
+        submitjButton = new javax.swing.JButton();
+        lblTitle = new javax.swing.JLabel();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         netjLabel = new javax.swing.JLabel();
         entrjLabel = new javax.swing.JLabel();
         emailjLabel = new javax.swing.JLabel();
         passjLabel = new javax.swing.JLabel();
         namejLabel = new javax.swing.JLabel();
-        emailjTextField = new javax.swing.JTextField();
-        namejTextField = new javax.swing.JTextField();
-        submitjButton = new javax.swing.JButton();
-        EnterpriseComboBox = new javax.swing.JComboBox();
         networkComboBox = new javax.swing.JComboBox();
+        EnterpriseComboBox = new javax.swing.JComboBox();
+        emailjTextField = new javax.swing.JTextField();
         passwordjTextField = new javax.swing.JPasswordField();
-        lblTitle = new javax.swing.JLabel();
+        namejTextField = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
@@ -164,23 +159,6 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 99, 487, 87));
 
-        netjLabel.setText("Network");
-        add(netjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 150, 60));
-
-        entrjLabel.setText("Enterprise");
-        add(entrjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 110, 50));
-
-        emailjLabel.setText("Email ID");
-        add(emailjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 100, 40));
-
-        passjLabel.setText("Password");
-        add(passjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 130, 50));
-
-        namejLabel.setText("Name");
-        add(namejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, 80, 50));
-        add(emailjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 230, 40));
-        add(namejTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 230, 40));
-
         submitjButton.setText("Submit");
         submitjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,8 +167,28 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
         });
         add(submitjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, 115, 50));
 
-        EnterpriseComboBox.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        add(EnterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 230, 40));
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTitle.setText("MANAGE ENTERPRISE ADMIN");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 15, 347, 48));
+
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        netjLabel.setText("Network");
+        kGradientPanel1.add(netjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 150, 60));
+
+        entrjLabel.setText("Enterprise");
+        kGradientPanel1.add(entrjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 110, 50));
+
+        emailjLabel.setText("Email ID");
+        kGradientPanel1.add(emailjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 100, 40));
+
+        passjLabel.setText("Password");
+        kGradientPanel1.add(passjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 130, 50));
+
+        namejLabel.setText("Name");
+        kGradientPanel1.add(namejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 450, 80, 50));
 
         networkComboBox.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         networkComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -198,99 +196,93 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
                 networkComboBoxActionPerformed(evt);
             }
         });
-        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 230, 40));
-        add(passwordjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, 230, 40));
+        kGradientPanel1.add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 230, 40));
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblTitle.setText("MANAGE ENTERPRISE ADMIN");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 15, 347, 48));
+        EnterpriseComboBox.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        kGradientPanel1.add(EnterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 230, 40));
+        kGradientPanel1.add(emailjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 230, 40));
+        kGradientPanel1.add(passwordjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 230, 40));
+        kGradientPanel1.add(namejTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 230, 40));
+
+        add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 660));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        try{
-        userContainer.remove(this);
-        Component[] trackComponent = userContainer.getComponents();
-        Component eachComponent = trackComponent[trackComponent.length - 1];
-        SystemAdminOperations sysAdminOps = (SystemAdminOperations) eachComponent;
-        CardLayout cardLayout = (CardLayout) userContainer.getLayout();
-        cardLayout.previous(userContainer);
-        
-         }
-        catch(Exception e){
-            
-                
-             JOptionPane.showMessageDialog(this, "Please try again");
-        
+        try {
+            userContainer.remove(this);
+            Component[] trackComponent = userContainer.getComponents();
+            Component eachComponent = trackComponent[trackComponent.length - 1];
+            SystemAdminOperations sysAdminOps = (SystemAdminOperations) eachComponent;
+            CardLayout cardLayout = (CardLayout) userContainer.getLayout();
+            cardLayout.previous(userContainer);
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this, "Please try again");
+
         }
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void networkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkComboBoxActionPerformed
-        try{
-        Network network = (Network) networkComboBox.getSelectedItem();
-        if (network != null) {
-            populateEnterpComboBox(network);
-        }
-        
-         }
-        catch(Exception e){
-            
-                
-             JOptionPane.showMessageDialog(this, "Please try again");
-        
+        try {
+            Network network = (Network) networkComboBox.getSelectedItem();
+            if (network != null) {
+                populateEnterpComboBox(network);
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this, "Please try again");
+
         }
 
     }//GEN-LAST:event_networkComboBoxActionPerformed
 
     private void submitjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitjButtonActionPerformed
         // TODO add your handling code here:
-        try{
-        if (validateData()) {
-            Enterprise enterprise = (Enterprise) EnterpriseComboBox.getSelectedItem();
-            if (enterprise.getEmployeeList().getEmployeeList().size() != 0) {
-                isEnterpriseAvailable = 1;
-            }
-             else if (isEnterpriseAvailable != 1) {
+        try {
+            if (validateData()) {
+                Enterprise enterprise = (Enterprise) EnterpriseComboBox.getSelectedItem();
+                if (enterprise.getEmployeeList().getEmployeeList().size() != 0) {
+                    isEnterpriseAvailable = 1;
+                } else if (isEnterpriseAvailable != 1) {
 
-                String username = emailjTextField.getText();
-                String password = String.valueOf(passwordjTextField.getPassword());
-                String name = namejTextField.getText();
+                    String username = emailjTextField.getText();
+                    String password = String.valueOf(passwordjTextField.getPassword());
+                    String name = namejTextField.getText();
 
-                Employee employee = enterprise.getEmployeeList().createEmployee(name);
+                    Employee employee = enterprise.getEmployeeList().createEmployee(name);
 
-                UserAccount account = enterprise.getUserAccountList().createUserAccount(username, password, employee, new EnterpriseAdmin());
-                populateTabl();
-                networkComboBox.setSelectedIndex(0);
-                EnterpriseComboBox.setSelectedIndex(0);
-                emailjTextField.setText("");
-                passwordjTextField.setText("");
-                namejTextField.setText("");
-                //clearLabels();
-
-            } else {
-                if (isEnterpriseAvailable == 1) {
-                    JOptionPane.showMessageDialog(null, "Enterprise admin is already added !", "Alert", JOptionPane.INFORMATION_MESSAGE);
+                    UserAccount account = enterprise.getUserAccountList().createUserAccount(username, password, employee, new EnterpriseAdmin());
+                    populateTabl();
+                    networkComboBox.setSelectedIndex(0);
+                    EnterpriseComboBox.setSelectedIndex(0);
                     emailjTextField.setText("");
                     passwordjTextField.setText("");
                     namejTextField.setText("");
+                    //clearLabels();
+
                 } else {
-                    JOptionPane.showMessageDialog(null, "Please enter all the required fields correctly!", "Error", JOptionPane.ERROR_MESSAGE);
+                    if (isEnterpriseAvailable == 1) {
+                        JOptionPane.showMessageDialog(null, "Enterprise admin is already added !", "Alert", JOptionPane.INFORMATION_MESSAGE);
+                        emailjTextField.setText("");
+                        passwordjTextField.setText("");
+                        namejTextField.setText("");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Please enter all the required fields correctly!", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
-        }
 
-        
-         }
-      catch(Exception e){
-            
-                
-             JOptionPane.showMessageDialog(this, "Please try again");
-        
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this, "Please try again");
+
         }
     }//GEN-LAST:event_submitjButtonActionPerformed
 
     public boolean validateData() {
-       
 
         String name = namejTextField.getText();
         String password = passwordjTextField.getText();
@@ -298,17 +290,19 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
         namejTextField.setBorder(new LineBorder(new Color(128, 128, 128)));
         passwordjTextField.setBorder(new LineBorder(new Color(128, 128, 128)));
 
-        if (namejTextField.getText().length() <= 2 || !namejTextField.getText().matches("[a-zA-Z]+")) {
-            namejTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
-            namejLabel.setForeground(Color.RED);
-            JOptionPane.showMessageDialog(this, "Please enter a valid name consisting of more than 2 letters");
+        if (EnterpriseComboBox.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(this, "Please select an enterprise");
+            return false;
+        }
+        if (networkComboBox.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(this, "Please select a network");
             return false;
         }
 
-        if (name == null || name.equals("")) {
-            namejTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
-            namejLabel.setForeground(Color.RED);
-            JOptionPane.showMessageDialog(null, "Please enter name");
+        if (!emailAddressValidation(emailjTextField.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid email address");
+            emailjTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            emailjLabel.setForeground(Color.RED);
             return false;
         }
 
@@ -326,24 +320,22 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
             return false;
         }
 
-        if (!emailAddressValidation(emailjTextField.getText().trim())) {
-            JOptionPane.showMessageDialog(this, "Please enter a valid email address");
+        if (namejTextField.getText().length() <= 2 || !namejTextField.getText().matches("[a-zA-Z]+")) {
+            namejTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            namejLabel.setForeground(Color.RED);
+            JOptionPane.showMessageDialog(this, "Please enter a valid name consisting of more than 2 letters");
             return false;
         }
 
-        if (EnterpriseComboBox.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(this, "Please select an enterprise");
-            return false;
-        }
-        if (networkComboBox.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(this, "Please select a network");
+        if (name == null || name.equals("")) {
+            namejTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            namejLabel.setForeground(Color.RED);
+            JOptionPane.showMessageDialog(null, "Please enter name");
             return false;
         }
 
-         return true;
-        
-       
-      
+        return true;
+
     }
 
 
@@ -355,6 +347,7 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
     private javax.swing.JTable enterprisejTable;
     private javax.swing.JLabel entrjLabel;
     private javax.swing.JScrollPane jScrollPane1;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel namejLabel;
     private javax.swing.JTextField namejTextField;

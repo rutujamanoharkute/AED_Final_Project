@@ -56,77 +56,21 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnBack = new javax.swing.JButton();
-        lblOrders = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblProduct = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
+        totBillTxt = new javax.swing.JTextField();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
+        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblOrderManagement = new javax.swing.JTable();
         viewOrderBtn = new javax.swing.JButton();
-        refreshBtn = new javax.swing.JButton();
         btnTakeOrder = new javax.swing.JButton();
         btnAssignDeliveryMan = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblProduct = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        totBillTxt = new javax.swing.JTextField();
+        refreshBtn = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
-
-        btnBack.setText("BACK");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
-        lblOrders.setText("ORDERS");
-
-        tblOrderManagement.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        tblOrderManagement.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Order ID", "Customer Name", "Message", "Status"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tblOrderManagement);
-
-        viewOrderBtn.setText("View Order");
-        viewOrderBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewOrderBtnActionPerformed(evt);
-            }
-        });
-
-        refreshBtn.setText("Refresh");
-        refreshBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshBtnActionPerformed(evt);
-            }
-        });
-
-        btnTakeOrder.setText("Take Order");
-        btnTakeOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTakeOrderActionPerformed(evt);
-            }
-        });
-
-        btnAssignDeliveryMan.setText("Assign Deliveryman");
-        btnAssignDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAssignDeliveryManActionPerformed(evt);
-            }
-        });
 
         tblProduct.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         tblProduct.setModel(new javax.swing.table.DefaultTableModel(
@@ -147,77 +91,104 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblProduct);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Order Details");
-
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Total Price:");
 
         totBillTxt.setEditable(false);
 
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Order Details");
+        kGradientPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 452, 40));
+
+        tblOrderManagement.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        tblOrderManagement.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Order ID", "Customer Name", "Message", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblOrderManagement);
+
+        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 700, 91));
+
+        viewOrderBtn.setText("View Order");
+        viewOrderBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewOrderBtnActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(viewOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 289, -1, -1));
+
+        btnTakeOrder.setText("Take Order");
+        btnTakeOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTakeOrderActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(btnTakeOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 289, -1, -1));
+
+        btnAssignDeliveryMan.setText("Assign Deliveryman");
+        btnAssignDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignDeliveryManActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(btnAssignDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, -1, -1));
+
+        refreshBtn.setText("Refresh");
+        refreshBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshBtnActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(refreshBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 40, -1, -1));
+
+        btnBack.setText("BACK");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(btnBack)
-                .addGap(258, 258, 258)
-                .addComponent(lblOrders)
-                .addContainerGap(453, Short.MAX_VALUE))
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 862, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(604, 604, 604)
-                            .addComponent(refreshBtn))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(164, 164, 164)
-                            .addComponent(viewOrderBtn)
-                            .addGap(28, 28, 28)
-                            .addComponent(btnTakeOrder)
-                            .addGap(25, 25, 25)
-                            .addComponent(btnAssignDeliveryMan))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(128, 128, 128)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(115, 115, 115)
+                            .addGap(115, 282, Short.MAX_VALUE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(195, 195, 195)
+                            .addGap(195, 398, Short.MAX_VALUE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(61, 61, 61)
                             .addComponent(totBillTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 102, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(btnBack))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(lblOrders)))
-                .addContainerGap(521, Short.MAX_VALUE))
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(refreshBtn)
-                    .addGap(10, 10, 10)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(viewOrderBtn)
-                        .addComponent(btnTakeOrder)
-                        .addComponent(btnAssignDeliveryMan))
-                    .addGap(48, 48, 48)
-                    .addComponent(jLabel2)
-                    .addGap(27, 27, 27)
+                    .addGap(0, 420, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,23 +196,9 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
                             .addGap(2, 2, 2)
                             .addComponent(jLabel6))
                         .addComponent(totBillTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 55, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        try{
-        userContainer.remove(this);
-        CardLayout layout = (CardLayout)userContainer.getLayout();
-        layout.previous(userContainer);
-        }
-        catch(Exception e)
-        {
-             JOptionPane.showMessageDialog(this, "Please try again");
-        }
-        
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void viewOrderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewOrderBtnActionPerformed
         // TODO add your handling code here:
@@ -333,6 +290,19 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnAssignDeliveryManActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+          try{
+        userContainer.remove(this);
+        CardLayout layout = (CardLayout)userContainer.getLayout();
+        layout.previous(userContainer);
+        }
+        catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(this, "Please try again");
+        }
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignDeliveryMan;
@@ -342,7 +312,7 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblOrders;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JButton refreshBtn;
     private javax.swing.JTable tblOrderManagement;
     private javax.swing.JTable tblProduct;

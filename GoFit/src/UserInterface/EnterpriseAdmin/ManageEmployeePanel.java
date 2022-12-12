@@ -74,30 +74,31 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         btnDelete = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("CREATE EMPLOYEES");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 244, 50));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 270, 40));
 
         jLabel2.setText("Organization");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         jLabel3.setText("Role");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 90, 40));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 90, 40));
 
         lblName.setText("Name");
-        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 190, -1));
+        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 190, -1));
 
         jLabel5.setText("Email Id");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
-        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 190, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 190, -1));
 
         lblPassword.setText("Password");
-        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
 
         btnCreateEmployee.setText("CREATE");
         btnCreateEmployee.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +106,7 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
                 btnCreateEmployeeActionPerformed(evt);
             }
         });
-        add(btnCreateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 110, 40));
+        add(btnCreateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 110, 40));
 
         btnBack.setText("BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -113,10 +114,10 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         comboRole.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        add(comboRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 190, 40));
+        add(comboRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 190, 40));
 
         comboOrganization.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         comboOrganization.addActionListener(new java.awt.event.ActionListener() {
@@ -154,17 +155,17 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(employeeJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 370, 170));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 370, 170));
 
         organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 organizationJComboBoxActionPerformed(evt);
             }
         });
-        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 160, 30));
+        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 160, 30));
 
         jLabel7.setText("Organization");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 110, 40));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 110, 40));
 
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -172,8 +173,13 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 113, 44));
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 190, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, 113, 44));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 190, -1));
+
+        kGradientPanel1.setForeground(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
+        add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 610));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -311,6 +317,7 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JComboBox organizationJComboBox;

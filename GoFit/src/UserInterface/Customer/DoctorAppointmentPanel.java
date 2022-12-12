@@ -53,6 +53,9 @@ public class DoctorAppointmentPanel extends javax.swing.JPanel {
 
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
+
         btnPhysiotherapist.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         btnPhysiotherapist.setText("Physiotherapist");
         btnPhysiotherapist.addActionListener(new java.awt.event.ActionListener() {
@@ -94,9 +97,9 @@ public class DoctorAppointmentPanel extends javax.swing.JPanel {
                 .addComponent(backJButton)
                 .addGap(79, 79, 79)
                 .addComponent(btnCardiologist, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addComponent(btnPhysiotherapist, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addGap(88, 88, 88)
                 .addComponent(btnPsychiatrist, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
         );
@@ -114,6 +117,8 @@ public class DoctorAppointmentPanel extends javax.swing.JPanel {
 
         jSplitPane1.setTopComponent(kGradientPanel1);
 
+        rightJPanel.setkEndColor(new java.awt.Color(204, 204, 204));
+        rightJPanel.setkStartColor(new java.awt.Color(51, 153, 0));
         rightJPanel.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(rightJPanel);
 
