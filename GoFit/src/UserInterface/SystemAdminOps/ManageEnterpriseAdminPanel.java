@@ -136,6 +136,7 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
         setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/imgBack.png"))); // NOI18N
         btnBack.setText("BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,36 +160,44 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 99, 487, 87));
 
+        submitjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/imgSave.png"))); // NOI18N
         submitjButton.setText("Submit");
         submitjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitjButtonActionPerformed(evt);
             }
         });
-        add(submitjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, 115, 50));
+        add(submitjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, 170, 50));
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("MANAGE ENTERPRISE ADMIN");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 15, 347, 48));
 
+        kGradientPanel1.setForeground(new java.awt.Color(255, 255, 255));
         kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
         kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
         kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        netjLabel.setForeground(new java.awt.Color(255, 255, 255));
         netjLabel.setText("Network");
         kGradientPanel1.add(netjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 150, 60));
 
+        entrjLabel.setForeground(new java.awt.Color(255, 255, 255));
         entrjLabel.setText("Enterprise");
-        kGradientPanel1.add(entrjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 110, 50));
+        kGradientPanel1.add(entrjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 110, 50));
 
+        emailjLabel.setForeground(new java.awt.Color(255, 255, 255));
         emailjLabel.setText("Email ID");
-        kGradientPanel1.add(emailjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 100, 40));
+        kGradientPanel1.add(emailjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 100, 40));
 
+        passjLabel.setForeground(new java.awt.Color(255, 255, 255));
         passjLabel.setText("Password");
-        kGradientPanel1.add(passjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 130, 50));
+        kGradientPanel1.add(passjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 130, 50));
 
+        namejLabel.setForeground(new java.awt.Color(255, 255, 255));
         namejLabel.setText("Name");
-        kGradientPanel1.add(namejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 450, 80, 50));
+        kGradientPanel1.add(namejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 80, 50));
 
         networkComboBox.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         networkComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -200,9 +209,15 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
 
         EnterpriseComboBox.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         kGradientPanel1.add(EnterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 230, 40));
-        kGradientPanel1.add(emailjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 230, 40));
-        kGradientPanel1.add(passwordjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 230, 40));
-        kGradientPanel1.add(namejTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 230, 40));
+
+        emailjTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailjTextFieldActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(emailjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 230, 40));
+        kGradientPanel1.add(passwordjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 230, 40));
+        kGradientPanel1.add(namejTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 440, 230, 40));
 
         add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 660));
     }// </editor-fold>//GEN-END:initComponents
@@ -281,6 +296,10 @@ public class ManageEnterpriseAdminPanel extends javax.swing.JPanel {
 
         }
     }//GEN-LAST:event_submitjButtonActionPerformed
+
+    private void emailjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailjTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailjTextFieldActionPerformed
 
     public boolean validateData() {
 

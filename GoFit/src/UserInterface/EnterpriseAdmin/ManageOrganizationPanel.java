@@ -49,6 +49,7 @@ public class ManageOrganizationPanel extends javax.swing.JPanel {
         btncreateOrganization = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblOrganization = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -58,27 +59,31 @@ public class ManageOrganizationPanel extends javax.swing.JPanel {
         kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
         kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/imgBack.png"))); // NOI18N
         btnBack.setText("BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, 50));
+        kGradientPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 50));
 
         comboOrganizationType.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        kGradientPanel1.add(comboOrganizationType, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 230, 40));
+        kGradientPanel1.add(comboOrganizationType, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 230, 40));
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Organization Type");
         kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, -1, 70));
 
+        btncreateOrganization.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/imgSave.png"))); // NOI18N
         btncreateOrganization.setText("CREATE ORGANIZATION");
         btncreateOrganization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncreateOrganizationActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btncreateOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 270, 50));
+        kGradientPanel1.add(btncreateOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 300, 50));
 
         tblOrganization.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -94,6 +99,11 @@ public class ManageOrganizationPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblOrganization);
 
         kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 490, 230));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("ORGANIZATION");
+        kGradientPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
 
         add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 810, 610));
     }// </editor-fold>//GEN-END:initComponents
@@ -144,6 +154,7 @@ public class ManageOrganizationPanel extends javax.swing.JPanel {
     private javax.swing.JButton btncreateOrganization;
     private javax.swing.JComboBox comboOrganizationType;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTable tblOrganization;

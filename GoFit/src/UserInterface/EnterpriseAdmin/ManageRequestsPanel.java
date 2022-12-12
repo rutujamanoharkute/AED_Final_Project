@@ -66,10 +66,11 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
         kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
         kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        kGradientPanel1.add(comboOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 190, 30));
+        kGradientPanel1.add(comboOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 190, 40));
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Organization");
-        kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, 50));
+        kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, -1, 50));
 
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -77,19 +78,21 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
                 btnSearchActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, -1, -1));
+        kGradientPanel1.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, -1, -1));
 
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/imgBack.png"))); // NOI18N
         btnBack.setText("BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+        kGradientPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("MANAGE REQUESTS");
-        kGradientPanel1.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, 40));
+        kGradientPanel1.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, -1, 50));
 
         tblWorkRequest.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         tblWorkRequest.setModel(new javax.swing.table.DefaultTableModel(
@@ -120,9 +123,9 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblWorkRequest);
 
-        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 520, 96));
+        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 520, 96));
 
-        kGradientPanel1.add(comboEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 190, 40));
+        kGradientPanel1.add(comboEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 190, 40));
 
         assignBtn.setText("Assign");
         assignBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -130,11 +133,12 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
                 assignBtnActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(assignBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 120, 42));
+        kGradientPanel1.add(assignBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 120, 42));
 
+        lblAssignTask.setForeground(new java.awt.Color(255, 255, 255));
         lblAssignTask.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblAssignTask.setText("Assign Selected Task to");
-        kGradientPanel1.add(lblAssignTask, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 200, 40));
+        kGradientPanel1.add(lblAssignTask, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 200, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

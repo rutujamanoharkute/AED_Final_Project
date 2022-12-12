@@ -51,28 +51,52 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnBack = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblEnterprise = new javax.swing.JTable();
         lblNetwork = new javax.swing.JLabel();
         lblEnterpriseType = new javax.swing.JLabel();
         lblEnterpriseName = new javax.swing.JLabel();
         txtEnterpriseName = new javax.swing.JTextField();
-        btnCreateEnterprise = new javax.swing.JButton();
         comboNetwork = new javax.swing.JComboBox();
         comboEnterpriseType = new javax.swing.JComboBox();
         kGradientPanel1 = new keeptoo.KGradientPanel();
+        btnCreateEnterprise = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblEnterprise = new javax.swing.JTable();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBack.setText("BACK");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
+        lblNetwork.setForeground(new java.awt.Color(255, 255, 255));
+        lblNetwork.setText("Network");
+        add(lblNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 139, 36));
+
+        lblEnterpriseType.setForeground(new java.awt.Color(255, 255, 255));
+        lblEnterpriseType.setText("Enterprise Type");
+        add(lblEnterpriseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 139, 35));
+
+        lblEnterpriseName.setForeground(new java.awt.Color(255, 255, 255));
+        lblEnterpriseName.setText("Enterprise Name");
+        add(lblEnterpriseName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 166, 36));
+        add(txtEnterpriseName, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, 211, -1));
+
+        comboNetwork.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        add(comboNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 380, 211, 35));
+
+        comboEnterpriseType.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        add(comboEnterpriseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 211, 35));
+
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnCreateEnterprise.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/imgSave.png"))); // NOI18N
+        btnCreateEnterprise.setText("CREATE  ENTERPRISE");
+        btnCreateEnterprise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+                btnCreateEnterpriseActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 40));
+        kGradientPanel1.add(btnCreateEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 540, -1, 48));
 
         tblEnterprise.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -87,35 +111,17 @@ public class ManageEnterprisePanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblEnterprise);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 508, 285));
+        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 508, 210));
 
-        lblNetwork.setText("Network");
-        add(lblNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 139, 36));
-
-        lblEnterpriseType.setText("Enterprise Type");
-        add(lblEnterpriseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 139, 35));
-
-        lblEnterpriseName.setText("Enterprise Name");
-        add(lblEnterpriseName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 166, 36));
-        add(txtEnterpriseName, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, 211, -1));
-
-        btnCreateEnterprise.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/imgSave.png"))); // NOI18N
-        btnCreateEnterprise.setText("CREATE  ENTERPRISE");
-        btnCreateEnterprise.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/imgBack.png"))); // NOI18N
+        btnBack.setText("BACK");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateEnterpriseActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
-        add(btnCreateEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 550, -1, 48));
+        kGradientPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 160, -1));
 
-        comboNetwork.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        add(comboNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 380, 211, 35));
-
-        comboEnterpriseType.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        add(comboEnterpriseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 211, 35));
-
-        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
-        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
         add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 660));
     }// </editor-fold>//GEN-END:initComponents
 

@@ -58,59 +58,114 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        lblName = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
-        lblPassword = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
-        comboRole = new javax.swing.JComboBox();
-        comboOrganization = new javax.swing.JComboBox();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        employeeJTable = new javax.swing.JTable();
-        organizationJComboBox = new javax.swing.JComboBox();
-        jLabel7 = new javax.swing.JLabel();
-        btnDelete = new javax.swing.JButton();
-        txtPassword = new javax.swing.JPasswordField();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
         viewmapButton = new javax.swing.JButton();
         btnCreateEmployee = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        organizationJComboBox = new javax.swing.JComboBox();
+        btnDelete = new javax.swing.JButton();
+        txtPassword = new javax.swing.JPasswordField();
+        lblPassword = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
+        comboRole = new javax.swing.JComboBox();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        comboOrganization = new javax.swing.JComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        employeeJTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         btnDelete1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Organization");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        kGradientPanel1.setForeground(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setText("Role");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 90, 40));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("CREATE EMPLOYEES");
+        kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 270, 40));
 
-        lblName.setText("Name");
-        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 190, -1));
+        viewmapButton.setText("SET LOC");
+        viewmapButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewmapButtonActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(viewmapButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 130, 40));
 
-        jLabel5.setText("Email Id");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
-        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 190, -1));
+        btnCreateEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/imgSave.png"))); // NOI18N
+        btnCreateEmployee.setText("CREATE");
+        btnCreateEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateEmployeeActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(btnCreateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 170, 40));
 
-        lblPassword.setText("Password");
-        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
-
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/imgBack.png"))); // NOI18N
         btnBack.setText("BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        kGradientPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 160, 50));
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Organization");
+        kGradientPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 110, 40));
+
+        organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                organizationJComboBoxActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 160, 30));
+
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/imgDelete.png"))); // NOI18N
+        btnDelete.setText("DELETE");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 190, 44));
+        kGradientPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 190, -1));
+
+        lblPassword.setBackground(new java.awt.Color(255, 255, 255));
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblPassword.setText("Password");
+        kGradientPanel1.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+        kGradientPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 190, -1));
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Email Id");
+        kGradientPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+        kGradientPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 190, -1));
+
+        lblName.setForeground(new java.awt.Color(255, 255, 255));
+        lblName.setText("Name");
+        kGradientPanel1.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
 
         comboRole.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        add(comboRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 190, 40));
+        kGradientPanel1.add(comboRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 190, 40));
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Role");
+        kGradientPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 90, 40));
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Organization");
+        kGradientPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         comboOrganization.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         comboOrganization.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +173,7 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
                 comboOrganizationActionPerformed(evt);
             }
         });
-        add(comboOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 190, 40));
+        kGradientPanel1.add(comboOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 190, 40));
 
         employeeJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -148,51 +203,7 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(employeeJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 370, 170));
-
-        organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                organizationJComboBoxActionPerformed(evt);
-            }
-        });
-        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 160, 30));
-
-        jLabel7.setText("Organization");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 110, 40));
-
-        btnDelete.setText("DELETE");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, 113, 44));
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 190, -1));
-
-        kGradientPanel1.setForeground(new java.awt.Color(204, 204, 204));
-        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
-        kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
-        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("CREATE EMPLOYEES");
-        kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 270, 40));
-
-        viewmapButton.setText("SET LOCATION");
-        viewmapButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewmapButtonActionPerformed(evt);
-            }
-        });
-        kGradientPanel1.add(viewmapButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 110, 40));
-
-        btnCreateEmployee.setText("CREATE");
-        btnCreateEmployee.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateEmployeeActionPerformed(evt);
-            }
-        });
-        kGradientPanel1.add(btnCreateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 110, 40));
+        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 340, 170));
 
         add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 610));
 
