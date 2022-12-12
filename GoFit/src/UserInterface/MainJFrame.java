@@ -70,7 +70,7 @@ public class MainJFrame extends javax.swing.JFrame {
         leftPane.setMinimumSize(new java.awt.Dimension(1025, 604));
         leftPane.setPreferredSize(new java.awt.Dimension(1025, 604));
 
-        leftPanel.setBackground(new java.awt.Color(102, 153, 0));
+        leftPanel.setBackground(new java.awt.Color(255, 255, 255));
         leftPanel.setMaximumSize(new java.awt.Dimension(300, 554));
         leftPanel.setMinimumSize(new java.awt.Dimension(300, 554));
         leftPanel.setPreferredSize(new java.awt.Dimension(300, 554));
