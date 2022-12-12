@@ -9,6 +9,8 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import UserInterface.Customer.GymTrainerPanel;
+import UserInterface.GymTrainer.GymTrainerWorkArea;
 import javax.swing.JPanel;
 
 /**
@@ -17,9 +19,9 @@ import javax.swing.JPanel;
  */
 public class Trainer extends Role {
 
-    @Override
+   @Override
     public JPanel createWorkArea(JPanel userProcessContainer, Enterprise enterprise, Organization organization, UserAccount account, Ecosystem business, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       return new GymTrainerWorkArea(userProcessContainer, enterprise, organization, account, business, network);
     }
     
 }
