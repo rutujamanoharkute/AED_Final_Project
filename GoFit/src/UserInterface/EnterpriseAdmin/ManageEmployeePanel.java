@@ -15,9 +15,11 @@ import java.awt.Color;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.BorderFactory;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import googlemaps.GoogleMapsViewer;
 
 /**
  *
@@ -56,7 +58,6 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
@@ -64,7 +65,6 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
-        btnCreateEmployee = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         comboRole = new javax.swing.JComboBox();
         comboOrganization = new javax.swing.JComboBox();
@@ -75,13 +75,14 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
         kGradientPanel1 = new keeptoo.KGradientPanel();
+        jLabel1 = new javax.swing.JLabel();
+        viewmapButton = new javax.swing.JButton();
+        btnCreateEmployee = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        btnDelete1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("CREATE EMPLOYEES");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 270, 40));
 
         jLabel2.setText("Organization");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
@@ -99,14 +100,6 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
 
         lblPassword.setText("Password");
         add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
-
-        btnCreateEmployee.setText("CREATE");
-        btnCreateEmployee.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateEmployeeActionPerformed(evt);
-            }
-        });
-        add(btnCreateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 110, 40));
 
         btnBack.setText("BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -179,7 +172,40 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
         kGradientPanel1.setForeground(new java.awt.Color(204, 204, 204));
         kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
         kGradientPanel1.setkStartColor(new java.awt.Color(0, 153, 0));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("CREATE EMPLOYEES");
+        kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 270, 40));
+
+        viewmapButton.setText("SET LOCATION");
+        viewmapButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewmapButtonActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(viewmapButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 110, 40));
+
+        btnCreateEmployee.setText("CREATE");
+        btnCreateEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateEmployeeActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(btnCreateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 110, 40));
+
         add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 610));
+
+        jButton1.setText("jButton1");
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, -1, -1));
+
+        btnDelete1.setText("DELETE");
+        btnDelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelete1ActionPerformed(evt);
+            }
+        });
+        add(btnDelete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, 113, 44));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -303,14 +329,36 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDelete1ActionPerformed
+
+    private void viewmapButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewmapButtonActionPerformed
+        // TODO add your handling code here:
+        GoogleMapsViewer gmv=new GoogleMapsViewer();
+        JFrame mapsPanel = new JFrame();
+        mapsPanel.setBounds(10,10,700,600); 
+        mapsPanel.setTitle("Google Maps");
+        mapsPanel.setResizable(false);
+        
+        gmv.setSize(mapsPanel.getSize());
+        mapsPanel.add(gmv);
+        gmv.loadMap("html/maps.html");
+        
+        
+        mapsPanel.setVisible(true);
+    }//GEN-LAST:event_viewmapButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreateEmployee;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnDelete1;
     private javax.swing.JComboBox comboOrganization;
     private javax.swing.JComboBox comboRole;
     private javax.swing.JTable employeeJTable;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -324,6 +372,7 @@ public class ManageEmployeePanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JButton viewmapButton;
     // End of variables declaration//GEN-END:variables
 
     private void populateComboBoxOrganization() {
