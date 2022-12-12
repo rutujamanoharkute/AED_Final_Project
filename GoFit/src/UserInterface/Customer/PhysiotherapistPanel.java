@@ -104,13 +104,14 @@ public class PhysiotherapistPanel extends javax.swing.JPanel {
 
         jLabel6.setBackground(new java.awt.Color(80, 80, 82));
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(80, 80, 82));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("PHYSIOTHERAPIST");
-        kGradientPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 370, 30));
+        kGradientPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 370, 30));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel5.setText("Enter Your Message:");
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Enter Your Message");
         kGradientPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 170, 40));
 
         msgTxt.setColumns(20);
@@ -120,14 +121,13 @@ public class PhysiotherapistPanel extends javax.swing.JPanel {
 
         kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 240, 70));
 
-        btnBookAppointment.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         btnBookAppointment.setText("Book Appointment");
         btnBookAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBookAppointmentActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnBookAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 150, 30));
+        kGradientPanel1.add(btnBookAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 210, 50));
 
         physioTbl.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         physioTbl.setModel(new javax.swing.table.DefaultTableModel(

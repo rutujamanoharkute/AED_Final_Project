@@ -138,7 +138,7 @@ public class ManageRequestsPanel extends javax.swing.JPanel {
         lblAssignTask.setForeground(new java.awt.Color(255, 255, 255));
         lblAssignTask.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblAssignTask.setText("Assign Selected Task to");
-        kGradientPanel1.add(lblAssignTask, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 200, 40));
+        kGradientPanel1.add(lblAssignTask, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 200, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

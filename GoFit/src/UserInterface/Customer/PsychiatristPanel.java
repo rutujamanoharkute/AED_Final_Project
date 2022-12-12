@@ -105,12 +105,13 @@ public class PsychiatristPanel extends javax.swing.JPanel {
 
         jLabel6.setBackground(new java.awt.Color(80, 80, 82));
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(80, 80, 82));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("PSYCHIATRIST");
-        kGradientPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 370, 30));
+        kGradientPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 370, 30));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Enter Your Message:");
         kGradientPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 170, 40));
 
@@ -122,13 +123,14 @@ public class PsychiatristPanel extends javax.swing.JPanel {
         kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 240, 70));
 
         btnBookAppointment.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        btnBookAppointment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UserInterface/images/imgSave.png"))); // NOI18N
         btnBookAppointment.setText("Book Appointment");
         btnBookAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBookAppointmentActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnBookAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 150, 30));
+        kGradientPanel1.add(btnBookAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 210, 50));
 
         psychTbl.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         psychTbl.setModel(new javax.swing.table.DefaultTableModel(
