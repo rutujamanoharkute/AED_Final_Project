@@ -1,31 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Nutritionist/NutritionistWorkAreaPanel.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Customer/GymTrainerPanel.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/DeliveryMan/DeliveryManPanel.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/EnterpriseAdmin/ManageEmployeePanel.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Customer/PsychiatristPanel.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/EnterpriseAdmin/ManageOrganizationPanel.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/Business/Customer/Customer.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Physiotherapist/PhysiotherapistWorkAreaJPanel.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Cardiologist/CardiologistWorkAreaJPanel.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Customer/PersonalCoachPanel.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/PersonalCoach/PersonalCoachWorkArea.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Customer/PhysiotherapistPanel.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Customer/CardiologistPanel.java</file>
             <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Customer/DoctorAppointmentPanel.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Customer/CustomerOrderPanel.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/EnterpriseAdmin/ManageRequestsPanel.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/EnterpriseAdmin/EnterpriseAdminOperationsPanel.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Customer/CustomerGraph.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Customer/CustomerOperationsPanel.java</file>
+            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/GymTrainer/GymTrainerWorkArea.java</file>
+            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Customer/PhysiotherapistPanel.java</file>
+            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Customer/GymTrainerPanel.java</file>
             <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Customer/CustomerWorkAreaPanel.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/MainJFrame.java</file>
-            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Customer/CreateNewCustomerPanel.java</file>
-			<file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/SystemAdminOps/ManageNetworkPanel.java</file>
+            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/Business/Role/Trainer.java</file>
+            <file>file:/C:/Users/Harshada/OneDrive/Desktop/GoFit/AED/AED_Final_Project/GoFit/src/UserInterface/Customer/PersonalCoachPanel.java</file>
         </group>
     </open-files>
 </project-private>

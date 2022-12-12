@@ -97,7 +97,7 @@ public class SystemAdminOperations extends javax.swing.JPanel {
     private void manageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageNetworkActionPerformed
         // TODO add your handling code here:
         try{
-        ManageNetworkPanel manageNetworkJPanel = new ManageNetworkPanel(userContainer, system);
+        ManageNetwork manageNetworkJPanel= new ManageNetwork(userContainer, system);
         userContainer.add("manageNetworkJPanel", manageNetworkJPanel);
         CardLayout layout = (CardLayout) userContainer.getLayout();
         layout.next(userContainer);

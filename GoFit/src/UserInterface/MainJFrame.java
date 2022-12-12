@@ -70,11 +70,12 @@ public class MainJFrame extends javax.swing.JFrame {
         leftPane.setMinimumSize(new java.awt.Dimension(1025, 604));
         leftPane.setPreferredSize(new java.awt.Dimension(1025, 604));
 
-        leftPanel.setBackground(new java.awt.Color(255, 255, 255));
+        leftPanel.setBackground(new java.awt.Color(102, 153, 0));
         leftPanel.setMaximumSize(new java.awt.Dimension(300, 554));
         leftPanel.setMinimumSize(new java.awt.Dimension(300, 554));
         leftPanel.setPreferredSize(new java.awt.Dimension(300, 554));
 
+        lblUsername.setBackground(new java.awt.Color(0, 204, 0));
         lblUsername.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblUsername.setText("Username");
 
@@ -122,14 +123,14 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addGroup(leftPanelLayout.createSequentialGroup()
                                 .addGap(50, 50, 50)
                                 .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(leftPanelLayout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addComponent(lblPassword))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftPanelLayout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(leftPanelLayout.createSequentialGroup()
-                        .addGap(81, 81, 81)
+                        .addGap(100, 100, 100)
+                        .addComponent(lblPassword))
+                    .addGroup(leftPanelLayout.createSequentialGroup()
+                        .addGap(93, 93, 93)
                         .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(40, 40, 40))
         );
